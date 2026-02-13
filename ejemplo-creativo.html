@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentina Rojas — Directora Creativa & Fotógrafa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --bg:#08060d;
+            --surface:rgba(255,255,255,.03);
+            --pink:#f472b6;--purple:#a78bfa;--orange:#fb923c;--rose:#e11d48;
+            --grad:linear-gradient(135deg,var(--pink),var(--purple),var(--orange));
+            --white:#faf5ff;--text:#e2d9f3;--muted:#8b7fa8;
+            --border:rgba(255,255,255,.06);
+            --r:20px;--rs:12px
+        }
+        body{font-family:'Syne',sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        /* Grain */
+        body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+        .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+
+        /* Navbar */
+        .navbar{position:sticky;top:0;z-index:100;background:rgba(8,6,13,.75);backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid var(--border);padding:.7rem 0}
+        .nav-inner{display:flex;justify-content:space-between;align-items:center}
+        .nav-name{font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--white);font-weight:400}
+        .nav-name em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .nav-links{display:none;gap:2rem}.nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:500;transition:color .2s;text-transform:uppercase;letter-spacing:.08em}.nav-links a:hover{color:var(--white)}
+        .nav-cta{background:var(--grad);color:#000;border:none;padding:.5rem 1.2rem;border-radius:9999px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;text-transform:uppercase;letter-spacing:.05em}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(244,114,182,.25)}
+        @media(min-width:768px){.nav-links{display:flex}}
+
+        /* Hero — editorial style */
+        .hero{padding:5rem 0 3rem;position:relative;overflow:hidden}
+        /* Animated mesh gradient */
+        .hero-mesh{position:absolute;top:-30%;right:-20%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.1) 0%,rgba(244,114,182,.06) 40%,transparent 70%);animation:meshFloat 10s ease-in-out infinite;pointer-events:none}
+        .hero-mesh2{position:absolute;bottom:-40%;left:-15%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(251,146,60,.06) 0%,transparent 70%);animation:meshFloat 12s ease-in-out infinite reverse;pointer-events:none}
+        @keyframes meshFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-20px) scale(1.1)}}
+
+        .hero-content{position:relative;z-index:1}
+        .hero-split{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+        .hero-text h1{font-family:'Instrument Serif',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:400;line-height:1.05;color:var(--white);margin-bottom:.8rem}
+        .hero-text h1 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero-text p{font-size:1rem;color:var(--muted);max-width:440px;margin-bottom:1.5rem;line-height:1.7}
+        .hero-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
+        .tag{background:var(--surface);border:1px solid var(--border);padding:.3rem .8rem;border-radius:9999px;font-size:.7rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;transition:all .3s}
+        .tag:hover{border-color:rgba(244,114,182,.3);color:var(--pink);box-shadow:0 0 12px rgba(244,114,182,.1)}
+
+        .hero-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+        .btn{padding:.75rem 1.8rem;border-radius:9999px;font-weight:600;font-size:.85rem;cursor:pointer;transition:all .25s;border:none;font-family:inherit;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none}
+        .btn.grad{background:var(--grad);color:#000;box-shadow:0 4px 20px rgba(244,114,182,.2)}.btn.grad:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(244,114,182,.3)}
+        .btn.wa{background:#25d366;color:#fff}.btn.wa:hover{background:#1fb855;transform:translateY(-1px)}
+        .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}.btn.ghost:hover{border-color:var(--pink);color:var(--pink)}
+
+        .hero-photo{position:relative}
+        .hero-img{width:100%;max-width:360px;aspect-ratio:3/4;object-fit:cover;border-radius:var(--r);border:1px solid var(--border);display:block;margin:0 auto}
+        .hero-img-glow{position:absolute;inset:-2px;border-radius:var(--r);background:var(--grad);opacity:.12;filter:blur(20px);z-index:-1}
+
+        @media(min-width:768px){.hero-split{grid-template-columns:1fr auto}}
+
+        /* Stats strip */
+        .stats-strip{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;padding:2rem 0;margin:1rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+        .strip-stat{text-align:center}
+        .strip-num{font-family:'Instrument Serif',serif;font-size:2rem;color:var(--white)}.strip-lab{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+
+        /* Sections */
+        section{padding:3.5rem 0}
+        .section-label{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);margin-bottom:.5rem}
+        .section-title{font-family:'Instrument Serif',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;color:var(--white);margin-bottom:2rem}
+        .section-title em{font-style:italic}
+        .divider{height:1px;max-width:100px;margin:0 auto 3.5rem;background:var(--grad);opacity:.3}
+
+        /* Projects — Masonry-ish grid */
+        .projects-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+        .project{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);background:var(--surface);transition:all .4s;cursor:pointer;group:true}
+        .project:hover{border-color:rgba(244,114,182,.25);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+        .project-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+        .project:hover .project-img{transform:scale(1.04)}
+        .project-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(8,6,13,.9) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;opacity:0;transition:opacity .4s}
+        .project:hover .project-overlay{opacity:1}
+        .project-cat{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--pink);margin-bottom:.3rem}
+        .project-name{font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--white);line-height:1.2}
+        .project-desc{font-size:.78rem;color:var(--muted);margin-top:.3rem}
+        /* Always visible title on mobile */
+        .project-info-mobile{padding:1rem 1.2rem}
+        .project-info-mobile h3{font-size:.95rem;font-weight:600;color:var(--white)}.project-info-mobile p{font-size:.78rem;color:var(--muted)}
+
+        @media(min-width:640px){
+            .projects-grid{grid-template-columns:repeat(2,1fr)}
+            .project:nth-child(1){grid-row:span 2}.project:nth-child(1) .project-img{aspect-ratio:3/4}
+            .project-info-mobile{display:none}
+            .project-overlay{opacity:0}
+        }
+
+        /* Services */
+        .services-grid{display:grid;grid-template-columns:1fr;gap:.8rem}
+        .service{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;transition:all .35s;position:relative;overflow:hidden}
+        .service::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);opacity:0;transition:.3s}
+        .service:hover::before{opacity:1}
+        .service:hover{border-color:rgba(244,114,182,.15);box-shadow:0 8px 32px rgba(0,0,0,.3);transform:translateY(-3px)}
+        .service-icon{font-size:1.4rem;margin-bottom:1rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .service h3{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.3rem}.service p{font-size:.82rem;color:var(--muted)}
+        @media(min-width:640px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+        @media(min-width:1024px){.services-grid{grid-template-columns:repeat(4,1fr)}}
+
+        /* Clients / Brands */
+        .brands-row{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+        .brand{background:var(--surface);border:1px solid var(--border);padding:.6rem 1.4rem;border-radius:var(--rs);font-size:.78rem;font-weight:600;color:var(--muted);transition:all .3s;letter-spacing:.02em}
+        .brand:hover{border-color:rgba(244,114,182,.2);color:var(--white);box-shadow:0 0 16px rgba(244,114,182,.08)}
+
+        /* Certs */
+        .cert-grid{display:grid;grid-template-columns:1fr;gap:.8rem}
+        .cert-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rs);padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem;transition:.25s}
+        .cert-card:hover{border-color:rgba(244,114,182,.2);box-shadow:0 0 20px rgba(244,114,182,.08)}
+        .cert-left{display:flex;align-items:center;gap:.7rem}.cert-left i{font-size:1rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .cert-name{font-weight:600;font-size:.85rem;color:var(--white)}.cert-org{font-size:.75rem;color:var(--muted)}
+        .cert-btn{background:rgba(244,114,182,.08);border:1px solid rgba(244,114,182,.2);padding:.3rem .8rem;border-radius:9999px;font-size:.7rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:.2s;color:var(--pink);font-family:inherit}
+        .cert-btn:hover{background:var(--pink);color:#000;border-color:var(--pink)}
+        @media(min-width:640px){.cert-grid{grid-template-columns:repeat(2,1fr)}}
+
+        /* Testimonial */
+        .testimonials-grid{display:grid;grid-template-columns:1fr;gap:.8rem}
+        .testimonial{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;transition:.25s}
+        .testimonial:hover{border-color:rgba(244,114,182,.15);box-shadow:0 0 20px rgba(244,114,182,.06)}
+        .testimonial .quote{font-family:'Instrument Serif',serif;font-size:1.05rem;font-style:italic;color:var(--text);margin-bottom:1rem;line-height:1.6}
+        .testimonial-author{display:flex;align-items:center;gap:.7rem}
+        .testimonial-author img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(244,114,182,.3)}
+        .testimonial-author strong{font-size:.82rem;color:var(--white)}.testimonial-author small{font-size:.7rem;color:var(--muted);display:block}
+        @media(min-width:640px){.testimonials-grid{grid-template-columns:repeat(2,1fr)}}
+
+        /* Contact CTA */
+        .contact-cta{position:relative;border-radius:var(--r);padding:3.5rem 2rem;text-align:center;overflow:hidden;border:1px solid rgba(244,114,182,.15)}
+        .contact-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(244,114,182,.06),rgba(167,139,250,.04),rgba(251,146,60,.03));z-index:0}
+        .contact-cta>*{position:relative;z-index:1}
+        .contact-cta h2{font-family:'Instrument Serif',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);margin-bottom:.5rem}
+        .contact-cta>p{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem}
+        .contact-methods{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:1.5rem}
+        .c-method{background:rgba(255,255,255,.05);border:1px solid var(--border);padding:.5rem 1rem;border-radius:var(--rs);font-size:.82rem;display:flex;align-items:center;gap:.4rem;color:var(--text);transition:.2s}
+        .c-method i{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .c-method:hover{border-color:rgba(244,114,182,.2)}
+        .btn-wa-big{background:#25d366;color:#fff;border:none;padding:.9rem 2.2rem;border-radius:9999px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;display:inline-flex;align-items:center;gap:.5rem}
+        .btn-wa-big:hover{background:#1fb855;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.2)}
+
+        /* Footer */
+        .footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center}
+        .footer-links{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+        .footer-links a{color:var(--muted);text-decoration:none;font-size:.8rem;transition:color .2s}.footer-links a:hover{color:var(--white)}
+        .footer-socials{display:flex;gap:1rem;justify-content:center;margin-bottom:1rem}
+        .footer-socials a{color:var(--muted);font-size:1.1rem;transition:all .2s;text-decoration:none}
+        .footer-socials a:hover{color:var(--pink);transform:translateY(-2px)}
+        .footer p{font-size:.75rem;color:var(--muted);opacity:.5}.footer .demo{font-size:.7rem;opacity:.35;margin-top:.4rem}
+
+        /* Animations */
+        .fade{opacity:0;transform:translateY(24px);transition:all .7s cubic-bezier(.22,1,.36,1)}.fade.visible{opacity:1;transform:none}
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar"><div class="container nav-inner">
+        <div class="nav-name"><em>Valentina</em> Rojas</div>
+        <div class="nav-links"><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a><a href="#certificaciones">Certificaciones</a><a href="#contacto">Contacto</a></div>
+        <button class="nav-cta" onclick="window.open('https://wa.me/595981456789?text=Valentina%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20proyecto','_blank')"><i class="fab fa-whatsapp"></i> Cotizar proyecto</button>
+    </div></nav>
+
+    <!-- HERO -->
+    <section class="hero"><div class="hero-mesh"></div><div class="hero-mesh2"></div>
+    <div class="container hero-content">
+        <div class="hero-split">
+            <div class="hero-text">
+                <h1>Directora<br>creativa &<br><em>fotógrafa</em></h1>
+                <p>Creo identidades visuales, campañas y contenido fotográfico que conectan marcas con personas. 8 años transformando ideas en experiencias visuales.</p>
+                <div class="hero-tags">
+                    <span class="tag">Dirección de arte</span><span class="tag">Branding</span><span class="tag">Fotografía</span><span class="tag">Contenido</span><span class="tag">Campañas</span>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn grad" onclick="alert('En tu portafolio real, esto descarga tu CV')"><i class="fas fa-download"></i> Descargar CV</button>
+                    <button class="btn wa" onclick="window.open('https://wa.me/595981456789?text=Vi%20tu%20portafolio','_blank')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                    <button class="btn ghost"><i class="fas fa-envelope"></i> Email</button>
+                </div>
+            </div>
+            <div class="hero-photo">
+                <div class="hero-img-glow"></div>
+                <img src="https://i.pravatar.cc/600?img=5" alt="Valentina Rojas" class="hero-img">
+            </div>
+        </div>
+    </div></section>
+
+    <!-- STATS -->
+    <div class="container"><div class="stats-strip">
+        <div class="strip-stat"><div class="strip-num">80+</div><div class="strip-lab">Proyectos</div></div>
+        <div class="strip-stat"><div class="strip-num">35</div><div class="strip-lab">Marcas</div></div>
+        <div class="strip-stat"><div class="strip-num">8</div><div class="strip-lab">Años</div></div>
+        <div class="strip-stat"><div class="strip-num">5</div><div class="strip-lab">Premios</div></div>
+    </div></div>
+
+    <div class="divider"></div>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos"><div class="container">
+        <div class="section-label">Portafolio</div>
+        <h2 class="section-title">Proyectos <em>seleccionados</em></h2>
+        <div class="projects-grid">
+            <div class="project fade">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=800&fit=crop" alt="Branding Alma" class="project-img">
+                <div class="project-overlay">
+                    <div class="project-cat">Branding</div>
+                    <div class="project-name">Alma Café</div>
+                    <div class="project-desc">Identidad completa para cadena de cafeterías artesanales</div>
+                </div>
+                <div class="project-info-mobile"><h3>Alma Café</h3><p>Branding &middot; Identidad visual completa</p></div>
+            </div>
+            <div class="project fade">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=450&fit=crop" alt="Campaña Moda" class="project-img">
+                <div class="project-overlay">
+                    <div class="project-cat">Fotografía</div>
+                    <div class="project-name">Colección Verano</div>
+                    <div class="project-desc">Campaña editorial para marca de moda paraguaya</div>
+                </div>
+                <div class="project-info-mobile"><h3>Colección Verano</h3><p>Fotografía editorial de moda</p></div>
+            </div>
+            <div class="project fade">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=450&fit=crop" alt="Packaging" class="project-img">
+                <div class="project-overlay">
+                    <div class="project-cat">Packaging</div>
+                    <div class="project-name">Natura Orgánica</div>
+                    <div class="project-desc">Diseño de packaging para línea de productos naturales</div>
+                </div>
+                <div class="project-info-mobile"><h3>Natura Orgánica</h3><p>Diseño de packaging</p></div>
+            </div>
+            <div class="project fade">
+                <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&h=450&fit=crop" alt="Social Media" class="project-img">
+                <div class="project-overlay">
+                    <div class="project-cat">Social media</div>
+                    <div class="project-name">Hotel Guaraní</div>
+                    <div class="project-desc">Estrategia visual y contenido para redes sociales</div>
+                </div>
+                <div class="project-info-mobile"><h3>Hotel Guaraní</h3><p>Contenido para redes sociales</p></div>
+            </div>
+        </div>
+    </div></section>
+
+    <div class="divider"></div>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" style="background:rgba(255,255,255,.01)"><div class="container">
+        <div class="section-label">Servicios</div>
+        <h2 class="section-title">Lo que <em>hago</em></h2>
+        <div class="services-grid">
+            <div class="service fade"><div class="service-icon"><i class="fas fa-pen-ruler"></i></div><h3>Dirección de arte</h3><p>Conceptualización y dirección visual de campañas, sesiones y contenido audiovisual.</p></div>
+            <div class="service fade"><div class="service-icon"><i class="fas fa-wand-magic-sparkles"></i></div><h3>Branding & Identidad</h3><p>Logos, paletas, tipografía, manual de marca. Identidad visual de punta a punta.</p></div>
+            <div class="service fade"><div class="service-icon"><i class="fas fa-camera"></i></div><h3>Fotografía profesional</h3><p>Producto, corporativa, editorial, gastronomía. Estilo propio y postproducción incluida.</p></div>
+            <div class="service fade"><div class="service-icon"><i class="fas fa-bullhorn"></i></div><h3>Contenido & Campañas</h3><p>Estrategia visual para redes sociales, campañas digitales y material impreso.</p></div>
+        </div>
+    </div></section>
+
+    <div class="divider"></div>
+
+    <!-- MARCAS -->
+    <section><div class="container" style="text-align:center">
+        <div class="section-label">Clientes</div>
+        <h2 class="section-title">Marcas que <em>confiaron</em></h2>
+        <div class="brands-row">
+            <span class="brand">Alma Café</span><span class="brand">Hotel Guaraní</span><span class="brand">Natura PY</span>
+            <span class="brand">Revista Ella</span><span class="brand">Casa Brava</span><span class="brand">Mburucuyá Films</span>
+            <span class="brand">La Cabrera</span><span class="brand">Itaipú Foundation</span>
+        </div>
+    </div></section>
+
+    <div class="divider"></div>
+
+    <!-- CERTIFICACIONES -->
+    <section id="certificaciones" style="background:rgba(255,255,255,.01)"><div class="container">
+        <div class="section-label">Formación</div>
+        <h2 class="section-title">Certificaciones</h2>
+        <div class="cert-grid">
+            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-graduation-cap"></i><div><div class="cert-name">Lic. en Diseño Gráfico</div><div class="cert-org">Universidad Columbia &middot; 2016</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
+            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-camera-retro"></i><div><div class="cert-name">Fotografía Profesional Avanzada</div><div class="cert-org">ICP New York &middot; 2018</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
+            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-palette"></i><div><div class="cert-name">Dirección de Arte — Nivel Expert</div><div class="cert-org">Domestika &middot; 2022</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
+            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-award"></i><div><div class="cert-name">Premio Diseño Joven Paraguay</div><div class="cert-org">Bienal de Diseño &middot; 2023</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
+        </div>
+    </div></section>
+
+    <div class="divider"></div>
+
+    <!-- TESTIMONIOS -->
+    <section><div class="container">
+        <div class="section-label">Testimonios</div>
+        <h2 class="section-title">Lo que dicen mis <em>clientes</em></h2>
+        <div class="testimonials-grid">
+            <div class="testimonial fade">
+                <p class="quote">"Valentina transformó nuestra marca completamente. El branding que creó capturó la esencia de lo que somos como ninguna otra agencia pudo."</p>
+                <div class="testimonial-author"><img src="https://i.pravatar.cc/80?img=60" alt=""><div><strong>Carolina M.</strong><small>CEO, Alma Café</small></div></div>
+            </div>
+            <div class="testimonial fade">
+                <p class="quote">"Las fotos de producto que nos entregó triplicaron nuestro engagement en redes. Tiene un ojo único para capturar la esencia de cada pieza."</p>
+                <div class="testimonial-author"><img src="https://i.pravatar.cc/80?img=33" alt=""><div><strong>Martín R.</strong><small>Dir. Marketing, Natura PY</small></div></div>
+            </div>
+        </div>
+    </div></section>
+
+    <div class="divider"></div>
+
+    <!-- CONTACTO -->
+    <section id="contacto"><div class="container">
+        <div class="contact-cta">
+            <h2>¿Tenés un proyecto en mente?</h2>
+            <p>Contame tu idea y te armo una propuesta. Respuesta en menos de 24 horas.</p>
+            <div class="contact-methods">
+                <div class="c-method"><i class="fas fa-envelope"></i> valentina@estudio.com.py</div>
+                <div class="c-method"><i class="fab fa-instagram"></i> @valentinarojas.py</div>
+                <div class="c-method"><i class="fas fa-map-pin"></i> Asunción, Paraguay</div>
+            </div>
+            <button class="btn-wa-big" onclick="window.open('https://wa.me/595981456789?text=Valentina%2C%20quiero%20cotizar%20un%20proyecto','_blank')"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</button>
+        </div>
+    </div></section>
+
+    <!-- FOOTER -->
+    <footer class="footer"><div class="container">
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-behance"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="footer-links"><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a><a href="#certificaciones">Certificaciones</a><a href="#contacto">Contacto</a></div>
+        <p>&copy; 2025 Valentina Rojas &middot; Directora Creativa & Fotógrafa</p>
+        <p class="demo">* Versión demo &middot; Las imágenes y PDFs son ilustrativos</p>
+    </div></footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const el=document.querySelector(a.getAttribute('href'));if(el)window.scrollTo({top:el.offsetTop-55,behavior:'smooth'})})});
+        const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.06});
+        document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+    </script>
+</body>
+</html>
