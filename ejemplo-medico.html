@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (incluye iconos médicos) -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -17,9 +17,9 @@
             box-sizing: border-box;
         }
         :root {
-            --primary: #0ea5e9;         /* azul médico */
+            --primary: #0ea5e9;
             --primary-dark: #0284c7;
-            --accent: #10b981;           /* verde salud */
+            --accent: #10b981;
             --accent-light: #34d399;
             --gray-900: #111827;
             --gray-800: #1f2937;
@@ -49,7 +49,7 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-        /* === STICKY NAVBAR CON BLUR === */
+        /* === STICKY NAVBAR === */
         .navbar {
             position: sticky;
             top: 0;
@@ -253,7 +253,61 @@
             color: var(--primary);
             margin-bottom: 1rem;
         }
-        /* Timeline */
+        /* === TÍTULOS Y DIPLOMAS (NUEVO) === */
+        .titulos-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        .titulo-card {
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            transition: 0.2s;
+            border-left: 6px solid var(--primary);
+        }
+        .titulo-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        .titulo-header {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .titulo-header i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        .titulo-nombre {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .titulo-institucion {
+            color: var(--gray-500);
+            font-size: 1rem;
+        }
+        .titulo-footer {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .titulo-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .titulo-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        /* === TIMELINE === */
         .timeline {
             display: flex;
             flex-direction: column;
@@ -273,11 +327,12 @@
             padding: 1rem 1.5rem;
             border-radius: var(--border-radius-sm);
             border-left: 4px solid var(--accent);
+            flex: 1;
         }
         .timeline-title {
             font-weight: 600;
         }
-        /* Certificaciones */
+        /* === CERTIFICACIONES === */
         .cert-grid {
             display: grid;
             gap: 1.5rem;
@@ -316,7 +371,53 @@
             background: var(--primary);
             color: white;
         }
-        /* Testimonios */
+        /* === PUBLICACIONES CON POPUPS === */
+        .pub-list {
+            list-style: none;
+        }
+        .pub-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray-300);
+            display: flex;
+            gap: 1rem;
+        }
+        .pub-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+        .pub-content {
+            flex: 1;
+        }
+        .pub-text {
+            font-weight: 500;
+        }
+        .pub-meta {
+            color: var(--gray-500);
+            font-size: 0.85rem;
+            margin: 0.25rem 0 0.5rem;
+        }
+        .pub-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .pub-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .pub-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        /* === TESTIMONIOS === */
         .testimonial-card {
             background: var(--gray-100);
             border-radius: var(--border-radius);
@@ -334,7 +435,7 @@
             height: 48px;
             border-radius: 50%;
         }
-        /* Contacto */
+        /* === CONTACTO === */
         .contacto-grid {
             display: grid;
             gap: 2rem;
@@ -352,21 +453,113 @@
             font-size: 1.5rem;
             width: 2rem;
         }
+        /* === MODALES === */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--gray-500);
+        }
+        .modal-close:hover { color: var(--gray-900); }
+        .modal h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .modal-benefit {
+            background: var(--gray-100);
+            padding: 1rem;
+            border-radius: var(--border-radius-sm);
+            margin: 1rem 0;
+        }
         @media (min-width: 640px) {
             .grid-2 { grid-template-columns: repeat(2, 1fr); }
             .grid-3 { grid-template-columns: repeat(2, 1fr); }
             .grid-4 { grid-template-columns: repeat(2, 1fr); }
             .cert-grid { grid-template-columns: repeat(2, 1fr); }
             .contacto-grid { grid-template-columns: repeat(2, 1fr); }
+            .titulos-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (min-width: 1024px) {
             .grid-3 { grid-template-columns: repeat(3, 1fr); }
             .grid-4 { grid-template-columns: repeat(4, 1fr); }
             .cert-grid { grid-template-columns: repeat(4, 1fr); }
+            .titulos-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
+
+    <!-- MODALES -->
+    <div class="modal" id="modal-pub">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-pub')">&times;</span>
+            <h3>📝 Publicación científica</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué podés hacer con este espacio?</strong>
+                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                    <li>Cargar el PDF del artículo completo</li>
+                    <li>Agregar enlace a PubMed, ResearchGate o revista</li>
+                    <li>Incluir entrevistas o videos sobre el tema</li>
+                    <li>Mostrar presentaciones en congresos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-titulo">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-titulo')">&times;</span>
+            <h3>🎓 Título / Diploma</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué podés hacer con este espacio?</strong>
+                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                    <li>Subir el PDF del título universitario</li>
+                    <li>Agregar diploma de especialidad</li>
+                    <li>Incluir certificado de fellowship</li>
+                    <li>Mostrar reconocimientos académicos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-cert">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-cert')">&times;</span>
+            <h3>📜 Certificación</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué podés hacer con este espacio?</strong>
+                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                    <li>Certificados de sociedades médicas</li>
+                    <li>Recertificaciones internacionales</li>
+                    <li>Memberships y fellowships</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <!-- NAVBAR -->
     <nav class="navbar">
@@ -376,9 +569,9 @@
             </div>
             <div class="nav-links">
                 <a href="#inicio">Inicio</a>
+                <a href="#titulos">Títulos</a>
                 <a href="#especialidades">Especialidades</a>
                 <a href="#trayectoria">Trayectoria</a>
-                <a href="#publicaciones">Publicaciones</a>
                 <a href="#contacto">Agendar</a>
             </div>
             <button class="nav-cta" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20quiero%20agendar%20un%20turno%20con%20usted', '_blank')">
@@ -393,9 +586,9 @@
             <img src="https://i.pravatar.cc/300?img=12" alt="Dr. Carlos Ramírez Sosa" class="profile-img">
             <div>
                 <h1>Dr. Carlos Ramírez Sosa</h1>
-                <h2>Cardiólogo Intervencionista | Especialista en Hemodinamia</h2>
+                <h2>Cardiólogo Intervencionista | Hemodinamia</h2>
                 <div class="hero-badges">
-                    <span class="med-badge"><i class="fas fa-stethoscope"></i> 18 años experiencia</span>
+                    <span class="med-badge"><i class="fas fa-stethoscope"></i> 18 años exp.</span>
                     <span class="med-badge"><i class="fas fa-heart"></i> +3.000 procedimientos</span>
                     <span class="med-badge"><i class="fas fa-map-pin"></i> Clínica Santa María</span>
                 </div>
@@ -405,7 +598,7 @@
                     <span class="med-badge">Docente UCA</span>
                 </div>
                 <div class="hero-cta">
-                    <button class="btn-primary" onclick="alert('✅ En tu portafolio real, este botón abrirá un formulario de agendamiento.')">
+                    <button class="btn-primary" onclick="alert('✅ En tu portafolio real podrás agendar consulta online.')">
                         <i class="fas fa-calendar-check"></i> Agendar consulta
                     </button>
                     <button class="btn-wa" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20vi%20su%20portafolio%20y%20quiero%20consultarle', '_blank')">
@@ -416,192 +609,184 @@
         </div>
     </section>
 
+    <!-- TÍTULOS Y DIPLOMAS (NUEVA SECCIÓN DESTACADA) -->
+    <section id="titulos" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Títulos y diplomas</h2>
+            <div class="titulos-grid">
+                <div class="titulo-card">
+                    <div class="titulo-header">
+                        <i class="fas fa-user-md"></i>
+                        <div>
+                            <div class="titulo-nombre">Médico Cirujano</div>
+                            <div class="titulo-institucion">Universidad Nacional de Asunción · 2007</div>
+                        </div>
+                    </div>
+                    <div class="titulo-footer">
+                        <button class="titulo-btn" onclick="abrirModal('modal-titulo')"><i class="fas fa-info-circle"></i> Opciones</button>
+                        <button class="titulo-btn" onclick="alert('📄 Título de Médico (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                    </div>
+                </div>
+                <div class="titulo-card">
+                    <div class="titulo-header">
+                        <i class="fas fa-heart-pulse"></i>
+                        <div>
+                            <div class="titulo-nombre">Especialista en Cardiología</div>
+                            <div class="titulo-institucion">Hospital de Clínicas · 2011</div>
+                        </div>
+                    </div>
+                    <div class="titulo-footer">
+                        <button class="titulo-btn" onclick="abrirModal('modal-titulo')"><i class="fas fa-info-circle"></i> Opciones</button>
+                        <button class="titulo-btn" onclick="alert('📄 Título de Especialista (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                    </div>
+                </div>
+                <div class="titulo-card">
+                    <div class="titulo-header">
+                        <i class="fas fa-flask"></i>
+                        <div>
+                            <div class="titulo-nombre">Fellowship en Hemodinamia</div>
+                            <div class="titulo-institucion">Cleveland Clinic · 2014</div>
+                        </div>
+                    </div>
+                    <div class="titulo-footer">
+                        <button class="titulo-btn" onclick="abrirModal('modal-titulo')"><i class="fas fa-info-circle"></i> Opciones</button>
+                        <button class="titulo-btn" onclick="alert('📄 Certificado Fellowship (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                    </div>
+                </div>
+                <div class="titulo-card">
+                    <div class="titulo-header">
+                        <i class="fas fa-globe-americas"></i>
+                        <div>
+                            <div class="titulo-nombre">Board Certification AHA</div>
+                            <div class="titulo-institucion">American Heart Association · 2015 (recert. 2023)</div>
+                        </div>
+                    </div>
+                    <div class="titulo-footer">
+                        <button class="titulo-btn" onclick="abrirModal('modal-titulo')"><i class="fas fa-info-circle"></i> Opciones</button>
+                        <button class="titulo-btn" onclick="alert('📄 Board Certification (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ESPECIALIDADES -->
-    <section id="especialidades" style="background: var(--white);">
+    <section id="especialidades">
         <div class="container">
             <h2 class="section-title"><i class="fas fa-stethoscope"></i> Especialidades</h2>
             <div class="grid-4">
                 <div class="card">
                     <div class="icon-large"><i class="fas fa-heart-crack"></i></div>
                     <h3>Cateterismo Cardíaco</h3>
-                    <p style="color: var(--gray-600);">Diagnóstico y tratamiento de obstrucciones coronarias.</p>
                 </div>
                 <div class="card">
                     <div class="icon-large"><i class="fas fa-heart"></i></div>
                     <h3>Angioplastia Coronaria</h3>
-                    <p style="color: var(--gray-600);">Recuperación del flujo sanguíneo con stent.</p>
                 </div>
                 <div class="card">
                     <div class="icon-large"><i class="fas fa-microscope"></i></div>
                     <h3>Implante de Stents</h3>
-                    <p style="color: var(--gray-600);">Stents farmacológicos de última generación.</p>
                 </div>
                 <div class="card">
                     <div class="icon-large"><i class="fas fa-chart-line"></i></div>
                     <h3>Diagnóstico Cardiovascular</h3>
-                    <p style="color: var(--gray-600);">Ecocardiograma, ergometría, holter.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TRAYECTORIA ACADÉMICA (timeline) -->
-    <section id="trayectoria">
+    <!-- TRAYECTORIA -->
+    <section id="trayectoria" style="background: var(--white);">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Formación</h2>
+            <h2 class="section-title"><i class="fas fa-timeline"></i> Formación</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-year">2001-2007</div>
                     <div class="timeline-content">
                         <div class="timeline-title">Medicina - Universidad Nacional de Asunción</div>
-                        <div style="color: var(--gray-600);">Título con honores</div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">2008-2011</div>
                     <div class="timeline-content">
-                        <div class="timeline-title">Residencia en Cardiología</div>
-                        <div style="color: var(--gray-600);">Hospital de Clínicas, Asunción</div>
+                        <div class="timeline-title">Residencia en Cardiología - Hospital de Clínicas</div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">2012-2014</div>
                     <div class="timeline-content">
-                        <div class="timeline-title">Fellowship Hemodinamia</div>
-                        <div style="color: var(--gray-600);">Cleveland Clinic, EE.UU.</div>
+                        <div class="timeline-title">Fellowship Hemodinamia - Cleveland Clinic</div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-year">2019</div>
                     <div class="timeline-content">
-                        <div class="timeline-title">Curso Avanzado Intervención</div>
-                        <div style="color: var(--gray-600);">TCT San Francisco</div>
+                        <div class="timeline-title">Curso Avanzado Intervención - TCT San Francisco</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CERTIFICACIONES INTERNACIONALES -->
-    <section id="certificaciones" style="background: var(--white);">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-certificate"></i> Certificaciones internacionales</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-header">
-                        <i class="fas fa-heart-circle-check"></i>
-                        <div>
-                            <strong>Board Certification</strong>
-                            <div style="color: var(--gray-500);">American Heart Association · 2015</div>
-                        </div>
-                    </div>
-                    <button class="cert-pdf" onclick="alert('📄 Certificación AHA (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-header">
-                        <i class="fas fa-latin-cross"></i>
-                        <div>
-                            <strong>Fellow SOLACI</strong>
-                            <div style="color: var(--gray-500);">Sociedad Latinoamericana de Cardiología · 2016</div>
-                        </div>
-                    </div>
-                    <button class="cert-pdf" onclick="alert('📄 Certificación SOLACI (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-header">
-                        <i class="fas fa-flag"></i>
-                        <div>
-                            <strong>Miembro Activo</strong>
-                            <div style="color: var(--gray-500);">Sociedad Paraguaya de Cardiología · 2012</div>
-                        </div>
-                    </div>
-                    <button class="cert-pdf" onclick="alert('📄 Membresía SPC (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-header">
-                        <i class="fas fa-rotate"></i>
-                        <div>
-                            <strong>Recertificación AHA</strong>
-                            <div style="color: var(--gray-500);">2023</div>
-                        </div>
-                    </div>
-                    <button class="cert-pdf" onclick="alert('📄 Recertificación AHA (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PUBLICACIONES CIENTÍFICAS -->
+    <!-- PUBLICACIONES -->
     <section id="publicaciones">
         <div class="container">
             <h2 class="section-title"><i class="fas fa-flask"></i> Publicaciones</h2>
-            <ul style="list-style: none;">
-                <li style="padding: 1rem 0; border-bottom: 1px solid var(--gray-300);">
-                    <i class="fas fa-file-lines" style="color: var(--primary); margin-right: 1rem;"></i>
-                    <span style="font-weight: 500;">"Resultados a largo plazo del stent Z en pacientes paraguayos"</span>
-                    <div style="color: var(--gray-500);">Revista Paraguaya de Cardiología, 2024</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <i class="fas fa-file-lines"></i>
+                    <div class="pub-content">
+                        <span class="pub-text">"Resultados a largo plazo del stent Z en pacientes paraguayos"</span>
+                        <div class="pub-meta">Revista Paraguaya de Cardiología, 2024</div>
+                        <div class="pub-actions">
+                            <button class="pub-btn" onclick="abrirModal('modal-pub')"><i class="fas fa-info-circle"></i> Opciones</button>
+                            <button class="pub-btn" onclick="alert('🔗 Enlace a PubMed (demo)')"><i class="fas fa-link"></i> Ver artículo</button>
+                        </div>
+                    </div>
                 </li>
-                <li style="padding: 1rem 0; border-bottom: 1px solid var(--gray-300);">
-                    <i class="fas fa-file-lines" style="color: var(--primary); margin-right: 1rem;"></i>
-                    <span style="font-weight: 500;">"Técnicas modernas de angioplastia"</span>
-                    <div style="color: var(--gray-500);">American Journal of Cardiology, 2023</div>
+                <li class="pub-item">
+                    <i class="fas fa-file-lines"></i>
+                    <div class="pub-content">
+                        <span class="pub-text">"Técnicas modernas de angioplastia"</span>
+                        <div class="pub-meta">American Journal of Cardiology, 2023</div>
+                        <div class="pub-actions">
+                            <button class="pub-btn" onclick="abrirModal('modal-pub')"><i class="fas fa-info-circle"></i> Opciones</button>
+                            <button class="pub-btn" onclick="alert('🔗 Enlace a PubMed (demo)')"><i class="fas fa-link"></i> Ver artículo</button>
+                        </div>
+                    </div>
                 </li>
-                <li style="padding: 1rem 0; border-bottom: 1px solid var(--gray-300);">
-                    <i class="fas fa-file-lines" style="color: var(--primary); margin-right: 1rem;"></i>
-                    <span style="font-weight: 500;">"Optimización de procedimientos hemodinámicos"</span>
-                    <div style="color: var(--gray-500);">JACC Latin America, 2022</div>
+                <li class="pub-item">
+                    <i class="fas fa-file-lines"></i>
+                    <div class="pub-content">
+                        <span class="pub-text">"Optimización de procedimientos hemodinámicos"</span>
+                        <div class="pub-meta">JACC Latin America, 2022</div>
+                        <div class="pub-actions">
+                            <button class="pub-btn" onclick="abrirModal('modal-pub')"><i class="fas fa-info-circle"></i> Opciones</button>
+                            <button class="pub-btn" onclick="alert('🔗 Enlace a PubMed (demo)')"><i class="fas fa-link"></i> Ver artículo</button>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
     </section>
 
-    <!-- CONGRESOS Y PONENCIAS -->
+    <!-- TESTIMONIOS -->
     <section style="background: var(--white);">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-chalkboard-user"></i> Congresos y ponencias</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <i class="fas fa-calendar-check" style="color: var(--primary); font-size: 2rem;"></i>
-                    <h3>Congreso SOLACI 2024</h3>
-                    <p style="color: var(--gray-600);">Buenos Aires · Expositor</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-calendar-check" style="color: var(--primary); font-size: 2rem;"></i>
-                    <h3>TCT Conference 2023</h3>
-                    <p style="color: var(--gray-600);">San Francisco · Asistente</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-calendar-check" style="color: var(--primary); font-size: 2rem;"></i>
-                    <h3>Congreso Nacional Cardiología 2023</h3>
-                    <p style="color: var(--gray-600);">Asunción · Presidente sesión</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIOS -->
-    <section>
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-quote-right"></i> Testimonios de pacientes</h2>
+            <h2 class="section-title"><i class="fas fa-quote-right"></i> Testimonios</h2>
             <div class="grid-2">
                 <div class="testimonial-card">
-                    <p style="font-style: italic;">"El Dr. Ramírez me realizó un cateterismo de urgencia. Su profesionalismo y calidez me dieron tranquilidad en un momento difícil."</p>
+                    <p>"El Dr. Ramírez me realizó un cateterismo de urgencia. Su profesionalismo y calidez me dieron tranquilidad."</p>
                     <div class="testimonial-author">
                         <img src="https://i.pravatar.cc/80?img=31" alt="paciente">
-                        <div>
-                            <strong>R.P.</strong><br>
-                            <span style="color: var(--gray-500); font-size: 0.8rem;">Paciente · 2024</span>
-                        </div>
+                        <div><strong>R.P.</strong> · 2024</div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p style="font-style: italic;">"Excelente cardiólogo, me explicó todo el procedimiento y los resultados fueron mejores de lo esperado. Muy recomendado."</p>
+                    <p>"Excelente cardiólogo, me explicó todo el procedimiento. Muy recomendado."</p>
                     <div class="testimonial-author">
                         <img src="https://i.pravatar.cc/80?img=44" alt="paciente">
-                        <div>
-                            <strong>M.G.</strong><br>
-                            <span style="color: var(--gray-500); font-size: 0.8rem;">Paciente · 2023</span>
-                        </div>
+                        <div><strong>M.G.</strong> · 2023</div>
                     </div>
                 </div>
             </div>
@@ -613,27 +798,15 @@
         <div class="container">
             <div style="max-width: 600px; margin: 0 auto;">
                 <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Agendá tu consulta</h2>
-                <p style="margin-bottom: 2rem;">Consultorio en Clínica Santa María · Horarios flexibles</p>
-                <div class="contacto-grid" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(4px);">
-                    <div class="contacto-item">
-                        <i class="fas fa-map-pin"></i>
-                        <span>Av. España 1850, Asunción</span>
-                    </div>
-                    <div class="contacto-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Lun-Vie 14:00-20:00 · Sáb 9:00-13:00</span>
-                    </div>
-                    <div class="contacto-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <span>+595 981 567 890</span>
-                    </div>
-                    <div class="contacto-item">
-                        <i class="fas fa-file-invoice"></i>
-                        <span>Obras sociales: IPS · San Roque · Búho</span>
-                    </div>
+                <p style="margin-bottom: 2rem;">Clínica Santa María · Horarios flexibles</p>
+                <div class="contacto-grid" style="background: rgba(255,255,255,0.1);">
+                    <div class="contacto-item"><i class="fas fa-map-pin"></i> Av. España 1850</div>
+                    <div class="contacto-item"><i class="fas fa-clock"></i> Lun-Vie 14:00-20:00</div>
+                    <div class="contacto-item"><i class="fas fa-phone-alt"></i> +595 981 567 890</div>
+                    <div class="contacto-item"><i class="fas fa-file-invoice"></i> IPS · San Roque · Búho</div>
                 </div>
-                <button class="btn-wa" style="margin-top: 2rem; padding: 1rem 3rem;" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20quiero%20agendar%20un%20turno%20con%20usted', '_blank')">
-                    <i class="fab fa-whatsapp"></i> Solicitar turno por WhatsApp
+                <button class="btn-wa" style="margin-top: 2rem;" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20quiero%20agendar%20un%20turno', '_blank')">
+                    <i class="fab fa-whatsapp"></i> Solicitar turno
                 </button>
             </div>
         </div>
@@ -642,18 +815,12 @@
     <!-- FOOTER -->
     <footer style="background: var(--gray-900); color: white; padding: 3rem 0 2rem;">
         <div class="container" style="text-align: center;">
-            <div style="margin-bottom: 2rem;">
-                <a href="#inicio" style="color: white; opacity: 0.8; margin: 0 1rem;">Inicio</a>
-                <a href="#especialidades" style="color: white; opacity: 0.8; margin: 0 1rem;">Especialidades</a>
-                <a href="#contacto" style="color: white; opacity: 0.8; margin: 0 1rem;">Agendar</a>
-            </div>
-            <p style="opacity: 0.6;">© 2025 Dr. Carlos Ramírez Sosa · Cardiólogo Intervencionista</p>
-            <p style="opacity: 0.4; font-size: 0.8rem; margin-top: 1rem;">* Versión demo · Los PDFs no están disponibles en este ejemplo</p>
+            <p>© 2025 Dr. Carlos Ramírez Sosa · Cardiólogo Intervencionista</p>
+            <p style="opacity: 0.4; font-size: 0.8rem;">* Versión demo · Los PDFs son ilustrativos</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll para anclas
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e){
                 e.preventDefault();
@@ -661,6 +828,13 @@
                 if(el) el.scrollIntoView({behavior: 'smooth'});
             });
         });
+        function abrirModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function cerrarModal(id) { document.getElementById(id).style.display = 'none'; }
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
