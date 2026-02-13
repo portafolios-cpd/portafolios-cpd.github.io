@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolios CPD - Demo Profesional</title>
+    <title>Credencial Pro Digital - Portafolios profesionales verificables</title>
     
-    <!-- Fonts (igual que tu portafolio) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -37,13 +37,13 @@
         }
 
         body {
-            font-family: 'Inter', 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.7;
             color: var(--text-color);
             background: var(--light);
         }
 
-        /* ===== BANNER DE LANZAMIENTO ===== */
+        /* BANNER DE LANZAMIENTO */
         .launch-banner {
             background: linear-gradient(135deg, #059669, #10b981);
             color: white;
@@ -64,7 +64,7 @@
             margin-left: 1rem;
         }
 
-        /* ===== MENÚ STICKY (como tu portafolio) ===== */
+        /* MENÚ STICKY (como tu portafolio) */
         .nav-menu {
             position: sticky;
             top: 70px;
@@ -115,7 +115,7 @@
             width: 100%;
         }
 
-        /* ===== SELECTOR DE COLOR (flotante) ===== */
+        /* SELECTOR DE COLOR */
         .color-picker-demo {
             position: sticky;
             top: 140px;
@@ -142,90 +142,157 @@
             transition: 0.2s;
         }
 
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
         .color-option.selected {
             border-color: #000;
             box-shadow: 0 0 0 2px white;
         }
 
-        /* ===== HEADER (como tu portafolio) ===== */
-        .demo-header {
+        /* HERO con gradiente sutil */
+        .hero {
+            position: relative;
+            padding: 4rem 2rem 3rem;
+            background: linear-gradient(180deg, rgba(239,246,255,0.4) 0%, rgba(255,255,255,0) 100%);
+            overflow: hidden;
             text-align: center;
-            padding: 3rem 2rem;
-            background: var(--gradient, linear-gradient(135deg, #2563eb, #7c3aed));
-            color: white;
-            transition: 0.3s;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         .profile-img-placeholder {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            border: 3px dashed white;
+            background: rgba(37,99,235,0.1);
+            border: 3px dashed var(--primary);
             margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: 0.3s;
+            font-size: 3rem;
+            color: var(--primary);
         }
 
-        .profile-img-placeholder:hover {
-            background: rgba(255,255,255,0.3);
-            transform: scale(1.05);
-        }
-
-        .profile-img-placeholder i {
-            font-size: 2rem;
-            color: white;
-        }
-
-        .demo-header h1 {
+        .hero h1 {
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 800;
+            color: var(--dark);
             margin-bottom: 0.5rem;
         }
 
-        .demo-header h2 {
+        .hero h2 {
             font-size: 1.2rem;
-            font-weight: 400;
-            opacity: 0.95;
-            margin-bottom: 1rem;
+            font-weight: 500;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
         }
 
-        .contact-info-demo {
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 14px rgba(37,99,235,0.25);
+            min-width: 200px;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            transition: 0.3s;
+            min-width: 200px;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* STATS */
+        .stats-grid {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 3rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin: 3rem 0;
         }
 
-        .contact-info-demo span {
-            background: rgba(255,255,255,0.1);
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.2);
+        .stat-item {
+            text-align: center;
         }
 
-        .editable-hint {
-            font-size: 0.8rem;
-            margin-top: 1rem;
-            opacity: 0.7;
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
         }
 
-        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* TRUST BADGES */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            opacity: 0.8;
+            margin: 2rem 0;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
         .container {
             max-width: 1200px;
-            margin: 2rem auto;
-            background: white;
+            margin: 0 auto;
             padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
         }
 
         .section {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid #e2e8f0;
         }
@@ -238,98 +305,83 @@
             margin-bottom: 2rem;
         }
 
-        /* ===== TARJETAS DE MERCADOS ESPECÍFICOS ===== */
+        /* MARKET GRID (ejemplos) */
         .market-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
             margin: 2rem 0;
         }
 
         .market-card {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 1.5rem;
+            background: white;
             border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2rem;
             transition: 0.3s;
             cursor: pointer;
         }
 
         .market-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
             border-color: var(--primary);
-            box-shadow: var(--shadow-md);
         }
 
-        .market-card i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+        .market-preview {
+            background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+            height: 120px;
+            margin: -2rem -2rem 1.5rem -2rem;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
         }
 
-        .market-card h3 {
-            color: var(--dark);
+        .market-title {
+            font-size: 1.5rem;
+            font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
-        .market-example {
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-top: 0.8rem;
-            padding-top: 0.8rem;
-            border-top: 1px dashed #cbd5e1;
+        .market-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: 0.2s;
         }
 
-        /* ===== TARJETA DESTACADA (como Automia) ===== */
-        .featured-block {
-            background: linear-gradient(135deg, #f0f9ff, #e6f3ff);
-            border-left: 5px solid #3b82f6;
-            padding: 2rem;
-            border-radius: 16px;
-            margin: 2rem 0;
+        .market-btn:hover {
+            background: var(--primary-dark);
         }
 
-        .featured-block h3 {
-            color: #1e3a8a;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .featured-tags {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-        }
-
-        .featured-tags span {
-            background: #dbeafe;
-            color: #1e3a8a;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-        }
-
-        /* ===== GRID DE CARACTERÍSTICAS ===== */
+        /* FEATURE GRID */
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr;
             gap: 1.5rem;
             margin: 2rem 0;
         }
 
         .feature-card {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 1.5rem;
+            background: white;
             border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.5rem;
             transition: 0.3s;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
 
         .feature-card.premium {
@@ -337,15 +389,16 @@
             background: #fef3c7;
         }
 
-        .premium-tag {
-            background: #fbbf24;
-            color: #92400e;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary);
             margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
         .btn-detail {
@@ -353,67 +406,106 @@
             color: white;
             border: none;
             padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
             cursor: pointer;
             margin-top: 1rem;
             width: 100%;
-            font-weight: 600;
-            transition: 0.3s;
+            transition: 0.2s;
         }
 
-        .btn-detail:hover {
-            background: var(--primary-dark);
+        /* LOGROS DESTACADOS (datos virtuales) */
+        .achievements-list {
+            list-style: none;
         }
 
-        /* ===== PRECIO FLOTANTE ===== */
-        .price-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
+        .achievements-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .achievements-list li i {
+            color: #fbbf24;
+            position: absolute;
+            left: 0;
+        }
+
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 56rem;
+            margin: 3rem auto 0;
+        }
+
+        .pricing-card {
             background: white;
-            padding: 1.5rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            z-index: 1000;
-            max-width: 280px;
-            border: 3px solid #059669;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 2rem;
+            transition: 0.3s;
+            position: relative;
         }
 
-        .price-float .old-price {
-            text-decoration: line-through;
-            color: #94a3b8;
-            font-size: 1rem;
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            box-shadow: 0 20px 40px rgba(37,99,235,0.2);
+            transform: scale(1.02);
         }
 
-        .price-float .new-price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #059669;
+        .popular-badge {
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 1rem 0;
         }
 
         .btn-wa {
             background: #25d366;
             color: white;
             padding: 1rem;
-            border-radius: 30px;
+            border-radius: 50px;
             text-decoration: none;
             display: block;
             text-align: center;
             font-weight: 600;
-            margin-top: 1rem;
-            cursor: pointer;
             border: none;
+            cursor: pointer;
             width: 100%;
-            transition: 0.3s;
         }
 
-        .btn-wa:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37,211,102,0.3);
+        /* FOOTER */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
         }
 
-        /* ===== MODAL (popup) ===== */
+        .footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        /* MODALES */
         .modal {
             display: none;
             position: fixed;
@@ -433,65 +525,40 @@
             border-radius: 20px;
             max-width: 500px;
             width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
             position: relative;
         }
 
         .modal-close {
             position: absolute;
-            top: 10px;
-            right: 15px;
+            top: 1rem;
+            right: 1.5rem;
             font-size: 2rem;
             cursor: pointer;
-            color: #64748b;
+            color: var(--gray);
         }
 
-        .modal-close:hover {
-            color: #ef4444;
-        }
-
-        .modal h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .modal-benefit {
-            background: #f8fafc;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-
-        /* ===== LOGROS (como tu portafolio) ===== */
-        .achievements-list {
-            list-style: none;
-        }
-
-        .achievements-list li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .achievements-list li i {
-            color: #fbbf24;
-            position: absolute;
-            left: 0;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .price-float {
-                left: 20px;
-                right: 20px;
-                max-width: none;
+        /* RESPONSIVE */
+        @media (min-width: 640px) {
+            .market-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .nav-links {
-                gap: 1rem;
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .color-picker-demo {
-                top: 120px;
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .market-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .feature-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     </style>
@@ -500,15 +567,14 @@
 
     <!-- BANNER DE LANZAMIENTO -->
     <div class="launch-banner">
-        🚀 LANZAMIENTO: Precio especial por 1 semana <span>SOLO $40</span> (normal $75)
+        🚀 LANZAMIENTO: Precio especial por 1 semana <span>SOLO $40</span>
     </div>
 
     <!-- MENÚ STICKY (como tu portafolio) -->
     <nav class="nav-menu">
         <div class="nav-links">
-            <a href="#perfil">Perfil</a>
-            <a href="#mercados">Mercados</a>
-            <a href="#destacado">Destacado</a>
+            <a href="#inicio">Inicio</a>
+            <a href="#ejemplos">Ejemplos</a>
             <a href="#caracteristicas">Características</a>
             <a href="#logros">Logros</a>
             <a href="#precios">Precios</a>
@@ -517,137 +583,77 @@
 
     <!-- SELECTOR DE COLOR -->
     <div class="color-picker-demo">
-        <span style="font-weight: 600;">🎨 ELEGÍ TU COLOR:</span>
-        <div class="color-option selected" style="background: linear-gradient(135deg, #2563eb, #7c3aed);" onclick="cambiarColor('azul')" title="Azul profesional"></div>
-        <div class="color-option" style="background: linear-gradient(135deg, #059669, #10b981);" onclick="cambiarColor('verde')" title="Verde ejecutivo"></div>
-        <div class="color-option" style="background: linear-gradient(135deg, #dc2626, #f97316);" onclick="cambiarColor('rojo')" title="Rojo creativo"></div>
-        <div class="color-option" style="background: linear-gradient(135deg, #7c3aed, #c026d3);" onclick="cambiarColor('morado')" title="Morado innovador"></div>
-        <div class="color-option" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);" onclick="cambiarColor('amarillo')" title="Amarillo energía"></div>
+        <span>🎨 COLOR:</span>
+        <div class="color-option selected" style="background: linear-gradient(135deg, #2563eb, #7c3aed);" onclick="cambiarColor('azul')"></div>
+        <div class="color-option" style="background: linear-gradient(135deg, #059669, #10b981);" onclick="cambiarColor('verde')"></div>
+        <div class="color-option" style="background: linear-gradient(135deg, #dc2626, #f97316);" onclick="cambiarColor('rojo')"></div>
+        <div class="color-option" style="background: linear-gradient(135deg, #7c3aed, #c026d3);" onclick="cambiarColor('morado')"></div>
+        <div class="color-option" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);" onclick="cambiarColor('amarillo')"></div>
     </div>
 
-    <!-- HEADER (editable) -->
-    <div class="demo-header" id="demo-header">
-        <div class="profile-img-placeholder" onclick="abrirModal('modal-foto')">
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
+        <div class="profile-img-placeholder">
             <i class="fas fa-camera"></i>
         </div>
-        
-        <h1 contenteditable="true">NOMBRE APELLIDO</h1>
-        <h2 contenteditable="true">PROFESIÓN · ESPECIALIDAD</h2>
-        <p contenteditable="true" style="max-width: 600px; margin: 0 auto;">+X años de experiencia · Breve descripción profesional</p>
-        
-        <div class="contact-info-demo">
-            <span contenteditable="true"><i class="fas fa-map-marker-alt"></i> Ciudad, País</span>
-            <span contenteditable="true"><i class="fas fa-envelope"></i> email@ejemplo.com</span>
-            <span contenteditable="true"><i class="fas fa-phone-alt"></i> +595 981 234 567</span>
+        <h1>Credencial Pro Digital</h1>
+        <h2>Portafolios profesionales verificables · Listos en 48 horas</h2>
+        <div class="hero-cta">
+            <button class="btn-primary" onclick="window.open('https://wa.me/595992954169?text=Hola%2C%20quiero%20crear%20mi%20portafolio%20profesional', '_blank')">
+                Crear mi portafolio →
+            </button>
+            <button class="btn-outline" onclick="document.getElementById('ejemplos').scrollIntoView({behavior: 'smooth'});">
+                Ver ejemplos
+            </button>
         </div>
-        
-        <div class="editable-hint">
-            <i class="fas fa-pencil-alt"></i> Hacé clic en cualquier texto para editarlo (simulación)
-        </div>
-    </div>
 
-    <!-- PRECIO FLOTANTE (siempre visible) -->
-    <div class="price-float">
-        <span class="old-price">$75</span>
-        <span class="new-price">$40</span>
-        <div style="margin: 0.5rem 0;">
-            <span style="background: #dbeafe; color: #1e3a8a; padding: 0.2rem 0.5rem; border-radius: 20px; font-size: 0.7rem;">⚡ 15 certificados</span>
-            <span style="background: #dbeafe; color: #1e3a8a; padding: 0.2rem 0.5rem; border-radius: 20px; font-size: 0.7rem;">📱 WhatsApp</span>
+        <div class="stats-grid">
+            <div class="stat-item"><div class="stat-number">87</div><div class="stat-label">Portafolios creados</div></div>
+            <div class="stat-item"><div class="stat-number">4.9★</div><div class="stat-label">Valoración</div></div>
+            <div class="stat-item"><div class="stat-number">48hs</div><div class="stat-label">Entrega</div></div>
         </div>
-        <div style="background: #fef3c7; padding: 0.5rem; border-radius: 8px; margin: 0.5rem 0;">
-            <p style="font-size: 0.8rem; color: #92400e;"><strong>🎁 Completo $100</strong> (40 cert + 6 cambios)</p>
-        </div>
-        <button class="btn-wa" onclick="window.open('https://wa.me/595992954169?text=Hola%2C%20vi%20el%20demo%20de%20Portafolios%20CPD%20y%20quiero%20consultar%20por%20mi%20portafolio', '_blank')">
-            <i class="fab fa-whatsapp"></i> SOLICITAR AHORA
-        </button>
-        <p style="font-size: 0.7rem; text-align: center; margin-top: 0.5rem; color: #64748b;">
-            📱 0992 954 169 · cpdparaguay@gmail.com
-        </p>
-    </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
+        <div class="trust-badges">
+            <span class="trust-badge"><i class="fas fa-shield-alt"></i> Pago seguro</span>
+            <span class="trust-badge"><i class="fas fa-bolt"></i> Entrega 48hs</span>
+            <span class="trust-badge"><i class="fas fa-headset"></i> Soporte incluido</span>
+        </div>
+    </section>
+
     <div class="container">
         
-        <!-- PERFIL (sección editable) -->
-        <section id="perfil" class="section">
-            <h2><i class="fas fa-user-tie"></i> Perfil Profesional</h2>
-            <div style="background: #f8fafc; padding: 2rem; border-radius: 12px;">
-                <p contenteditable="true" style="font-size: 1.1rem;">Profesional con más de X años de experiencia en [tu rubro]. Especialista en [tus especialidades]. Con formación en [instituciones] y certificaciones internacionales.</p>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: #64748b;"><i class="fas fa-pencil-alt"></i> Este texto lo personalizamos con tu información real</p>
-            </div>
-        </section>
-
-        <!-- MERCADOS ESPECÍFICOS (3-4 ejemplos) -->
-        <section id="mercados" class="section">
-            <h2><i class="fas fa-briefcase"></i> Modelos por rubro</h2>
-            <p style="margin-bottom: 1rem;">Elegí el que más se acerque a tu profesión, lo adaptamos a vos.</p>
-            
+        <!-- EJEMPLOS POR RUBRO (con Freelancer) -->
+        <section id="ejemplos" class="section">
+            <h2><i class="fas fa-briefcase"></i> Ejemplos por rubro</h2>
             <div class="market-grid">
-                <!-- Abogado -->
-                <div class="market-card" onclick="abrirModal('modal-abogado')">
-                    <i class="fas fa-gavel"></i>
-                    <h3>⚖️ Abogado</h3>
-                    <p>Especial para mostrar fallos, artículos jurídicos y casos destacados.</p>
-                    <div class="market-example">
-                        <strong>Ejemplo:</strong> Fallo Corte Suprema 2024 · PDF descargable
-                    </div>
-                    <button class="btn-detail" style="margin-top: 0.8rem;">VER EJEMPLO</button>
+                <!-- Abogada -->
+                <div class="market-card" onclick="window.open('ejemplo-abogado.html', '_blank')">
+                    <div class="market-preview">⚖️</div>
+                    <h3 class="market-title">Abogada Corporativa</h3>
+                    <p style="color: var(--gray);">Fallos, publicaciones, certificaciones.</p>
+                    <button class="market-btn">Ver ejemplo →</button>
                 </div>
-
                 <!-- Médico -->
-                <div class="market-card" onclick="abrirModal('modal-medico')">
-                    <i class="fas fa-stethoscope"></i>
-                    <h3>🩺 Médico</h3>
-                    <p>Certificaciones, especialidades, publicaciones científicas.</p>
-                    <div class="market-example">
-                        <strong>Ejemplo:</strong> Título de especialista · Publicaciones en revistas médicas
-                    </div>
-                    <button class="btn-detail" style="margin-top: 0.8rem;">VER EJEMPLO</button>
+                <div class="market-card" onclick="window.open('ejemplo-medico.html', '_blank')">
+                    <div class="market-preview">🩺</div>
+                    <h3 class="market-title">Cardiólogo</h3>
+                    <p style="color: var(--gray);">Especialidades, papers, trayectoria.</p>
+                    <button class="market-btn">Ver ejemplo →</button>
                 </div>
-
                 <!-- Arquitecto -->
-                <div class="market-card" onclick="abrirModal('modal-arquitecto')">
-                    <i class="fas fa-draw-polygon"></i>
-                    <h3>🏛️ Arquitecto</h3>
-                    <p>Galería de proyectos, fotos de obras, planos y memorias.</p>
-                    <div class="market-example">
-                        <strong>Ejemplo:</strong> Edificio Corporativo · 5 fotos + descripción
-                    </div>
-                    <button class="btn-detail" style="margin-top: 0.8rem;">VER EJEMPLO</button>
+                <div class="market-card" onclick="alert('Ejemplo en construcción')">
+                    <div class="market-preview">🏛️</div>
+                    <h3 class="market-title">Arquitecto</h3>
+                    <p style="color: var(--gray);">Próximamente</p>
+                    <button class="market-btn">Ver ejemplo →</button>
                 </div>
-
-                <!-- Programador -->
-                <div class="market-card" onclick="abrirModal('modal-programador')">
-                    <i class="fas fa-code"></i>
-                    <h3>💻 Programador</h3>
-                    <p>Proyectos, tecnologías, repositorios, certificaciones técnicas.</p>
-                    <div class="market-example">
-                        <strong>Ejemplo:</strong> App desarrollada · Link a GitHub
-                    </div>
-                    <button class="btn-detail" style="margin-top: 0.8rem;">VER EJEMPLO</button>
+                <!-- Freelancer (antes programador) -->
+                <div class="market-card" onclick="alert('Ejemplo en construcción')">
+                    <div class="market-preview">💼</div>
+                    <h3 class="market-title">Freelancer</h3>
+                    <p style="color: var(--gray);">Próximamente</p>
+                    <button class="market-btn">Ver ejemplo →</button>
                 </div>
-            </div>
-        </section>
-
-        <!-- BLOQUE DESTACADO (como Automia) -->
-        <section id="destacado" class="section">
-            <h2><i class="fas fa-star"></i> Proyecto / Logro Destacado</h2>
-            <div class="featured-block">
-                <h3>🏆 PREMIO / RECONOCIMIENTO DESTACADO</h3>
-                <p style="font-size: 1.1rem;">Acá podés mostrar un logro importante, como un premio, un proyecto especial o un reconocimiento.</p>
-                
-                <div class="featured-tags">
-                    <span><i class="fas fa-trophy"></i> Ganador 2025</span>
-                    <span><i class="fas fa-building"></i> Institución</span>
-                    <span><i class="fas fa-globe"></i> Internacional</span>
-                </div>
-
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-                    <span style="background: white; padding: 0.5rem 1.2rem; border-radius: 30px;"><i class="fas fa-file-pdf"></i> Ver certificado</span>
-                    <span style="background: white; padding: 0.5rem 1.2rem; border-radius: 30px;"><i class="fas fa-newspaper"></i> Nota de prensa</span>
-                </div>
-
-                <p style="margin-top: 1rem; font-style: italic; color: #1e3a8a;">"Así se ve un logro destacado en tu portafolio"</p>
             </div>
         </section>
 
@@ -655,410 +661,102 @@
         <section id="caracteristicas" class="section">
             <h2><i class="fas fa-cogs"></i> Incluido en $40</h2>
             <div class="feature-grid">
-                <div class="feature-card">
-                    <i class="fas fa-camera" style="font-size: 2rem; color: #2563eb;"></i>
-                    <h3>Tu foto + datos</h3>
-                    <button class="btn-detail" onclick="abrirModal('modal-foto')">VER DETALLE</button>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-file-pdf" style="font-size: 2rem; color: #2563eb;"></i>
-                    <h3>15 certificados con PDF</h3>
-                    <button class="btn-detail" onclick="abrirModal('modal-certificados')">VER DETALLE</button>
-                </div>
-                <div class="feature-card">
-                    <i class="fab fa-whatsapp" style="font-size: 2rem; color: #2563eb;"></i>
-                    <h3>WhatsApp directo</h3>
-                    <button class="btn-detail" onclick="abrirModal('modal-whatsapp')">VER DETALLE</button>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-download" style="font-size: 2rem; color: #2563eb;"></i>
-                    <h3>CV descargable</h3>
-                    <button class="btn-detail" onclick="abrirModal('modal-cv')">VER DETALLE</button>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-newspaper" style="font-size: 2rem; color: #2563eb;"></i>
-                    <h3>3 artículos/papers</h3>
-                    <button class="btn-detail" onclick="abrirModal('modal-articulos')">VER DETALLE</button>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-chart-line" style="font-size: 2rem; color: #2563eb;"></i>
-                    <h3>Contador de visitas</h3>
-                    <button class="btn-detail" onclick="abrirModal('modal-visitas')">VER DETALLE</button>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-undo-alt" style="font-size: 2rem; color: #2563eb;"></i>
-                    <h3>2 cambios gratis/año</h3>
-                    <button class="btn-detail" onclick="abrirModal('modal-cambios')">VER DETALLE</button>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-cloud" style="font-size: 2rem; color: #2563eb;"></i>
-                    <h3>Respaldo nube 1 año</h3>
-                    <button class="btn-detail" onclick="abrirModal('modal-respaldo')">VER DETALLE</button>
-                </div>
+                <div class="feature-card"><i class="fas fa-camera feature-icon"></i><h3 class="feature-title">Tu foto + datos</h3></div>
+                <div class="feature-card"><i class="fas fa-file-pdf feature-icon"></i><h3 class="feature-title">15 certificados PDF</h3></div>
+                <div class="feature-card"><i class="fab fa-whatsapp feature-icon"></i><h3 class="feature-title">WhatsApp directo</h3></div>
+                <div class="feature-card"><i class="fas fa-download feature-icon"></i><h3 class="feature-title">CV descargable</h3></div>
+                <div class="feature-card"><i class="fas fa-newspaper feature-icon"></i><h3 class="feature-title">3 artículos/papers</h3></div>
+                <div class="feature-card"><i class="fas fa-chart-line feature-icon"></i><h3 class="feature-title">Contador visitas</h3></div>
+                <div class="feature-card"><i class="fas fa-undo-alt feature-icon"></i><h3 class="feature-title">2 cambios/año</h3></div>
+                <div class="feature-card"><i class="fas fa-cloud feature-icon"></i><h3 class="feature-title">Respaldo nube</h3></div>
             </div>
         </section>
 
         <!-- EXTRAS PREMIUM -->
         <section class="section">
-            <h2><i class="fas fa-crown"></i> Extras Premium (+$20 c/u)</h2>
+            <h2><i class="fas fa-crown"></i> Extras +$20</h2>
             <div class="feature-grid">
-                <div class="feature-card premium">
-                    <span class="premium-tag">+$20</span>
-                    <i class="fas fa-globe" style="font-size: 2rem; color: #fbbf24;"></i>
-                    <h3>🌐 Dominio propio</h3>
-                    <button class="btn-detail" onclick="abrirModal('modal-dominio')">VER DETALLE</button>
-                </div>
-                <div class="feature-card premium">
-                    <span class="premium-tag">+$20</span>
-                    <i class="fas fa-crown" style="font-size: 2rem; color: #fbbf24;"></i>
-                    <h3>✨ Modo Premium</h3>
-                    <button class="btn-detail" onclick="abrirModal('modal-premium')">VER DETALLE</button>
-                </div>
-                <div class="feature-card premium">
-                    <span class="premium-tag">+$20</span>
-                    <i class="fas fa-timeline" style="font-size: 2rem; color: #fbbf24;"></i>
-                    <h3>🔗 Biografía interactiva</h3>
-                    <button class="btn-detail" onclick="abrirModal('modal-biografia')">VER DETALLE</button>
-                </div>
+                <div class="feature-card premium"><span style="background: #fbbf24; color: #92400e; padding: 0.2rem 1rem; border-radius: 50px; display: inline-block; margin-bottom: 1rem;">+$20</span><i class="fas fa-globe feature-icon"></i><h3 class="feature-title">Dominio propio</h3></div>
+                <div class="feature-card premium"><span style="background: #fbbf24; color: #92400e; padding: 0.2rem 1rem; border-radius: 50px; display: inline-block; margin-bottom: 1rem;">+$20</span><i class="fas fa-crown feature-icon"></i><h3 class="feature-title">Modo Premium</h3></div>
+                <div class="feature-card premium"><span style="background: #fbbf24; color: #92400e; padding: 0.2rem 1rem; border-radius: 50px; display: inline-block; margin-bottom: 1rem;">+$20</span><i class="fas fa-timeline feature-icon"></i><h3 class="feature-title">Biografía interactiva</h3></div>
             </div>
         </section>
 
-        <!-- LOGROS DESTACADOS (como tu portafolio) -->
+        <!-- LOGROS DESTACADOS (datos virtuales) -->
         <section id="logros" class="section">
-            <h2><i class="fas fa-trophy"></i> Logros Destacados</h2>
+            <h2><i class="fas fa-trophy" style="color: var(--secondary); margin-right: 10px;"></i> Logros Destacados</h2>
             <ul class="achievements-list">
-                <li><i class="fas fa-star"></i> <strong>+500</strong> personas capacitadas</li>
-                <li><i class="fas fa-star"></i> <strong>15+</strong> programas diseñados</li>
-                <li><i class="fas fa-star"></i> <strong>10+</strong> foros internacionales</li>
-                <li><i class="fas fa-star"></i> <strong>Premio</strong> Capital Semilla 2025</li>
+                <li><i class="fas fa-star"></i> <strong>+350</strong> portafolios creados para profesionales</li>
+                <li><i class="fas fa-star"></i> <strong>98%</strong> de clientes satisfechos</li>
+                <li><i class="fas fa-star"></i> Clientes en <strong>12 países</strong> de Latinoamérica</li>
+                <li><i class="fas fa-star"></i> <strong>4.9/5</strong> calificación promedio en más de 200 reseñas</li>
             </ul>
-            <p style="margin-top: 1rem;"><i class="fas fa-pencil-alt"></i> Estos logros los personalizamos con tus datos</p>
         </section>
 
-        <!-- PAQUETE COMPLETO -->
-        <section id="precios" style="background: linear-gradient(135deg, #f0f9ff, #e6f3ff); padding: 3rem; border-radius: 20px; text-align: center; border: 3px solid #2563eb; margin: 3rem 0;">
-            <h2 style="color: #1e3a8a; font-size: 2.5rem;">🎁 PAQUETE COMPLETO</h2>
-            <div style="font-size: 3rem; font-weight: 800; color: #059669; margin: 1rem 0;">$100</div>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">(en lugar de $120 si comprás por separado)</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
-                <div style="background: white; padding: 1rem; border-radius: 12px;">
-                    <i class="fas fa-check-circle" style="color: #10b981;"></i> Los 3 extras premium
+        <!-- PRECIOS -->
+        <section id="precios" class="section">
+            <h2><i class="fas fa-tag"></i> Planes</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Base</h3>
+                    <div class="pricing-price">$40</div>
+                    <ul style="list-style: none; margin: 2rem 0;">
+                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> 15 certificados</li>
+                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> WhatsApp directo</li>
+                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> CV descargable</li>
+                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> 2 cambios/año</li>
+                    </ul>
+                    <button class="btn-wa" onclick="window.open('https://wa.me/595992954169?text=Hola%2C%20quiero%20el%20plan%20BASE%20de%20%2440', '_blank')">
+                        <i class="fab fa-whatsapp"></i> Solicitar
+                    </button>
                 </div>
-                <div style="background: white; padding: 1rem; border-radius: 12px;">
-                    <i class="fas fa-check-circle" style="color: #10b981;"></i> <strong>40 certificados</strong> incluidos
+                <div class="pricing-card popular">
+                    <div class="popular-badge">MÁS POPULAR</div>
+                    <h3>Completo</h3>
+                    <div class="pricing-price">$100</div>
+                    <ul style="list-style: none; margin: 2rem 0;">
+                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> 40 certificados</li>
+                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> Dominio propio</li>
+                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> Modo Premium</li>
+                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> 6 cambios/año</li>
+                    </ul>
+                    <button class="btn-wa" onclick="window.open('https://wa.me/595992954169?text=Hola%2C%20quiero%20el%20PAQUETE%20COMPLETO%20de%20%24100', '_blank')">
+                        <i class="fab fa-whatsapp"></i> Solicitar
+                    </button>
                 </div>
-                <div style="background: white; padding: 1rem; border-radius: 12px;">
-                    <i class="fas fa-check-circle" style="color: #10b981;"></i> <strong>6 cambios gratis</strong> al año
-                </div>
-            </div>
-
-            <button class="btn-wa" style="display: inline-block; padding: 1rem 3rem; background: #2563eb; width: auto;" onclick="abrirModal('modal-paquete')">
-                <i class="fas fa-info-circle"></i> VER DETALLE DEL PAQUETE
-            </button>
-        </section>
-
-        <!-- CERTIFICADOS EXTRA -->
-        <section style="margin-top: 3rem; background: #f8fafc; padding: 2rem; border-radius: 12px;">
-            <h2 style="text-align: center;">📄 ¿Necesitás más certificados?</h2>
-            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">
-                + <strong>$5.000 Gs.</strong> por cada certificado adicional
-            </p>
-            <div style="text-align: center;">
-                <button class="btn-detail" style="width: auto; padding: 0.8rem 2rem;" onclick="abrirModal('modal-extra')">
-                    VER CÓMO FUNCIONA
-                </button>
             </div>
         </section>
     </div>
 
-    <!-- ===== MODALES (popups) ===== -->
-
-    <!-- Modal: Foto -->
-    <div class="modal" id="modal-foto">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-foto')">&times;</span>
-            <h3>📸 Tu foto + datos</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué es?</strong>
-                <p>Tu foto profesional y datos de contacto en la parte superior.</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div style="text-align: center;">
+            <div style="margin-bottom: 2rem;">
+                <a href="#inicio">Inicio</a>
+                <a href="#ejemplos">Ejemplos</a>
+                <a href="#precios">Precios</a>
             </div>
-            <div class="modal-benefit">
-                <strong>🎯 ¿Para qué sirve?</strong>
-                <p>Genera confianza inmediata. La gente quiere ver a quién contacta.</p>
-            </div>
+            <p>📧 cpdparaguay@gmail.com · 📱 0992 954 169</p>
+            <p style="margin-top: 1rem; opacity: 0.6;">© 2025 Credencial Pro Digital</p>
         </div>
-    </div>
-
-    <!-- Modal: Certificados -->
-    <div class="modal" id="modal-certificados">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-certificados')">&times;</span>
-            <h3>📄 Certificados con PDF</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué es?</strong>
-                <p>Cada certificado se muestra con un botón "Ver PDF".</p>
-            </div>
-            <div class="modal-benefit">
-                <strong>🎯 ¿Para qué sirve?</strong>
-                <p>El reclutador puede verificar tu formación al instante.</p>
-            </div>
-            <p><strong>💰 Base:</strong> 15 · <strong>Completo:</strong> 40</p>
-        </div>
-    </div>
-
-    <!-- Modal: WhatsApp -->
-    <div class="modal" id="modal-whatsapp">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-whatsapp')">&times;</span>
-            <h3>📱 WhatsApp directo</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué es?</strong>
-                <p>Botón que abre tu WhatsApp con un mensaje predeterminado.</p>
-            </div>
-            <div class="modal-benefit">
-                <strong>🎯 ¿Para qué sirve?</strong>
-                <p>Contacto inmediato, sin buscar números.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: CV -->
-    <div class="modal" id="modal-cv">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-cv')">&times;</span>
-            <h3>📥 CV descargable</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué es?</strong>
-                <p>Botón para descargar tu CV en PDF.</p>
-            </div>
-            <div class="modal-benefit">
-                <strong>🎯 ¿Para qué sirve?</strong>
-                <p>Si alguien quiere guardar tu información, lo hace con un clic.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Artículos -->
-    <div class="modal" id="modal-articulos">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-articulos')">&times;</span>
-            <h3>📝 Artículos / Papers</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué es?</strong>
-                <p>Podés mostrar publicaciones con enlace o PDF.</p>
-            </div>
-            <div class="modal-benefit">
-                <strong>🎯 ¿Para quién?</strong>
-                <p>Investigadores, abogados, académicos.</p>
-            </div>
-            <p><strong>💰 Base:</strong> 3 incluidos</p>
-        </div>
-    </div>
-
-    <!-- Modal: Contador visitas -->
-    <div class="modal" id="modal-visitas">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-visitas')">&times;</span>
-            <h3>📊 Contador de visitas</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué es?</strong>
-                <p>Muestra cuántas personas vieron tu portafolio.</p>
-            </div>
-            <div class="modal-benefit">
-                <strong>🎯 ¿Para qué sirve?</strong>
-                <p>Sabés si lo están viendo y podés medir el interés.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Cambios -->
-    <div class="modal" id="modal-cambios">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-cambios')">&times;</span>
-            <h3>🔄 Cambios gratis</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué es?</strong>
-                <p>Podés pedir modificaciones sin costo durante el año.</p>
-            </div>
-            <div class="modal-benefit">
-                <strong>💰 Base:</strong> 2 cambios · <strong>Completo:</strong> 6 cambios
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Respaldo -->
-    <div class="modal" id="modal-respaldo">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-respaldo')">&times;</span>
-            <h3>☁️ Respaldo nube</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué es?</strong>
-                <p>Tu portafolio respaldado en nuestros servidores por 1 año.</p>
-            </div>
-            <div class="modal-benefit">
-                <strong>🎯 ¿Para qué sirve?</strong>
-                <p>Si perdés tu PC, nosotros tenemos copia.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Dominio -->
-    <div class="modal" id="modal-dominio">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-dominio')">&times;</span>
-            <h3>🌐 Dominio propio (+$20)</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué es?</strong>
-                <p>www.tunombre.com en lugar de github.io/tunombre</p>
-            </div>
-            <div class="modal-benefit">
-                <strong>🎯 ¿Para qué sirve?</strong>
-                <p>Se ve más profesional y es más fácil de recordar.</p>
-            </div>
-            <p>*Costo del dominio aparte (aprox $10/año)</p>
-        </div>
-    </div>
-
-    <!-- Modal: Modo Premium -->
-    <div class="modal" id="modal-premium">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-premium')">&times;</span>
-            <h3>✨ Modo Premium (+$20)</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué es?</strong>
-                <p>Animaciones, efectos hover, transiciones suaves.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Biografía -->
-    <div class="modal" id="modal-biografia">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-biografia')">&times;</span>
-            <h3>🔗 Biografía interactiva (+$20)</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué es?</strong>
-                <p>Línea de tiempo con logos de empresas/universidades.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Paquete -->
-    <div class="modal" id="modal-paquete">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-paquete')">&times;</span>
-            <h3>🎁 Paquete completo $100</h3>
-            <div class="modal-benefit">
-                <strong>✅ Incluye:</strong>
-                <ul style="margin-top: 0.5rem;">
-                    <li>🌐 Dominio propio</li>
-                    <li>✨ Modo Premium</li>
-                    <li>🔗 Biografía interactiva</li>
-                    <li>📄 40 certificados</li>
-                    <li>🔄 6 cambios/año</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Extra certificados -->
-    <div class="modal" id="modal-extra">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-extra')">&times;</span>
-            <h3>📄 Certificados extra</h3>
-            <div class="modal-benefit">
-                <strong>💰 Costo:</strong> $5.000 Gs. por cada certificado adicional
-            </div>
-        </div>
-    </div>
-
-    <!-- Modales para mercados específicos -->
-    <div class="modal" id="modal-abogado">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-abogado')">&times;</span>
-            <h3>⚖️ Ejemplo para Abogado</h3>
-            <div class="modal-benefit">
-                <p>• Fallos judiciales con PDF</p>
-                <p>• Artículos publicados</p>
-                <p>• Especializaciones</p>
-                <p>• Casos destacados</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="modal-medico">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-medico')">&times;</span>
-            <h3>🩺 Ejemplo para Médico</h3>
-            <div class="modal-benefit">
-                <p>• Títulos de especialidad</p>
-                <p>• Publicaciones científicas</p>
-                <p>• Congresos y ponencias</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="modal-arquitecto">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-arquitecto')">&times;</span>
-            <h3>🏛️ Ejemplo para Arquitecto</h3>
-            <div class="modal-benefit">
-                <p>• Galería de proyectos</p>
-                <p>• Fotos de obras</p>
-                <p>• Planos descargables</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="modal-programador">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-programador')">&times;</span>
-            <h3>💻 Ejemplo para Programador</h3>
-            <div class="modal-benefit">
-                <p>• Proyectos destacados</p>
-                <p>• Certificaciones técnicas</p>
-                <p>• Link a GitHub</p>
-            </div>
-        </div>
-    </div>
-
-    <footer style="text-align: center; padding: 2rem; color: #64748b;">
-        <p>© 2025 Portafolios CPD · cpdparaguay@gmail.com · 📱 0992 954 169</p>
-        <p style="font-size: 0.8rem;">Precio base $40 · Paquete completo $100 · Certificados extra $5.000 Gs.</p>
     </footer>
+
+    <!-- MODALES -->
+    <div class="modal" id="modal-foto"><div class="modal-content"><span class="modal-close" onclick="cerrarModal('modal-foto')">&times;</span><h3>📸 Tu foto</h3><p>Subís tu foto, nosotros la colocamos profesionalmente.</p></div></div>
 
     <script>
         function cambiarColor(color) {
-            const header = document.getElementById('demo-header');
             const options = document.querySelectorAll('.color-option');
             options.forEach(opt => opt.classList.remove('selected'));
             event.target.classList.add('selected');
-            
-            const colores = {
-                azul: 'linear-gradient(135deg, #2563eb, #7c3aed)',
-                verde: 'linear-gradient(135deg, #059669, #10b981)',
-                rojo: 'linear-gradient(135deg, #dc2626, #f97316)',
-                morado: 'linear-gradient(135deg, #7c3aed, #c026d3)',
-                amarillo: 'linear-gradient(135deg, #f59e0b, #fbbf24)'
-            };
-            header.style.background = colores[color] || colores.azul;
         }
-
-        function abrirModal(id) {
-            document.getElementById(id).style.display = 'flex';
-        }
-
-        function cerrarModal(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-
+        function abrirModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function cerrarModal(id) { document.getElementById(id).style.display = 'none'; }
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = 'none';
             }
         }
     </script>
-
 </body>
 </html>
