@@ -3,760 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credencial Pro Digital - Portafolios profesionales verificables</title>
-    
-    <!-- Fonts -->
+    <title>Credencial Pro Digital — Portafolios profesionales verificables</title>
+    <meta name="description" content="Tu portafolio profesional listo en 48 horas. Envianos tus certificados y nosotros hacemos todo.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --secondary: #7c3aed;
-            --secondary-dark: #6d28d9;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray-light: #f1f5f9;
-            --gray: #64748b;
-            --text-color: #334155;
-            --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.05);
-            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.05);
-            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.05);
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background: var(--light);
-        }
-
-        /* BANNER DE LANZAMIENTO */
-        .launch-banner {
-            background: linear-gradient(135deg, #059669, #10b981);
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            font-weight: 700;
-            font-size: 1.2rem;
-            position: sticky;
-            top: 0;
-            z-index: 2000;
-        }
-
-        .launch-banner span {
-            background: #fbbf24;
-            color: #92400e;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            margin-left: 1rem;
-        }
-
-        /* MENÚ STICKY (como tu portafolio) */
-        .nav-menu {
-            position: sticky;
-            top: 70px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .nav-links a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95em;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: 0.3s;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* SELECTOR DE COLOR */
-        .color-picker-demo {
-            position: sticky;
-            top: 140px;
-            z-index: 90;
-            background: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            box-shadow: var(--shadow-lg);
-            margin: 20px auto;
-            max-width: 500px;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            border: 2px solid #e2e8f0;
-        }
-
-        .color-option {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 3px solid transparent;
-            transition: 0.2s;
-        }
-
-        .color-option:hover {
-            transform: scale(1.1);
-        }
-
-        .color-option.selected {
-            border-color: #000;
-            box-shadow: 0 0 0 2px white;
-        }
-
-        /* HERO con gradiente sutil */
-        .hero {
-            position: relative;
-            padding: 4rem 2rem 3rem;
-            background: linear-gradient(180deg, rgba(239,246,255,0.4) 0%, rgba(255,255,255,0) 100%);
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .profile-img-placeholder {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: rgba(37,99,235,0.1);
-            border: 3px dashed var(--primary);
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--primary);
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .hero h2 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 2rem 0;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 14px rgba(37,99,235,0.25);
-            min-width: 200px;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: scale(1.02);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            border: 2px solid var(--primary);
-            cursor: pointer;
-            transition: 0.3s;
-            min-width: 200px;
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* STATS */
-        .stats-grid {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            margin: 3rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        /* TRUST BADGES */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            opacity: 0.8;
-            margin: 2rem 0;
-        }
-
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        /* CONTENEDOR PRINCIPAL */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .section {
-            margin-bottom: 4rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .section h2 {
-            color: var(--secondary);
-            font-size: 2rem;
-            border-left: 5px solid var(--primary);
-            padding-left: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        /* MARKET GRID (ejemplos) */
-        .market-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .market-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 2rem;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .market-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-
-        .market-preview {
-            background: linear-gradient(135deg, #dbeafe, #e0e7ff);
-            height: 120px;
-            margin: -2rem -2rem 1.5rem -2rem;
-            border-radius: 20px 20px 0 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-        }
-
-        .market-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .market-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1rem;
-            transition: 0.2s;
-        }
-
-        .market-btn:hover {
-            background: var(--primary-dark);
-        }
-
-        /* FEATURE GRID */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .feature-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary);
-        }
-
-        .feature-card.premium {
-            border-left: 5px solid #fbbf24;
-            background: #fef3c7;
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .feature-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .btn-detail {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            margin-top: 1rem;
-            width: 100%;
-            transition: 0.2s;
-        }
-
-        /* LOGROS DESTACADOS (datos virtuales) */
-        .achievements-list {
-            list-style: none;
-        }
-
-        .achievements-list li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .achievements-list li i {
-            color: #fbbf24;
-            position: absolute;
-            left: 0;
-        }
-
-        /* PRICING */
-        .pricing-grid {
-            display: grid;
-            gap: 2rem;
-            max-width: 56rem;
-            margin: 3rem auto 0;
-        }
-
-        .pricing-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 24px;
-            padding: 2rem;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .pricing-card.popular {
-            border: 2px solid var(--primary);
-            box-shadow: 0 20px 40px rgba(37,99,235,0.2);
-            transform: scale(1.02);
-        }
-
-        .popular-badge {
-            background: var(--primary);
-            color: white;
-            padding: 0.3rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .pricing-price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin: 1rem 0;
-        }
-
-        .btn-wa {
-            background: #25d366;
-            color: white;
-            padding: 1rem;
-            border-radius: 50px;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        /* FOOTER */
-        .footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 0 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            margin: 0 1rem;
-        }
-
-        .footer a:hover {
-            color: white;
-        }
-
-        /* MODALES */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 3000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--gray);
-        }
-
-        /* RESPONSIVE */
-        @media (min-width: 640px) {
-            .market-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .feature-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            .market-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .feature-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#06080f;--bg-glass:rgba(255,255,255,0.04);--cyan:#22d3ee;--blue:#3b82f6;--purple:#a78bfa;--white:#f1f5f9;--muted:#64748b;--dim:#334155;--border:rgba(255,255,255,0.06);--glow:rgba(34,211,238,0.15);--r:20px;--rs:12px}
+        body{font-family:'Sora',sans-serif;color:var(--white);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+        .container{max-width:1180px;margin:0 auto;padding:0 1.5rem}
+        .navbar{position:fixed;top:0;left:0;right:0;z-index:200;padding:.8rem 0;transition:all .4s}
+        .navbar.scrolled{background:rgba(6,8,15,.7);backdrop-filter:blur(24px) saturate(1.4);border-bottom:1px solid var(--border)}
+        .nav-inner{display:flex;justify-content:space-between;align-items:center}
+        .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+        .nav-logo span{color:var(--cyan)}
+        .nav-links{display:none;gap:2rem}.nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--white)}
+        .nav-cta{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#000;border:none;padding:.55rem 1.4rem;border-radius:9999px;font-weight:600;font-size:.8rem;cursor:pointer;transition:all .25s;font-family:inherit}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px var(--glow)}
+        @media(min-width:768px){.nav-links{display:flex}}
+        .mobile-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+        .mobile-toggle span{display:block;width:20px;height:2px;background:var(--white);border-radius:2px}
+        @media(min-width:768px){.mobile-toggle{display:none}}
+        .mobile-nav{display:none;position:fixed;inset:0;background:rgba(6,8,15,.97);backdrop-filter:blur(20px);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+        .mobile-nav.open{display:flex}.mobile-nav a{color:var(--white);text-decoration:none;font-size:1.3rem;font-weight:600}
+        .mobile-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
+        .hero{position:relative;padding:7rem 0 4rem;overflow:hidden}
+        .hero-orb{position:absolute;width:600px;height:600px;border-radius:50%;top:-20%;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(34,211,238,.08) 0%,rgba(59,130,246,.04) 50%,transparent 70%);animation:orbPulse 8s ease-in-out infinite;pointer-events:none}
+        @keyframes orbPulse{0%,100%{transform:translateX(-50%) scale(1);opacity:.7}50%{transform:translateX(-50%) scale(1.15);opacity:1}}
+        .hero-content{position:relative;z-index:1}.hero-top{text-align:center;margin-bottom:3rem}
+        .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--bg-glass);border:1px solid var(--border);backdrop-filter:blur(12px);padding:.4rem 1.2rem;border-radius:9999px;color:var(--cyan);font-size:.75rem;font-weight:600;margin-bottom:1.5rem;letter-spacing:.03em}
+        .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5.5vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.2rem}
+        .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--cyan),var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero-sub{font-size:1.1rem;color:var(--muted);max-width:540px;margin:0 auto 2.5rem;line-height:1.7}
+        .hero-ctas{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+        .btn{padding:.85rem 2rem;border-radius:9999px;font-weight:600;font-size:.9rem;cursor:pointer;transition:all .25s;border:none;font-family:inherit;display:inline-flex;align-items:center;gap:.5rem;text-decoration:none}
+        .btn.glow{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#000;box-shadow:0 4px 24px var(--glow)}
+        .btn.glow:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(34,211,238,.3)}
+        .btn.ghost{background:var(--bg-glass);color:var(--white);border:1px solid var(--border);backdrop-filter:blur(8px)}
+        .btn.ghost:hover{border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.06)}
+        .bento-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;max-width:640px;margin:0 auto}
+        .bento-item{background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--rs);padding:1rem;text-align:center;backdrop-filter:blur(8px);transition:all .3s}
+        .bento-item:hover{border-color:rgba(34,211,238,.2);box-shadow:0 0 20px var(--glow)}
+        .bento-item i{color:var(--cyan);font-size:1.2rem;margin-bottom:.4rem;display:block}
+        .bento-item strong{font-size:.85rem;color:var(--white);display:block}.bento-item small{font-size:.72rem;color:var(--muted)}
+        section{padding:5rem 0;position:relative}
+        .section-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:.6rem}
+        .section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:.8rem}
+        .section-sub{font-size:1rem;color:var(--muted);max-width:520px}
+        .section-header{text-align:center;margin-bottom:3.5rem}.section-header .section-sub{margin:.5rem auto 0}
+        .glow-line{height:1px;max-width:200px;margin:0 auto 5rem;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.3}
+        .process-grid{display:grid;grid-template-columns:1fr;gap:1.2rem}
+        .process-card{background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--r);padding:2rem;backdrop-filter:blur(12px);position:relative;overflow:hidden;transition:all .35s}
+        .process-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--blue));opacity:0;transition:opacity .3s}
+        .process-card:hover::before{opacity:1}
+        .process-card:hover{border-color:rgba(34,211,238,.15);box-shadow:0 8px 32px rgba(0,0,0,.3),0 0 0 1px rgba(34,211,238,.08);transform:translateY(-4px)}
+        .process-num{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#000;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem}
+        .process-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem}.process-card p{font-size:.9rem;color:var(--muted)}
+        @media(min-width:768px){.process-grid{grid-template-columns:repeat(3,1fr)}}
+        .examples-grid{display:grid;grid-template-columns:1fr;gap:1.2rem}
+        .ex-card{position:relative;border-radius:var(--r);overflow:hidden;background:var(--bg-glass);border:1px solid var(--border);transition:all .35s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+        .ex-card::after{content:'';position:absolute;inset:-1px;border-radius:var(--r);background:linear-gradient(135deg,var(--cyan),var(--blue),var(--purple));opacity:0;z-index:-1;transition:opacity .3s;filter:blur(8px)}
+        .ex-card:hover{border-color:rgba(34,211,238,.3);transform:translateY(-4px)}.ex-card:hover::after{opacity:.15}
+        .ex-card.disabled{opacity:.45;cursor:default}.ex-card.disabled:hover{transform:none;border-color:var(--border)}.ex-card.disabled:hover::after{opacity:0}
+        .ex-preview{height:130px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+        .ex-preview i{font-size:2.5rem;opacity:.4}
+        .ex-preview.law{background:linear-gradient(135deg,#0f1b2d,#1e3a5f)}.ex-preview.law i{color:#c9a84c}
+        .ex-preview.med{background:linear-gradient(135deg,#042f2e,#0d9488)}.ex-preview.med i{color:#5eead4}
+        .ex-preview.arch{background:linear-gradient(135deg,#1c1917,#78350f)}.ex-preview.arch i{color:#fbbf24}
+        .ex-preview.dev{background:linear-gradient(135deg,#1e1b4b,#4338ca)}.ex-preview.dev i{color:#a78bfa}
+        .ex-preview.creative{background:linear-gradient(135deg,#310a1e,#be185d,#7c3aed)}.ex-preview.creative i{color:#f9a8d4}
+        .ex-body{padding:1.3rem}.ex-body h3{font-size:1rem;font-weight:600;margin-bottom:.2rem}.ex-body p{font-size:.82rem;color:var(--muted)}
+        .ex-tag{display:inline-block;margin-top:.7rem;font-size:.7rem;font-weight:600;color:var(--cyan);background:var(--glow);padding:.25rem .7rem;border-radius:9999px}
+        .ex-tag.soon{color:var(--muted);background:rgba(255,255,255,.04)}.ex-tag.new{color:var(--purple);background:rgba(167,139,250,.12)}
+        @media(min-width:640px){.examples-grid{grid-template-columns:repeat(2,1fr)}}
+        @media(min-width:1024px){.examples-grid{grid-template-columns:repeat(5,1fr)}}
+        .bento-features{display:grid;grid-template-columns:1fr;gap:1rem}
+        .feat{background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;backdrop-filter:blur(8px);transition:all .3s;display:flex;align-items:flex-start;gap:1rem}
+        .feat:hover{border-color:rgba(34,211,238,.15);box-shadow:0 0 24px var(--glow)}
+        .feat-icon{width:42px;height:42px;min-width:42px;border-radius:var(--rs);background:linear-gradient(135deg,rgba(34,211,238,.1),rgba(59,130,246,.08));display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:1rem}
+        .feat h4{font-size:.9rem;font-weight:600;margin-bottom:.15rem}.feat p{font-size:.8rem;color:var(--muted)}
+        .feat.highlight{grid-column:1/-1;background:linear-gradient(135deg,rgba(34,211,238,.06),rgba(59,130,246,.04));border-color:rgba(34,211,238,.12);flex-direction:column;align-items:center;text-align:center;padding:2.5rem}
+        .feat.highlight .feat-icon{width:56px;height:56px;font-size:1.3rem}.feat.highlight h4{font-size:1.1rem}.feat.highlight p{max-width:400px}
+        @media(min-width:640px){.bento-features{grid-template-columns:repeat(2,1fr)}}
+        @media(min-width:1024px){.bento-features{grid-template-columns:repeat(3,1fr)}}
+        .pricing-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:760px;margin:0 auto}
+        .price-card{background:var(--bg-glass);border:1px solid var(--border);border-radius:var(--r);padding:2.5rem 2rem;position:relative;backdrop-filter:blur(12px);transition:all .3s}
+        .price-card.featured{border-color:rgba(34,211,238,.25);box-shadow:0 0 40px var(--glow),0 0 0 1px rgba(34,211,238,.1)}
+        .price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--cyan),var(--blue));color:#000;padding:.3rem 1.2rem;border-radius:9999px;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+        .price-card h3{font-size:1rem;font-weight:600;color:var(--muted);margin-bottom:.5rem}
+        .price-amount{font-family:'Space Grotesk',sans-serif;font-size:3.2rem;font-weight:700;letter-spacing:-.03em;line-height:1}
+        .price-amount span{font-size:1rem;font-weight:400;color:var(--muted)}
+        .price-desc{color:var(--muted);font-size:.85rem;margin:.5rem 0 1.5rem}
+        .price-list{list-style:none;margin-bottom:2rem}
+        .price-list li{padding:.45rem 0;font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:.6rem}
+        .price-list li i{color:var(--cyan);font-size:.7rem;width:14px}.price-list li strong{color:var(--white)}
+        .btn-price{display:block;width:100%;padding:.85rem;border-radius:9999px;font-weight:600;font-size:.9rem;cursor:pointer;transition:all .25s;border:none;font-family:inherit;text-align:center}
+        .btn-price.fill{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#000;box-shadow:0 4px 16px var(--glow)}
+        .btn-price.fill:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(34,211,238,.3)}
+        .btn-price.outline{background:transparent;color:var(--cyan);border:1px solid rgba(34,211,238,.3)}
+        .btn-price.outline:hover{background:rgba(34,211,238,.06)}
+        .price-extra{text-align:center;margin-top:2rem;font-size:.82rem;color:var(--muted)}
+        @media(min-width:640px){.pricing-grid{grid-template-columns:repeat(2,1fr)}}
+        .cta-section{padding:5rem 0;text-align:center}
+        .cta-card{background:linear-gradient(135deg,rgba(34,211,238,.06),rgba(59,130,246,.04));border:1px solid rgba(34,211,238,.12);border-radius:var(--r);padding:4rem 2rem;backdrop-filter:blur(8px);position:relative;overflow:hidden}
+        .cta-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 50% 120%,rgba(34,211,238,.06),transparent 60%);pointer-events:none}
+        .cta-card h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;margin-bottom:.8rem;position:relative}
+        .cta-card p{color:var(--muted);font-size:1rem;margin-bottom:2rem;position:relative}
+        .footer{border-top:1px solid var(--border);padding:2rem 0}
+        .footer-inner{display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
+        .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center}
+        .footer-links a{color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:500;transition:color .2s}.footer-links a:hover{color:var(--white)}
+        .footer-copy{color:var(--dim);font-size:.75rem}
+        .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+        .reveal.visible{opacity:1;transform:none}
+        .stagger>*:nth-child(1){transition-delay:0s}.stagger>*:nth-child(2){transition-delay:.08s}.stagger>*:nth-child(3){transition-delay:.16s}.stagger>*:nth-child(4){transition-delay:.24s}.stagger>*:nth-child(5){transition-delay:.32s}
     </style>
 </head>
 <body>
-
-    <!-- BANNER DE LANZAMIENTO -->
-    <div class="launch-banner">
-        🚀 LANZAMIENTO: Precio especial por 1 semana <span>SOLO $40</span>
+    <nav class="navbar" id="navbar"><div class="container nav-inner">
+        <a href="#" class="nav-logo"><span>CPD</span>&nbsp;Credencial Pro Digital</a>
+        <div class="nav-links"><a href="#proceso">Cómo funciona</a><a href="#ejemplos">Ejemplos</a><a href="#incluido">Incluido</a><a href="#precios">Precios</a></div>
+        <button class="nav-cta" onclick="abrirWA('Hola, quiero crear mi portafolio profesional')"><i class="fab fa-whatsapp"></i> Contactar</button>
+        <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></button>
+    </div></nav>
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-close" onclick="this.parentElement.classList.remove('open')"><i class="fas fa-xmark"></i></button>
+        <a href="#proceso" onclick="this.parentElement.classList.remove('open')">Cómo funciona</a>
+        <a href="#ejemplos" onclick="this.parentElement.classList.remove('open')">Ejemplos</a>
+        <a href="#incluido" onclick="this.parentElement.classList.remove('open')">Incluido</a>
+        <a href="#precios" onclick="this.parentElement.classList.remove('open')">Precios</a>
     </div>
 
-    <!-- MENÚ STICKY (como tu portafolio) -->
-    <nav class="nav-menu">
-        <div class="nav-links">
-            <a href="#inicio">Inicio</a>
-            <a href="#ejemplos">Ejemplos</a>
-            <a href="#caracteristicas">Características</a>
-            <a href="#logros">Logros</a>
-            <a href="#precios">Precios</a>
+    <section class="hero"><div class="hero-orb"></div><div class="container hero-content"><div class="hero-top">
+        <div class="hero-badge"><i class="fas fa-bolt"></i> Listo en 48 horas — vos enviás, nosotros hacemos todo</div>
+        <h1>Tu carrera merece<br>un <em>portafolio profesional</em></h1>
+        <p class="hero-sub">Envianos tus certificados, fotos y un texto o audio sobre tu trayectoria. Nosotros creamos tu portafolio digital verificable, completo y listo para compartir.</p>
+        <div class="hero-ctas">
+            <a href="#precios" class="btn glow">Ver planes <i class="fas fa-arrow-right" style="font-size:.75rem"></i></a>
+            <a href="#ejemplos" class="btn ghost"><i class="fas fa-eye"></i> Ver ejemplos</a>
         </div>
-    </nav>
-
-    <!-- SELECTOR DE COLOR -->
-    <div class="color-picker-demo">
-        <span>🎨 COLOR:</span>
-        <div class="color-option selected" style="background: linear-gradient(135deg, #2563eb, #7c3aed);" onclick="cambiarColor('azul')"></div>
-        <div class="color-option" style="background: linear-gradient(135deg, #059669, #10b981);" onclick="cambiarColor('verde')"></div>
-        <div class="color-option" style="background: linear-gradient(135deg, #dc2626, #f97316);" onclick="cambiarColor('rojo')"></div>
-        <div class="color-option" style="background: linear-gradient(135deg, #7c3aed, #c026d3);" onclick="cambiarColor('morado')"></div>
-        <div class="color-option" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);" onclick="cambiarColor('amarillo')"></div>
     </div>
+    <div class="bento-trust">
+        <div class="bento-item"><i class="fas fa-receipt"></i><strong>Pago único</strong><small>Sin suscripción</small></div>
+        <div class="bento-item"><i class="fas fa-arrows-rotate"></i><strong>6 cambios/año</strong><small>Gratis incluidos</small></div>
+        <div class="bento-item"><i class="fas fa-file-circle-check"></i><strong>PDFs verificables</strong><small>Certificados reales</small></div>
+    </div></div></section>
 
-    <!-- HERO SECTION -->
-    <section id="inicio" class="hero">
-        <div class="profile-img-placeholder">
-            <i class="fas fa-camera"></i>
+    <div class="glow-line"></div>
+
+    <section id="proceso"><div class="container">
+        <div class="section-header"><div class="section-label">Nuestro diferencial</div><h2 class="section-title">Vos enviás. Nosotros hacemos todo.</h2><p class="section-sub">No necesitás saber de tecnología ni diseño. Solo mandanos tu material y en 48 horas tenés tu portafolio online.</p></div>
+        <div class="process-grid stagger">
+            <div class="process-card reveal"><div class="process-num">1</div><h3>Enviá tu material</h3><p>Mandanos tus certificados, fotos y un texto o audio contándonos tu trayectoria por WhatsApp.</p></div>
+            <div class="process-card reveal"><div class="process-num">2</div><h3>Nosotros lo armamos</h3><p>Diseñamos tu portafolio profesional con certificados verificables, secciones por rubro y botón de contacto.</p></div>
+            <div class="process-card reveal"><div class="process-num">3</div><h3>Compartí tu link</h3><p>Recibís tu URL lista para poner en tu CV, tarjeta, LinkedIn o WhatsApp. Online y accesible 24/7.</p></div>
         </div>
-        <h1>Credencial Pro Digital</h1>
-        <h2>Portafolios profesionales verificables · Listos en 48 horas</h2>
-        <div class="hero-cta">
-            <button class="btn-primary" onclick="window.open('https://wa.me/595992954169?text=Hola%2C%20quiero%20crear%20mi%20portafolio%20profesional', '_blank')">
-                Crear mi portafolio →
-            </button>
-            <button class="btn-outline" onclick="document.getElementById('ejemplos').scrollIntoView({behavior: 'smooth'});">
-                Ver ejemplos
-            </button>
+    </div></section>
+
+    <div class="glow-line"></div>
+
+    <section id="ejemplos"><div class="container">
+        <div class="section-header"><div class="section-label">Portafolios por rubro</div><h2 class="section-title">Adaptados a tu profesión</h2><p class="section-sub">Cada portafolio está pensado para mostrar lo que importa en tu área.</p></div>
+        <div class="examples-grid stagger">
+            <a href="ejemplo-abogado.html" target="_blank" class="ex-card reveal"><div class="ex-preview law"><i class="fas fa-scale-balanced"></i></div><div class="ex-body"><h3>Abogada Corporativa</h3><p>Fallos, publicaciones y certificaciones.</p><span class="ex-tag">Ver ejemplo <i class="fas fa-arrow-right" style="font-size:.6rem"></i></span></div></a>
+            <a href="ejemplo-medico.html" target="_blank" class="ex-card reveal"><div class="ex-preview med"><i class="fas fa-heart-pulse"></i></div><div class="ex-body"><h3>Cardiólogo</h3><p>Especialidades, papers y trayectoria.</p><span class="ex-tag">Ver ejemplo <i class="fas fa-arrow-right" style="font-size:.6rem"></i></span></div></a>
+            <div class="ex-card disabled reveal"><div class="ex-preview arch"><i class="fas fa-drafting-compass"></i></div><div class="ex-body"><h3>Arquitecto</h3><p>Proyectos, planos y memorias.</p><span class="ex-tag soon">Próximamente</span></div></div>
+            <div class="ex-card disabled reveal"><div class="ex-preview dev"><i class="fas fa-code"></i></div><div class="ex-body"><h3>Programador</h3><p>Proyectos, stack y repos.</p><span class="ex-tag soon">Próximamente</span></div></div>
+            <div class="ex-card disabled reveal"><div class="ex-preview creative"><i class="fas fa-palette"></i></div><div class="ex-body"><h3>Artista / Creativo</h3><p>Galería inmersiva y storytelling.</p><span class="ex-tag new"><i class="fas fa-wand-magic-sparkles"></i> Nuevo</span></div></div>
         </div>
+    </div></section>
 
-        <div class="stats-grid">
-            <div class="stat-item"><div class="stat-number">87</div><div class="stat-label">Portafolios creados</div></div>
-            <div class="stat-item"><div class="stat-number">4.9★</div><div class="stat-label">Valoración</div></div>
-            <div class="stat-item"><div class="stat-number">48hs</div><div class="stat-label">Entrega</div></div>
+    <div class="glow-line"></div>
+
+    <section id="incluido"><div class="container">
+        <div class="section-header"><div class="section-label">Todo incluido</div><h2 class="section-title">Lo que recibís con tu portafolio</h2></div>
+        <div class="bento-features stagger">
+            <div class="feat highlight reveal"><div class="feat-icon"><i class="fas fa-paper-plane"></i></div><h4>Entrega en 48 horas</h4><p>Vos enviás tu material por WhatsApp y en 2 días tenés tu portafolio profesional online. Sin complicaciones.</p></div>
+            <div class="feat reveal"><div class="feat-icon"><i class="fas fa-camera"></i></div><div><h4>Tu foto profesional</h4><p>Colocada y optimizada por nosotros</p></div></div>
+            <div class="feat reveal"><div class="feat-icon"><i class="fas fa-file-pdf"></i></div><div><h4>15 certificados con PDF</h4><p>Verificables con un clic</p></div></div>
+            <div class="feat reveal"><div class="feat-icon"><i class="fab fa-whatsapp"></i></div><div><h4>WhatsApp directo</h4><p>Botón de contacto inmediato</p></div></div>
+            <div class="feat reveal"><div class="feat-icon"><i class="fas fa-download"></i></div><div><h4>CV descargable</h4><p>Tu CV en PDF con un solo clic</p></div></div>
+            <div class="feat reveal"><div class="feat-icon"><i class="fas fa-pen-nib"></i></div><div><h4>3 artículos o papers</h4><p>Publicaciones con enlace o PDF</p></div></div>
+            <div class="feat reveal"><div class="feat-icon"><i class="fas fa-chart-simple"></i></div><div><h4>Contador de visitas</h4><p>Medí quién mira tu portafolio</p></div></div>
+            <div class="feat reveal"><div class="feat-icon"><i class="fas fa-arrows-rotate"></i></div><div><h4>6 cambios gratis al año</h4><p>Actualizá cuando quieras</p></div></div>
+            <div class="feat reveal"><div class="feat-icon"><i class="fas fa-cloud"></i></div><div><h4>Respaldo en la nube</h4><p>Tu portafolio siempre seguro</p></div></div>
         </div>
+    </div></section>
 
-        <div class="trust-badges">
-            <span class="trust-badge"><i class="fas fa-shield-alt"></i> Pago seguro</span>
-            <span class="trust-badge"><i class="fas fa-bolt"></i> Entrega 48hs</span>
-            <span class="trust-badge"><i class="fas fa-headset"></i> Soporte incluido</span>
+    <div class="glow-line"></div>
+
+    <section id="precios"><div class="container">
+        <div class="section-header"><div class="section-label">Precios</div><h2 class="section-title">Pago único. Sin sorpresas.</h2><p class="section-sub">Sin suscripciones ni pagos mensuales. Pagás una vez y listo.</p></div>
+        <div class="pricing-grid">
+            <div class="price-card reveal"><h3>Base</h3><div class="price-amount">$40 <span>USD</span></div><p class="price-desc">Todo lo que necesitás para un portafolio profesional.</p>
+                <ul class="price-list"><li><i class="fas fa-check"></i> 15 certificados con PDF</li><li><i class="fas fa-check"></i> WhatsApp directo</li><li><i class="fas fa-check"></i> CV descargable</li><li><i class="fas fa-check"></i> 3 artículos / papers</li><li><i class="fas fa-check"></i> Contador de visitas</li><li><i class="fas fa-check"></i> 6 cambios gratis al año</li><li><i class="fas fa-check"></i> Respaldo en la nube</li><li><i class="fas fa-check"></i> Entrega en 48 horas</li></ul>
+                <button class="btn-price outline" onclick="abrirWA('Hola, quiero el plan BASE de $40 USD')"><i class="fab fa-whatsapp"></i> Solicitar plan Base</button>
+            </div>
+            <div class="price-card featured reveal"><div class="price-badge"><i class="fas fa-star"></i> Más elegido</div><h3>Completo</h3><div class="price-amount">$100 <span>USD</span></div><p class="price-desc">Todo el plan Base más extras premium para destacarte.</p>
+                <ul class="price-list"><li><i class="fas fa-check"></i> <strong>40 certificados</strong> con PDF</li><li><i class="fas fa-check"></i> <strong>Dominio propio</strong> (tunombre.com)</li><li><i class="fas fa-check"></i> <strong>Modo Premium</strong> con animaciones</li><li><i class="fas fa-check"></i> <strong>Biografía interactiva</strong> (timeline)</li><li><i class="fas fa-check"></i> 6 cambios gratis al año</li><li><i class="fas fa-check"></i> Todo lo del plan Base</li></ul>
+                <button class="btn-price fill" onclick="abrirWA('Hola, quiero el PAQUETE COMPLETO de $100 USD')"><i class="fab fa-whatsapp"></i> Solicitar plan Completo</button>
+            </div>
         </div>
-    </section>
+        <p class="price-extra"><i class="fas fa-circle-plus" style="color:var(--cyan)"></i> Certificados adicionales: <strong>$1 USD</strong> cada uno.</p>
+    </div></section>
 
-    <div class="container">
-        
-        <!-- EJEMPLOS POR RUBRO (con Freelancer) -->
-        <section id="ejemplos" class="section">
-            <h2><i class="fas fa-briefcase"></i> Ejemplos por rubro</h2>
-            <div class="market-grid">
-                <!-- Abogada -->
-                <div class="market-card" onclick="window.open('ejemplo-abogado.html', '_blank')">
-                    <div class="market-preview">⚖️</div>
-                    <h3 class="market-title">Abogada Corporativa</h3>
-                    <p style="color: var(--gray);">Fallos, publicaciones, certificaciones.</p>
-                    <button class="market-btn">Ver ejemplo →</button>
-                </div>
-                <!-- Médico -->
-                <div class="market-card" onclick="window.open('ejemplo-medico.html', '_blank')">
-                    <div class="market-preview">🩺</div>
-                    <h3 class="market-title">Cardiólogo</h3>
-                    <p style="color: var(--gray);">Especialidades, papers, trayectoria.</p>
-                    <button class="market-btn">Ver ejemplo →</button>
-                </div>
-                <!-- Arquitecto -->
-                <div class="market-card" onclick="alert('Ejemplo en construcción')">
-                    <div class="market-preview">🏛️</div>
-                    <h3 class="market-title">Arquitecto</h3>
-                    <p style="color: var(--gray);">Próximamente</p>
-                    <button class="market-btn">Ver ejemplo →</button>
-                </div>
-                <!-- Freelancer (antes programador) -->
-                <div class="market-card" onclick="alert('Ejemplo en construcción')">
-                    <div class="market-preview">💼</div>
-                    <h3 class="market-title">Freelancer</h3>
-                    <p style="color: var(--gray);">Próximamente</p>
-                    <button class="market-btn">Ver ejemplo →</button>
-                </div>
-            </div>
-        </section>
+    <div class="glow-line"></div>
 
-        <!-- CARACTERÍSTICAS BASE -->
-        <section id="caracteristicas" class="section">
-            <h2><i class="fas fa-cogs"></i> Incluido en $40</h2>
-            <div class="feature-grid">
-                <div class="feature-card"><i class="fas fa-camera feature-icon"></i><h3 class="feature-title">Tu foto + datos</h3></div>
-                <div class="feature-card"><i class="fas fa-file-pdf feature-icon"></i><h3 class="feature-title">15 certificados PDF</h3></div>
-                <div class="feature-card"><i class="fab fa-whatsapp feature-icon"></i><h3 class="feature-title">WhatsApp directo</h3></div>
-                <div class="feature-card"><i class="fas fa-download feature-icon"></i><h3 class="feature-title">CV descargable</h3></div>
-                <div class="feature-card"><i class="fas fa-newspaper feature-icon"></i><h3 class="feature-title">3 artículos/papers</h3></div>
-                <div class="feature-card"><i class="fas fa-chart-line feature-icon"></i><h3 class="feature-title">Contador visitas</h3></div>
-                <div class="feature-card"><i class="fas fa-undo-alt feature-icon"></i><h3 class="feature-title">2 cambios/año</h3></div>
-                <div class="feature-card"><i class="fas fa-cloud feature-icon"></i><h3 class="feature-title">Respaldo nube</h3></div>
-            </div>
-        </section>
+    <section class="cta-section"><div class="container"><div class="cta-card reveal">
+        <h2>¿Listo para tener tu portafolio?</h2>
+        <p>Mandanos un mensaje y en 48 horas tenés tu portafolio profesional online.</p>
+        <button class="btn glow" onclick="abrirWA('Hola, quiero crear mi portafolio profesional')" style="position:relative"><i class="fab fa-whatsapp"></i> Escribinos por WhatsApp</button>
+    </div></div></section>
 
-        <!-- EXTRAS PREMIUM -->
-        <section class="section">
-            <h2><i class="fas fa-crown"></i> Extras +$20</h2>
-            <div class="feature-grid">
-                <div class="feature-card premium"><span style="background: #fbbf24; color: #92400e; padding: 0.2rem 1rem; border-radius: 50px; display: inline-block; margin-bottom: 1rem;">+$20</span><i class="fas fa-globe feature-icon"></i><h3 class="feature-title">Dominio propio</h3></div>
-                <div class="feature-card premium"><span style="background: #fbbf24; color: #92400e; padding: 0.2rem 1rem; border-radius: 50px; display: inline-block; margin-bottom: 1rem;">+$20</span><i class="fas fa-crown feature-icon"></i><h3 class="feature-title">Modo Premium</h3></div>
-                <div class="feature-card premium"><span style="background: #fbbf24; color: #92400e; padding: 0.2rem 1rem; border-radius: 50px; display: inline-block; margin-bottom: 1rem;">+$20</span><i class="fas fa-timeline feature-icon"></i><h3 class="feature-title">Biografía interactiva</h3></div>
-            </div>
-        </section>
-
-        <!-- LOGROS DESTACADOS (datos virtuales) -->
-        <section id="logros" class="section">
-            <h2><i class="fas fa-trophy" style="color: var(--secondary); margin-right: 10px;"></i> Logros Destacados</h2>
-            <ul class="achievements-list">
-                <li><i class="fas fa-star"></i> <strong>+350</strong> portafolios creados para profesionales</li>
-                <li><i class="fas fa-star"></i> <strong>98%</strong> de clientes satisfechos</li>
-                <li><i class="fas fa-star"></i> Clientes en <strong>12 países</strong> de Latinoamérica</li>
-                <li><i class="fas fa-star"></i> <strong>4.9/5</strong> calificación promedio en más de 200 reseñas</li>
-            </ul>
-        </section>
-
-        <!-- PRECIOS -->
-        <section id="precios" class="section">
-            <h2><i class="fas fa-tag"></i> Planes</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Base</h3>
-                    <div class="pricing-price">$40</div>
-                    <ul style="list-style: none; margin: 2rem 0;">
-                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> 15 certificados</li>
-                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> WhatsApp directo</li>
-                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> CV descargable</li>
-                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> 2 cambios/año</li>
-                    </ul>
-                    <button class="btn-wa" onclick="window.open('https://wa.me/595992954169?text=Hola%2C%20quiero%20el%20plan%20BASE%20de%20%2440', '_blank')">
-                        <i class="fab fa-whatsapp"></i> Solicitar
-                    </button>
-                </div>
-                <div class="pricing-card popular">
-                    <div class="popular-badge">MÁS POPULAR</div>
-                    <h3>Completo</h3>
-                    <div class="pricing-price">$100</div>
-                    <ul style="list-style: none; margin: 2rem 0;">
-                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> 40 certificados</li>
-                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> Dominio propio</li>
-                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> Modo Premium</li>
-                        <li style="margin: 0.8rem 0;"><i class="fas fa-check" style="color: #10b981;"></i> 6 cambios/año</li>
-                    </ul>
-                    <button class="btn-wa" onclick="window.open('https://wa.me/595992954169?text=Hola%2C%20quiero%20el%20PAQUETE%20COMPLETO%20de%20%24100', '_blank')">
-                        <i class="fab fa-whatsapp"></i> Solicitar
-                    </button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div style="text-align: center;">
-            <div style="margin-bottom: 2rem;">
-                <a href="#inicio">Inicio</a>
-                <a href="#ejemplos">Ejemplos</a>
-                <a href="#precios">Precios</a>
-            </div>
-            <p>📧 cpdparaguay@gmail.com · 📱 0992 954 169</p>
-            <p style="margin-top: 1rem; opacity: 0.6;">© 2025 Credencial Pro Digital</p>
-        </div>
-    </footer>
-
-    <!-- MODALES -->
-    <div class="modal" id="modal-foto"><div class="modal-content"><span class="modal-close" onclick="cerrarModal('modal-foto')">&times;</span><h3>📸 Tu foto</h3><p>Subís tu foto, nosotros la colocamos profesionalmente.</p></div></div>
+    <footer class="footer"><div class="container footer-inner">
+        <div class="footer-links"><a href="#proceso">Cómo funciona</a><a href="#ejemplos">Ejemplos</a><a href="#precios">Precios</a><a href="mailto:cpdparaguay@gmail.com">cpdparaguay@gmail.com</a></div>
+        <p class="footer-copy">&copy; 2025 Credencial Pro Digital &middot; Asunción, Paraguay</p>
+    </div></footer>
 
     <script>
-        function cambiarColor(color) {
-            const options = document.querySelectorAll('.color-option');
-            options.forEach(opt => opt.classList.remove('selected'));
-            event.target.classList.add('selected');
-        }
-        function abrirModal(id) { document.getElementById(id).style.display = 'flex'; }
-        function cerrarModal(id) { document.getElementById(id).style.display = 'none'; }
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
+        function abrirWA(m){window.open('https://wa.me/595992954169?text='+encodeURIComponent(m),'_blank')}
+        const nb=document.getElementById('navbar');window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>40));
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const el=document.querySelector(a.getAttribute('href'));if(el)window.scrollTo({top:el.offsetTop-70,behavior:'smooth'})})});
+        const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+        document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     </script>
 </body>
 </html>
