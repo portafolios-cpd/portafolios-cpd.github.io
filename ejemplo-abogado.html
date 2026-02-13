@@ -376,7 +376,7 @@
             background: var(--primary);
             color: white;
         }
-        /* Publicaciones */
+        /* Publicaciones con popups */
         .pub-list {
             list-style: none;
         }
@@ -385,17 +385,44 @@
             border-bottom: 1px solid var(--gray-300);
             display: flex;
             gap: 1rem;
+            align-items: flex-start;
         }
         .pub-item i {
             color: var(--accent);
             font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+        .pub-content {
+            flex: 1;
         }
         .pub-text {
             font-weight: 500;
+            display: block;
         }
         .pub-meta {
             color: var(--gray-500);
             font-size: 0.85rem;
+            margin: 0.25rem 0 0.5rem;
+        }
+        .pub-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .pub-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .pub-btn:hover {
+            background: var(--primary);
+            color: white;
         }
         /* Contacto */
         .contact-info {
@@ -428,6 +455,48 @@
         .footer a:hover {
             color: white;
         }
+        /* MODALES */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--gray-500);
+        }
+        .modal-close:hover { color: var(--gray-900); }
+        .modal h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .modal-benefit {
+            background: var(--gray-100);
+            padding: 1rem;
+            border-radius: var(--border-radius-sm);
+            margin: 1rem 0;
+        }
         @media (min-width: 640px) {
             .grid-2 { grid-template-columns: repeat(2, 1fr); }
             .grid-4 { grid-template-columns: repeat(2, 1fr); }
@@ -440,6 +509,27 @@
     </style>
 </head>
 <body>
+
+    <!-- MODALES POPUP (explicativos) -->
+    <div class="modal" id="modal-pub">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-pub')">&times;</span>
+            <h3>📝 Publicación / Artículo</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué podés hacer con este espacio?</strong>
+                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                    <li>Cargar el PDF del artículo completo</li>
+                    <li>Agregar un enlace externo (entrevista, video, noticia)</li>
+                    <li>Incluir resumen o abstract</li>
+                    <li>Mostrar citas académicas</li>
+                </ul>
+            </div>
+            <div class="modal-benefit">
+                <strong>📌 Ejemplo en tu portafolio real:</strong>
+                <p style="margin-top: 0.5rem;">• "Entrevista en ABC Color" → enlace a la nota<br>• "Artículo completo PDF" → descarga directa<br>• "Video de la conferencia" → link a YouTube</p>
+            </div>
+        </div>
+    </div>
 
     <!-- NAVBAR STICKY -->
     <nav class="navbar">
@@ -625,30 +715,42 @@
         </div>
     </section>
 
-    <!-- PUBLICACIONES -->
+    <!-- PUBLICACIONES CON POPUPS -->
     <section id="publicaciones" style="background: var(--white);">
         <div class="container">
             <h2 class="section-title"><i class="fas fa-pen-fancy"></i> Publicaciones</h2>
             <ul class="pub-list">
                 <li class="pub-item">
                     <i class="fas fa-file-alt"></i>
-                    <div>
+                    <div class="pub-content">
                         <span class="pub-text">"El nuevo marco regulatorio paraguayo"</span>
                         <div class="pub-meta">Revista Jurídica · 2024</div>
+                        <div class="pub-actions">
+                            <button class="pub-btn" onclick="abrirModal('modal-pub')"><i class="fas fa-info-circle"></i> Ver opciones</button>
+                            <button class="pub-btn" onclick="alert('🔗 Enlace a entrevista / PDF (demo)')"><i class="fas fa-link"></i> Ver artículo</button>
+                        </div>
                     </div>
                 </li>
                 <li class="pub-item">
                     <i class="fas fa-file-alt"></i>
-                    <div>
+                    <div class="pub-content">
                         <span class="pub-text">"M&A en tiempos de incertidumbre"</span>
                         <div class="pub-meta">Lex Paraguay · 2023</div>
+                        <div class="pub-actions">
+                            <button class="pub-btn" onclick="abrirModal('modal-pub')"><i class="fas fa-info-circle"></i> Ver opciones</button>
+                            <button class="pub-btn" onclick="alert('🔗 Enlace a entrevista / PDF (demo)')"><i class="fas fa-link"></i> Ver artículo</button>
+                        </div>
                     </div>
                 </li>
                 <li class="pub-item">
                     <i class="fas fa-file-alt"></i>
-                    <div>
+                    <div class="pub-content">
                         <span class="pub-text">"Compliance corporativo efectivo"</span>
                         <div class="pub-meta">Editorial Académica · 2022</div>
+                        <div class="pub-actions">
+                            <button class="pub-btn" onclick="abrirModal('modal-pub')"><i class="fas fa-info-circle"></i> Ver opciones</button>
+                            <button class="pub-btn" onclick="alert('🔗 Enlace a entrevista / PDF (demo)')"><i class="fas fa-link"></i> Ver artículo</button>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -697,7 +799,7 @@
         </div>
     </footer>
 
-    <!-- SMOOTH SCROLL (básico) -->
+    <!-- SMOOTH SCROLL -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e){
@@ -706,6 +808,13 @@
                 if(el) el.scrollIntoView({behavior: 'smooth'});
             });
         });
+        function abrirModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function cerrarModal(id) { document.getElementById(id).style.display = 'none'; }
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
