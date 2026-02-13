@@ -3,838 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Carlos Ramírez Sosa · Cardiólogo Intervencionista</title>
-    <!-- Google Fonts: Inter -->
+    <title>Dr. Carlos Ramírez Sosa — Cardiólogo Intervencionista</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root {
-            --primary: #0ea5e9;
-            --primary-dark: #0284c7;
-            --accent: #10b981;
-            --accent-light: #34d399;
-            --gray-900: #111827;
-            --gray-800: #1f2937;
-            --gray-700: #374151;
-            --gray-600: #4b5563;
-            --gray-500: #6b7280;
-            --gray-400: #9ca3af;
-            --gray-300: #e5e7eb;
-            --gray-200: #f3f4f6;
-            --gray-100: #f9fafb;
-            --white: #ffffff;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-            --border-radius: 24px;
-            --border-radius-sm: 12px;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--gray-800);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        /* === STICKY NAVBAR === */
-        .navbar {
-            position: sticky;
-            top: 0;
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.85);
-            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
-            z-index: 100;
-            padding: 0.75rem 0;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .logo i {
-            font-size: 1.8rem;
-        }
-        .nav-links {
-            display: none;
-            gap: 2.5rem;
-        }
-        .nav-links a {
-            color: var(--gray-700);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        .nav-cta {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 0.6rem 1.5rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
-        }
-        .nav-cta:hover {
-            background: var(--accent-light);
-            transform: scale(1.02);
-        }
-        @media (min-width: 768px) {
-            .nav-links { display: flex; }
-        }
-        /* === HERO === */
-        .hero {
-            padding: 3rem 0 2rem;
-            background: linear-gradient(180deg, rgba(14,165,233,0.05) 0%, rgba(255,255,255,0) 100%);
-        }
-        .hero-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
-        }
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--primary);
-            box-shadow: var(--shadow-lg);
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            line-height: 1.2;
-        }
-        .hero h2 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--gray-600);
-            margin: 0.5rem 0;
-        }
-        .hero-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-            margin: 1rem 0;
-        }
-        .med-badge {
-            background: var(--gray-200);
-            color: var(--gray-700);
-            padding: 0.4rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        .hero-cta {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 14px rgba(14, 165, 233, 0.25);
-            min-width: 200px;
-        }
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: scale(1.02);
-        }
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            padding: 1rem 2rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            border: 2px solid var(--primary);
-            cursor: pointer;
-            transition: all 0.2s;
-            min-width: 200px;
-        }
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-        .btn-wa {
-            background: #25d366;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
-        }
-        .btn-wa:hover {
-            background: #20bd5c;
-            transform: scale(1.02);
-        }
-        @media (min-width: 768px) {
-            .hero-cta { flex-direction: row; }
-            .hero-badges { justify-content: flex-start; }
-            .hero-grid { flex-direction: row; text-align: left; }
-        }
-        /* === SECCIONES GENERALES === */
-        section {
-            padding: 4rem 0;
-        }
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 2.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .section-title i {
-            color: var(--primary);
-        }
-        .card {
-            background: var(--white);
-            border: 1px solid var(--gray-300);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            transition: all 0.2s;
-            box-shadow: var(--shadow-sm);
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--primary);
-        }
-        .grid-2, .grid-3, .grid-4 {
-            display: grid;
-            gap: 1.5rem;
-        }
-        .grid-2 { grid-template-columns: 1fr; }
-        .grid-3 { grid-template-columns: 1fr; }
-        .grid-4 { grid-template-columns: 1fr; }
-        .icon-large {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        /* === TÍTULOS Y DIPLOMAS (NUEVO) === */
-        .titulos-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        .titulo-card {
-            background: var(--white);
-            border: 1px solid var(--gray-300);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            transition: 0.2s;
-            border-left: 6px solid var(--primary);
-        }
-        .titulo-card:hover {
-            box-shadow: var(--shadow-lg);
-        }
-        .titulo-header {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        .titulo-header i {
-            font-size: 2.5rem;
-            color: var(--primary);
-        }
-        .titulo-nombre {
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-        .titulo-institucion {
-            color: var(--gray-500);
-            font-size: 1rem;
-        }
-        .titulo-footer {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        .titulo-btn {
-            background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 0.5rem 1.5rem;
-            border-radius: 9999px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .titulo-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-        /* === TIMELINE === */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .timeline-item {
-            display: flex;
-            gap: 1.5rem;
-        }
-        .timeline-year {
-            font-weight: 700;
-            color: var(--primary);
-            min-width: 100px;
-        }
-        .timeline-content {
-            background: var(--gray-100);
-            padding: 1rem 1.5rem;
-            border-radius: var(--border-radius-sm);
-            border-left: 4px solid var(--accent);
-            flex: 1;
-        }
-        .timeline-title {
-            font-weight: 600;
-        }
-        /* === CERTIFICACIONES === */
-        .cert-grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-        .cert-card {
-            background: var(--white);
-            border: 1px solid var(--gray-300);
-            border-radius: var(--border-radius);
-            padding: 1.5rem;
-            transition: 0.2s;
-        }
-        .cert-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-        }
-        .cert-header {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        .cert-header i {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-        .cert-pdf {
-            background: var(--gray-200);
-            border: none;
-            padding: 0.4rem 1.2rem;
-            border-radius: 9999px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: 0.2s;
-            margin-top: 1rem;
-        }
-        .cert-pdf:hover {
-            background: var(--primary);
-            color: white;
-        }
-        /* === PUBLICACIONES CON POPUPS === */
-        .pub-list {
-            list-style: none;
-        }
-        .pub-item {
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--gray-300);
-            display: flex;
-            gap: 1rem;
-        }
-        .pub-item i {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-top: 0.2rem;
-        }
-        .pub-content {
-            flex: 1;
-        }
-        .pub-text {
-            font-weight: 500;
-        }
-        .pub-meta {
-            color: var(--gray-500);
-            font-size: 0.85rem;
-            margin: 0.25rem 0 0.5rem;
-        }
-        .pub-actions {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-        .pub-btn {
-            background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 0.3rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .pub-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-        /* === TESTIMONIOS === */
-        .testimonial-card {
-            background: var(--gray-100);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            border-left: 4px solid var(--accent);
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .testimonial-author img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-        }
-        /* === CONTACTO === */
-        .contacto-grid {
-            display: grid;
-            gap: 2rem;
-            background: var(--gray-100);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-        }
-        .contacto-item {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-        .contacto-item i {
-            color: var(--primary);
-            font-size: 1.5rem;
-            width: 2rem;
-        }
-        /* === MODALES === */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        }
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--gray-500);
-        }
-        .modal-close:hover { color: var(--gray-900); }
-        .modal h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        .modal-benefit {
-            background: var(--gray-100);
-            padding: 1rem;
-            border-radius: var(--border-radius-sm);
-            margin: 1rem 0;
-        }
-        @media (min-width: 640px) {
-            .grid-2 { grid-template-columns: repeat(2, 1fr); }
-            .grid-3 { grid-template-columns: repeat(2, 1fr); }
-            .grid-4 { grid-template-columns: repeat(2, 1fr); }
-            .cert-grid { grid-template-columns: repeat(2, 1fr); }
-            .contacto-grid { grid-template-columns: repeat(2, 1fr); }
-            .titulos-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (min-width: 1024px) {
-            .grid-3 { grid-template-columns: repeat(3, 1fr); }
-            .grid-4 { grid-template-columns: repeat(4, 1fr); }
-            .cert-grid { grid-template-columns: repeat(4, 1fr); }
-            .titulos-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#071210;--bg-mid:#0a1d1a;--teal:#2dd4bf;--teal-dark:#14b8a6;--teal-glow:rgba(45,212,191,.12);--sky:#38bdf8;--white:#f0fdfa;--text:#ccfbf1;--muted:#5eaba0;--border:rgba(255,255,255,.06);--r:20px;--rs:12px}
+        body{font-family:'Outfit',sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+        .container{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+
+        /* Navbar */
+        .navbar{position:sticky;top:0;z-index:100;background:rgba(7,18,16,.8);backdrop-filter:blur(20px) saturate(1.3);border-bottom:1px solid var(--border);padding:.7rem 0}
+        .nav-inner{display:flex;justify-content:space-between;align-items:center}
+        .nav-name{font-weight:800;font-size:1.1rem;color:var(--teal);display:flex;align-items:center;gap:.4rem}
+        .nav-name i{font-size:1.2rem}
+        .nav-links{display:none;gap:2rem}.nav-links a{color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}.nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--teal);color:var(--bg);border:none;padding:.5rem 1.2rem;border-radius:9999px;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+        .nav-cta:hover{box-shadow:0 4px 16px var(--teal-glow);transform:translateY(-1px)}
+        @media(min-width:768px){.nav-links{display:flex}}
+
+        /* Hero Bento */
+        .hero{padding:3rem 0 2rem}
+        .hero-bento{display:grid;grid-template-columns:1fr;gap:.8rem}
+        .bento-cell{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;backdrop-filter:blur(8px);transition:all .3s}
+        .bento-cell:hover{border-color:rgba(45,212,191,.15);box-shadow:0 0 24px var(--teal-glow)}
+
+        .bento-profile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem}
+        .hero-img{width:130px;height:130px;border-radius:50%;object-fit:cover;border:3px solid var(--teal);box-shadow:0 0 0 6px var(--teal-glow)}
+        .bento-profile h1{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;color:var(--white);line-height:1.15}
+        .bento-profile h2{font-size:.9rem;font-weight:400;color:var(--muted)}
+        .hero-badges{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.5rem}
+        .med-badge{background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.15);padding:.25rem .7rem;border-radius:9999px;font-size:.72rem;font-weight:500;color:var(--teal)}
+
+        .bento-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+        .stat{text-align:center;padding:1rem;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--rs);transition:all .3s}
+        .stat:hover{border-color:rgba(45,212,191,.15);box-shadow:0 0 16px var(--teal-glow)}
+        .stat-num{font-size:1.5rem;font-weight:800;color:var(--teal)}.stat-lab{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+
+        .bento-actions{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+        .btn{padding:.7rem 1.6rem;border-radius:9999px;font-weight:600;font-size:.85rem;cursor:pointer;transition:all .25s;border:none;font-family:inherit;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none}
+        .btn.teal{background:var(--teal);color:var(--bg);box-shadow:0 4px 14px var(--teal-glow)}.btn.teal:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,212,191,.25)}
+        .btn.wa{background:#25d366;color:#fff}.btn.wa:hover{background:#1fb855;transform:translateY(-1px)}
+        .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}.btn.ghost:hover{border-color:var(--teal);color:var(--teal)}
+
+        @media(min-width:768px){.hero-bento{grid-template-columns:1fr 1fr}.bento-profile{grid-column:1/3}}
+
+        /* Sections */
+        section{padding:3rem 0}
+        .section-title{font-size:1.5rem;font-weight:800;color:var(--white);margin-bottom:2rem;display:flex;align-items:center;gap:.6rem}
+        .section-title i{color:var(--teal);font-size:1.1rem}
+        .divider{height:1px;max-width:120px;margin:0 auto 3rem;background:linear-gradient(90deg,transparent,var(--teal),transparent);opacity:.25}
+        .bg-alt{background:rgba(255,255,255,.015)}
+
+        /* Grid */
+        .grid-3{display:grid;grid-template-columns:1fr;gap:.8rem}
+        .card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;transition:all .3s;position:relative;overflow:hidden}
+        .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),transparent);opacity:0;transition:.3s}
+        .card:hover{border-color:rgba(45,212,191,.2);box-shadow:0 8px 24px rgba(0,0,0,.3);transform:translateY(-3px)}.card:hover::before{opacity:1}
+        .card i.top-icon{font-size:1.4rem;color:var(--teal);margin-bottom:.8rem;display:block}
+        .card h3{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.25rem}.card p{font-size:.82rem;color:var(--muted)}
+        @media(min-width:640px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+
+        /* Timeline */
+        .timeline{display:flex;flex-direction:column;gap:.8rem}
+        .tl-item{background:rgba(255,255,255,.03);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:0 var(--rs) var(--rs) 0;padding:1.3rem;transition:all .25s}
+        .tl-item:hover{box-shadow:0 4px 20px rgba(0,0,0,.25)}
+        .tl-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:.3rem}
+        .tl-title{font-weight:700;color:var(--white);font-size:.95rem}
+        .tl-year{background:rgba(45,212,191,.1);padding:.15rem .6rem;border-radius:9999px;font-size:.7rem;font-weight:600;color:var(--teal)}
+        .tl-desc{font-size:.85rem;color:var(--muted)}.tl-tag{display:inline-block;background:rgba(45,212,191,.12);color:var(--teal);padding:.12rem .6rem;border-radius:9999px;font-size:.65rem;font-weight:600;margin-top:.4rem}
+
+        /* Certs */
+        .cert-grid{display:grid;grid-template-columns:1fr;gap:.8rem}
+        .cert-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--rs);padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem;transition:.25s}
+        .cert-card:hover{border-color:rgba(45,212,191,.2);box-shadow:0 0 20px var(--teal-glow)}
+        .cert-left{display:flex;align-items:center;gap:.7rem}.cert-left i{font-size:1.1rem;color:var(--teal)}
+        .cert-name{font-weight:600;font-size:.85rem;color:var(--white)}.cert-org{font-size:.75rem;color:var(--muted)}
+        .cert-btn{background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.2);padding:.3rem .8rem;border-radius:9999px;font-size:.7rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:.2s;color:var(--teal);font-family:inherit}
+        .cert-btn:hover{background:var(--teal);color:var(--bg);border-color:var(--teal)}
+        @media(min-width:640px){.cert-grid{grid-template-columns:repeat(2,1fr)}}
+
+        /* Pubs */
+        .pub-list{list-style:none}.pub-item{display:flex;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--border)}
+        .pub-item i{color:var(--teal);margin-top:.15rem;font-size:.9rem}
+        .pub-title{font-weight:600;font-size:.88rem;color:var(--white)}.pub-meta{font-size:.78rem;color:var(--muted)}
+
+        /* Testimonials */
+        .grid-2{display:grid;grid-template-columns:1fr;gap:.8rem}
+        .testimonial{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;transition:.25s}
+        .testimonial:hover{box-shadow:0 0 20px var(--teal-glow);border-color:rgba(45,212,191,.15)}
+        .testimonial p{font-style:italic;color:var(--muted);margin-bottom:1rem;font-size:.9rem}
+        .testimonial-author{display:flex;align-items:center;gap:.7rem}
+        .testimonial-author img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--teal)}
+        .testimonial-author strong{font-size:.82rem;color:var(--white)}.testimonial-author small{font-size:.7rem;color:var(--muted)}
+        @media(min-width:640px){.grid-2{grid-template-columns:repeat(2,1fr)}}
+
+        /* Contact CTA */
+        .contact-cta{background:linear-gradient(135deg,rgba(45,212,191,.08),rgba(56,189,248,.04));border:1px solid rgba(45,212,191,.15);border-radius:var(--r);padding:3rem 2rem;text-align:center;backdrop-filter:blur(8px)}
+        .contact-cta h2{font-size:1.8rem;font-weight:800;margin-bottom:.5rem;color:var(--white)}.contact-cta>p{color:var(--muted);margin-bottom:1.5rem}
+        .contact-pills{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:1.5rem}
+        .pill{background:rgba(255,255,255,.06);border:1px solid var(--border);padding:.5rem 1rem;border-radius:var(--rs);font-size:.82rem;display:flex;align-items:center;gap:.4rem;color:var(--text)}
+        .pill i{color:var(--teal);font-size:.8rem}
+        .btn-wa-big{background:#25d366;color:#fff;border:none;padding:.9rem 2.2rem;border-radius:9999px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;display:inline-flex;align-items:center;gap:.5rem}
+        .btn-wa-big:hover{background:#1fb855;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.2)}
+
+        /* Footer */
+        .footer{background:rgba(0,0,0,.3);border-top:1px solid var(--border);padding:2rem 0;text-align:center}
+        .footer-links{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+        .footer-links a{color:var(--muted);text-decoration:none;font-size:.8rem;transition:color .2s}.footer-links a:hover{color:var(--text)}
+        .footer p{font-size:.75rem;color:var(--muted);opacity:.5}.footer .demo{font-size:.7rem;opacity:.35;margin-top:.4rem}
+
+        .fade{opacity:0;transform:translateY(20px);transition:all .6s cubic-bezier(.22,1,.36,1)}.fade.visible{opacity:1;transform:none}
     </style>
 </head>
 <body>
+    <nav class="navbar"><div class="container nav-inner">
+        <div class="nav-name"><i class="fas fa-heart-pulse"></i> Dr. Ramírez</div>
+        <div class="nav-links"><a href="#especialidades">Especialidades</a><a href="#trayectoria">Trayectoria</a><a href="#certificaciones">Certificaciones</a><a href="#publicaciones">Publicaciones</a><a href="#contacto">Contacto</a></div>
+        <button class="nav-cta" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20quiero%20agendar%20un%20turno','_blank')"><i class="fab fa-whatsapp"></i> Agendar turno</button>
+    </div></nav>
 
-    <!-- MODALES -->
-    <div class="modal" id="modal-pub">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-pub')">&times;</span>
-            <h3>📝 Publicación científica</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué podés hacer con este espacio?</strong>
-                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
-                    <li>Cargar el PDF del artículo completo</li>
-                    <li>Agregar enlace a PubMed, ResearchGate o revista</li>
-                    <li>Incluir entrevistas o videos sobre el tema</li>
-                    <li>Mostrar presentaciones en congresos</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="modal-titulo">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-titulo')">&times;</span>
-            <h3>🎓 Título / Diploma</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué podés hacer con este espacio?</strong>
-                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
-                    <li>Subir el PDF del título universitario</li>
-                    <li>Agregar diploma de especialidad</li>
-                    <li>Incluir certificado de fellowship</li>
-                    <li>Mostrar reconocimientos académicos</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="modal-cert">
-        <div class="modal-content">
-            <span class="modal-close" onclick="cerrarModal('modal-cert')">&times;</span>
-            <h3>📜 Certificación</h3>
-            <div class="modal-benefit">
-                <strong>✅ ¿Qué podés hacer con este espacio?</strong>
-                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
-                    <li>Certificados de sociedades médicas</li>
-                    <li>Recertificaciones internacionales</li>
-                    <li>Memberships y fellowships</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <i class="fas fa-heart-pulse"></i> CRS
-            </div>
-            <div class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#titulos">Títulos</a>
-                <a href="#especialidades">Especialidades</a>
-                <a href="#trayectoria">Trayectoria</a>
-                <a href="#contacto">Agendar</a>
-            </div>
-            <button class="nav-cta" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20quiero%20agendar%20un%20turno%20con%20usted', '_blank')">
-                Solicitar turno
-            </button>
-        </div>
-    </nav>
-
-    <!-- HERO -->
-    <section id="inicio" class="hero">
-        <div class="container hero-grid">
-            <img src="https://i.pravatar.cc/300?img=12" alt="Dr. Carlos Ramírez Sosa" class="profile-img">
-            <div>
-                <h1>Dr. Carlos Ramírez Sosa</h1>
-                <h2>Cardiólogo Intervencionista | Hemodinamia</h2>
-                <div class="hero-badges">
-                    <span class="med-badge"><i class="fas fa-stethoscope"></i> 18 años exp.</span>
-                    <span class="med-badge"><i class="fas fa-heart"></i> +3.000 procedimientos</span>
-                    <span class="med-badge"><i class="fas fa-map-pin"></i> Clínica Santa María</span>
+    <!-- HERO BENTO -->
+    <section class="hero"><div class="container">
+        <div class="hero-bento">
+            <div class="bento-cell bento-profile">
+                <img src="https://i.pravatar.cc/300?img=12" alt="Dr. Carlos Ramírez Sosa" class="hero-img">
+                <div>
+                    <h1>Dr. Carlos Ramírez Sosa</h1>
+                    <h2>Cardiólogo Intervencionista &middot; Hemodinamista</h2>
+                    <div class="hero-badges"><span class="med-badge">Cardiología</span><span class="med-badge">Hemodinamia</span><span class="med-badge">Stents</span><span class="med-badge">Angioplastia</span><span class="med-badge">TAVI</span></div>
                 </div>
-                <div class="hero-badges">
-                    <span class="med-badge">Miembro SOLACI</span>
-                    <span class="med-badge">Fellow AHA</span>
-                    <span class="med-badge">Docente UCA</span>
-                </div>
-                <div class="hero-cta">
-                    <button class="btn-primary" onclick="alert('✅ En tu portafolio real podrás agendar consulta online.')">
-                        <i class="fas fa-calendar-check"></i> Agendar consulta
-                    </button>
-                    <button class="btn-wa" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20vi%20su%20portafolio%20y%20quiero%20consultarle', '_blank')">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </button>
+            </div>
+            <div class="bento-cell"><div class="bento-stats">
+                <div class="stat"><div class="stat-num">2,000+</div><div class="stat-lab">Procedimientos</div></div>
+                <div class="stat"><div class="stat-num">15</div><div class="stat-lab">Años exp.</div></div>
+                <div class="stat"><div class="stat-num">12</div><div class="stat-lab">Publicaciones</div></div>
+            </div></div>
+            <div class="bento-cell">
+                <div class="bento-actions">
+                    <button class="btn teal" onclick="alert('En tu portafolio real, esto descarga el CV')"><i class="fas fa-download"></i> Descargar CV</button>
+                    <button class="btn wa" onclick="window.open('https://wa.me/595981567890?text=Dr.%20vi%20su%20portafolio','_blank')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                    <button class="btn ghost"><i class="fas fa-calendar-check"></i> Agendar</button>
                 </div>
             </div>
         </div>
-    </section>
+    </div></section>
 
-    <!-- TÍTULOS Y DIPLOMAS (NUEVA SECCIÓN DESTACADA) -->
-    <section id="titulos" style="background: var(--white);">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Títulos y diplomas</h2>
-            <div class="titulos-grid">
-                <div class="titulo-card">
-                    <div class="titulo-header">
-                        <i class="fas fa-user-md"></i>
-                        <div>
-                            <div class="titulo-nombre">Médico Cirujano</div>
-                            <div class="titulo-institucion">Universidad Nacional de Asunción · 2007</div>
-                        </div>
-                    </div>
-                    <div class="titulo-footer">
-                        <button class="titulo-btn" onclick="abrirModal('modal-titulo')"><i class="fas fa-info-circle"></i> Opciones</button>
-                        <button class="titulo-btn" onclick="alert('📄 Título de Médico (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
-                    </div>
-                </div>
-                <div class="titulo-card">
-                    <div class="titulo-header">
-                        <i class="fas fa-heart-pulse"></i>
-                        <div>
-                            <div class="titulo-nombre">Especialista en Cardiología</div>
-                            <div class="titulo-institucion">Hospital de Clínicas · 2011</div>
-                        </div>
-                    </div>
-                    <div class="titulo-footer">
-                        <button class="titulo-btn" onclick="abrirModal('modal-titulo')"><i class="fas fa-info-circle"></i> Opciones</button>
-                        <button class="titulo-btn" onclick="alert('📄 Título de Especialista (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
-                    </div>
-                </div>
-                <div class="titulo-card">
-                    <div class="titulo-header">
-                        <i class="fas fa-flask"></i>
-                        <div>
-                            <div class="titulo-nombre">Fellowship en Hemodinamia</div>
-                            <div class="titulo-institucion">Cleveland Clinic · 2014</div>
-                        </div>
-                    </div>
-                    <div class="titulo-footer">
-                        <button class="titulo-btn" onclick="abrirModal('modal-titulo')"><i class="fas fa-info-circle"></i> Opciones</button>
-                        <button class="titulo-btn" onclick="alert('📄 Certificado Fellowship (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
-                    </div>
-                </div>
-                <div class="titulo-card">
-                    <div class="titulo-header">
-                        <i class="fas fa-globe-americas"></i>
-                        <div>
-                            <div class="titulo-nombre">Board Certification AHA</div>
-                            <div class="titulo-institucion">American Heart Association · 2015 (recert. 2023)</div>
-                        </div>
-                    </div>
-                    <div class="titulo-footer">
-                        <button class="titulo-btn" onclick="abrirModal('modal-titulo')"><i class="fas fa-info-circle"></i> Opciones</button>
-                        <button class="titulo-btn" onclick="alert('📄 Board Certification (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="divider"></div>
 
     <!-- ESPECIALIDADES -->
-    <section id="especialidades">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-stethoscope"></i> Especialidades</h2>
-            <div class="grid-4">
-                <div class="card">
-                    <div class="icon-large"><i class="fas fa-heart-crack"></i></div>
-                    <h3>Cateterismo Cardíaco</h3>
-                </div>
-                <div class="card">
-                    <div class="icon-large"><i class="fas fa-heart"></i></div>
-                    <h3>Angioplastia Coronaria</h3>
-                </div>
-                <div class="card">
-                    <div class="icon-large"><i class="fas fa-microscope"></i></div>
-                    <h3>Implante de Stents</h3>
-                </div>
-                <div class="card">
-                    <div class="icon-large"><i class="fas fa-chart-line"></i></div>
-                    <h3>Diagnóstico Cardiovascular</h3>
-                </div>
-            </div>
+    <section id="especialidades" class="bg-alt"><div class="container">
+        <h2 class="section-title"><i class="fas fa-heart-circle-check"></i> Especialidades</h2>
+        <div class="grid-3">
+            <div class="card fade"><i class="fas fa-heart top-icon"></i><h3>Cateterismo cardíaco</h3><p>Diagnóstico por coronariografía y ventriculografía</p></div>
+            <div class="card fade"><i class="fas fa-stethoscope top-icon"></i><h3>Angioplastia coronaria</h3><p>Colocación de stents y balones medicados</p></div>
+            <div class="card fade"><i class="fas fa-lungs top-icon"></i><h3>TAVI</h3><p>Implante valvular aórtico transcatéter</p></div>
         </div>
-    </section>
+    </div></section>
+
+    <div class="divider"></div>
 
     <!-- TRAYECTORIA -->
-    <section id="trayectoria" style="background: var(--white);">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-timeline"></i> Formación</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">2001-2007</div>
-                    <div class="timeline-content">
-                        <div class="timeline-title">Medicina - Universidad Nacional de Asunción</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2008-2011</div>
-                    <div class="timeline-content">
-                        <div class="timeline-title">Residencia en Cardiología - Hospital de Clínicas</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2012-2014</div>
-                    <div class="timeline-content">
-                        <div class="timeline-title">Fellowship Hemodinamia - Cleveland Clinic</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2019</div>
-                    <div class="timeline-content">
-                        <div class="timeline-title">Curso Avanzado Intervención - TCT San Francisco</div>
-                    </div>
-                </div>
-            </div>
+    <section id="trayectoria"><div class="container">
+        <h2 class="section-title"><i class="fas fa-road"></i> Trayectoria</h2>
+        <div class="timeline">
+            <div class="tl-item fade"><div class="tl-top"><span class="tl-title">Jefe de Hemodinamia — Hospital Nacional</span><span class="tl-year">2020 - Presente</span></div><p class="tl-desc">Dirección del servicio de hemodinamia. +500 procedimientos anuales. Formación de residentes.</p></div>
+            <div class="tl-item fade"><div class="tl-top"><span class="tl-title">Fellow en Cardiología Intervencionista</span><span class="tl-year">2017 - 2019</span></div><p class="tl-desc">Cleveland Clinic, Ohio. Entrenamiento avanzado en intervenciones estructurales y complejas.</p><span class="tl-tag">Internacional</span></div>
+            <div class="tl-item fade"><div class="tl-top"><span class="tl-title">Residencia en Cardiología</span><span class="tl-year">2012 - 2016</span></div><p class="tl-desc">Hospital de Clínicas, Asunción. Formación integral en cardiología clínica e intervencionista.</p></div>
         </div>
-    </section>
+    </div></section>
+
+    <div class="divider"></div>
+
+    <!-- CERTIFICACIONES -->
+    <section id="certificaciones" class="bg-alt"><div class="container">
+        <h2 class="section-title"><i class="fas fa-certificate"></i> Certificaciones</h2>
+        <div class="cert-grid">
+            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-heart-circle-check"></i><div><div class="cert-name">Board Certification</div><div class="cert-org">American Heart Association &middot; 2015</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
+            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-globe-americas"></i><div><div class="cert-name">Fellow SOLACI</div><div class="cert-org">Soc. Latinoamericana de Cardiología &middot; 2016</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
+            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-flag"></i><div><div class="cert-name">Miembro Activo</div><div class="cert-org">Soc. Paraguaya de Cardiología &middot; 2012</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
+            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-arrows-rotate"></i><div><div class="cert-name">Recertificación AHA</div><div class="cert-org">2023</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
+        </div>
+    </div></section>
+
+    <div class="divider"></div>
 
     <!-- PUBLICACIONES -->
-    <section id="publicaciones">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-flask"></i> Publicaciones</h2>
-            <ul class="pub-list">
-                <li class="pub-item">
-                    <i class="fas fa-file-lines"></i>
-                    <div class="pub-content">
-                        <span class="pub-text">"Resultados a largo plazo del stent Z en pacientes paraguayos"</span>
-                        <div class="pub-meta">Revista Paraguaya de Cardiología, 2024</div>
-                        <div class="pub-actions">
-                            <button class="pub-btn" onclick="abrirModal('modal-pub')"><i class="fas fa-info-circle"></i> Opciones</button>
-                            <button class="pub-btn" onclick="alert('🔗 Enlace a PubMed (demo)')"><i class="fas fa-link"></i> Ver artículo</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="pub-item">
-                    <i class="fas fa-file-lines"></i>
-                    <div class="pub-content">
-                        <span class="pub-text">"Técnicas modernas de angioplastia"</span>
-                        <div class="pub-meta">American Journal of Cardiology, 2023</div>
-                        <div class="pub-actions">
-                            <button class="pub-btn" onclick="abrirModal('modal-pub')"><i class="fas fa-info-circle"></i> Opciones</button>
-                            <button class="pub-btn" onclick="alert('🔗 Enlace a PubMed (demo)')"><i class="fas fa-link"></i> Ver artículo</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="pub-item">
-                    <i class="fas fa-file-lines"></i>
-                    <div class="pub-content">
-                        <span class="pub-text">"Optimización de procedimientos hemodinámicos"</span>
-                        <div class="pub-meta">JACC Latin America, 2022</div>
-                        <div class="pub-actions">
-                            <button class="pub-btn" onclick="abrirModal('modal-pub')"><i class="fas fa-info-circle"></i> Opciones</button>
-                            <button class="pub-btn" onclick="alert('🔗 Enlace a PubMed (demo)')"><i class="fas fa-link"></i> Ver artículo</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+    <section id="publicaciones"><div class="container">
+        <h2 class="section-title"><i class="fas fa-flask"></i> Publicaciones</h2>
+        <ul class="pub-list">
+            <li class="pub-item fade"><i class="fas fa-file-lines"></i><div><div class="pub-title">"Resultados a largo plazo del stent Z en pacientes paraguayos"</div><div class="pub-meta">Revista Paraguaya de Cardiología &middot; 2024</div></div></li>
+            <li class="pub-item fade"><i class="fas fa-file-lines"></i><div><div class="pub-title">"Técnicas modernas de angioplastia"</div><div class="pub-meta">American Journal of Cardiology &middot; 2023</div></div></li>
+            <li class="pub-item fade"><i class="fas fa-file-lines"></i><div><div class="pub-title">"Optimización de procedimientos hemodinámicos"</div><div class="pub-meta">JACC Latin America &middot; 2022</div></div></li>
+        </ul>
+    </div></section>
+
+    <div class="divider"></div>
+
+    <!-- CONGRESOS -->
+    <section class="bg-alt"><div class="container">
+        <h2 class="section-title"><i class="fas fa-chalkboard-user"></i> Congresos</h2>
+        <div class="grid-3">
+            <div class="card fade"><i class="fas fa-calendar-check top-icon"></i><h3>Congreso SOLACI 2024</h3><p>Buenos Aires &middot; Expositor</p></div>
+            <div class="card fade"><i class="fas fa-calendar-check top-icon"></i><h3>TCT Conference 2023</h3><p>San Francisco &middot; Asistente</p></div>
+            <div class="card fade"><i class="fas fa-calendar-check top-icon"></i><h3>Congreso Nac. Cardiología</h3><p>Asunción &middot; Presidente de sesión</p></div>
         </div>
-    </section>
+    </div></section>
+
+    <div class="divider"></div>
 
     <!-- TESTIMONIOS -->
-    <section style="background: var(--white);">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-quote-right"></i> Testimonios</h2>
-            <div class="grid-2">
-                <div class="testimonial-card">
-                    <p>"El Dr. Ramírez me realizó un cateterismo de urgencia. Su profesionalismo y calidez me dieron tranquilidad."</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.pravatar.cc/80?img=31" alt="paciente">
-                        <div><strong>R.P.</strong> · 2024</div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Excelente cardiólogo, me explicó todo el procedimiento. Muy recomendado."</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.pravatar.cc/80?img=44" alt="paciente">
-                        <div><strong>M.G.</strong> · 2023</div>
-                    </div>
-                </div>
-            </div>
+    <section><div class="container">
+        <h2 class="section-title"><i class="fas fa-quote-right"></i> Testimonios</h2>
+        <div class="grid-2">
+            <div class="testimonial fade"><p>"El Dr. Ramírez me realizó un cateterismo de urgencia. Su profesionalismo y calidez me dieron tranquilidad en un momento muy difícil."</p><div class="testimonial-author"><img src="https://i.pravatar.cc/80?img=31" alt=""><div><strong>R.P.</strong><br><small>Paciente &middot; 2024</small></div></div></div>
+            <div class="testimonial fade"><p>"Excelente cardiólogo, me explicó todo el procedimiento y los resultados fueron mejores de lo esperado. Muy recomendado."</p><div class="testimonial-author"><img src="https://i.pravatar.cc/80?img=44" alt=""><div><strong>M.G.</strong><br><small>Paciente &middot; 2023</small></div></div></div>
         </div>
-    </section>
+    </div></section>
 
-    <!-- AGENDAR CITA -->
-    <section id="contacto" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color: white;">
-        <div class="container">
-            <div style="max-width: 600px; margin: 0 auto;">
-                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Agendá tu consulta</h2>
-                <p style="margin-bottom: 2rem;">Clínica Santa María · Horarios flexibles</p>
-                <div class="contacto-grid" style="background: rgba(255,255,255,0.1);">
-                    <div class="contacto-item"><i class="fas fa-map-pin"></i> Av. España 1850</div>
-                    <div class="contacto-item"><i class="fas fa-clock"></i> Lun-Vie 14:00-20:00</div>
-                    <div class="contacto-item"><i class="fas fa-phone-alt"></i> +595 981 567 890</div>
-                    <div class="contacto-item"><i class="fas fa-file-invoice"></i> IPS · San Roque · Búho</div>
-                </div>
-                <button class="btn-wa" style="margin-top: 2rem;" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20quiero%20agendar%20un%20turno', '_blank')">
-                    <i class="fab fa-whatsapp"></i> Solicitar turno
-                </button>
-            </div>
-        </div>
-    </section>
+    <div class="divider"></div>
 
-    <!-- FOOTER -->
-    <footer style="background: var(--gray-900); color: white; padding: 3rem 0 2rem;">
-        <div class="container" style="text-align: center;">
-            <p>© 2025 Dr. Carlos Ramírez Sosa · Cardiólogo Intervencionista</p>
-            <p style="opacity: 0.4; font-size: 0.8rem;">* Versión demo · Los PDFs son ilustrativos</p>
+    <!-- CONTACTO -->
+    <section id="contacto"><div class="container">
+        <div class="contact-cta">
+            <h2>Agendá tu consulta</h2>
+            <p>Consultorio en Clínica Santa María &middot; Horarios flexibles</p>
+            <div class="contact-pills">
+                <div class="pill"><i class="fas fa-map-pin"></i> Av. España 1850, Asunción</div>
+                <div class="pill"><i class="fas fa-clock"></i> Lun-Vie 14:00-20:00</div>
+                <div class="pill"><i class="fas fa-phone-alt"></i> +595 981 567 890</div>
+                <div class="pill"><i class="fas fa-file-invoice"></i> IPS &middot; San Roque &middot; Búho</div>
+            </div>
+            <button class="btn-wa-big" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20quiero%20agendar%20un%20turno','_blank')"><i class="fab fa-whatsapp"></i> Solicitar turno por WhatsApp</button>
         </div>
-    </footer>
+    </div></section>
+
+    <footer class="footer"><div class="container">
+        <div class="footer-links"><a href="#especialidades">Especialidades</a><a href="#trayectoria">Trayectoria</a><a href="#certificaciones">Certificaciones</a><a href="#contacto">Agendar</a></div>
+        <p>&copy; 2025 Dr. Carlos Ramírez Sosa &middot; Cardiólogo Intervencionista</p>
+        <p class="demo">* Versión demo &middot; Los PDFs no están disponibles en este ejemplo</p>
+    </div></footer>
 
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e){
-                e.preventDefault();
-                const el = document.querySelector(this.getAttribute('href'));
-                if(el) el.scrollIntoView({behavior: 'smooth'});
-            });
-        });
-        function abrirModal(id) { document.getElementById(id).style.display = 'flex'; }
-        function cerrarModal(id) { document.getElementById(id).style.display = 'none'; }
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const el=document.querySelector(a.getAttribute('href'));if(el)window.scrollTo({top:el.offsetTop-55,behavior:'smooth'})})});
+        const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08});
+        document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
     </script>
 </body>
 </html>
