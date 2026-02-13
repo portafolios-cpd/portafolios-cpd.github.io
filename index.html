@@ -3,105 +3,814 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolios CPD - Tu web profesional en 24hs</title>
+    <title>Portafolios CPD - Tu portafolio profesional en 24hs</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f8fafc; }
-        .hero {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.3rem; opacity: 0.9; }
-        .btn {
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f1f5f9;
+        }
+
+        /* Banner de LANZAMIENTO */
+        .launch-banner {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+        }
+
+        .launch-banner span {
+            background: #fbbf24;
+            color: #92400e;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            margin-left: 1rem;
+        }
+
+        /* Selector de color */
+        .color-picker-demo {
+            position: sticky;
+            top: 70px;
+            z-index: 100;
             background: white;
-            color: #2563eb;
-            padding: 1rem 2.5rem;
+            padding: 1rem;
             border-radius: 50px;
-            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 600px;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            border: 2px solid #e2e8f0;
+        }
+
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: 0.2s;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.selected {
+            border-color: #000;
+            box-shadow: 0 0 0 2px white;
+        }
+
+        /* Header */
+        .demo-header {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--gradient, linear-gradient(135deg, #2563eb, #7c3aed));
+            color: white;
+            transition: 0.3s;
+        }
+
+        .image-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: 3px dashed white;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .image-placeholder:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        .image-placeholder i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Contenedor */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section h2 {
+            color: #2563eb;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid #7c3aed;
+            padding-left: 1rem;
+        }
+
+        /* Tarjetas de características */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #2563eb;
+        }
+
+        .feature-card.premium {
+            border-left: 5px solid #fbbf24;
+            background: #fef3c7;
+        }
+
+        .premium-tag {
+            background: #fbbf24;
+            color: #92400e;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
             font-weight: 600;
             display: inline-block;
-            margin: 2rem 0;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
         }
-        .btn:hover { transform: scale(1.05); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .card i { font-size: 2.5rem; color: #2563eb; margin-bottom: 1rem; }
-        .footer {
-            background: #1e293b;
+
+        .btn-detail {
+            background: #2563eb;
             color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            width: 100%;
+            font-weight: 600;
         }
+
+        .btn-detail:hover {
+            background: #1e40af;
+        }
+
+        /* Precio flotante */
+        .price-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            z-index: 1000;
+            max-width: 280px;
+            border: 3px solid #059669;
+        }
+
+        .price-float .old-price {
+            text-decoration: line-through;
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .price-float .new-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #059669;
+        }
+
         .btn-wa {
             background: #25d366;
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 1rem;
             border-radius: 30px;
             text-decoration: none;
-            display: inline-block;
+            display: block;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 1rem;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .countdown {
+            background: #fef3c7;
+            padding: 0.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1rem 0;
+            font-weight: 600;
+        }
+
+        /* MODAL (popup) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .modal-close:hover {
+            color: #ef4444;
+        }
+
+        .modal h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .modal-benefit {
+            margin: 1rem 0;
+            padding: 0.8rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .example-box {
+            background: #e6f3ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .domain-example {
+            background: #1e293b;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .price-float {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>📱 Portafolios CPD</h1>
-        <p>Tu portafolio web profesional en 24 horas • Sin saber programar • Sin mensualidades</p>
-        <a href="demo/" class="btn">🎮 VER DEMO INTERACTIVO</a>
-        <div style="margin-top: 2rem;">
-            <a href="precios/" class="btn-wa"><i class="fab fa-whatsapp"></i> VER PRECIOS</a>
+
+    <!-- MODALS (popups) -->
+    
+    <!-- Modal: Foto + datos -->
+    <div class="modal" id="modal-foto">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-foto')">&times;</span>
+            <h3>📸 Tu foto + datos personales</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué es?</strong>
+                <p>Tu foto profesional y tus datos de contacto aparecen de forma destacada en la parte superior de tu portafolio.</p>
+            </div>
+            <div class="modal-benefit">
+                <strong>🎯 ¿Para qué sirve?</strong>
+                <p>Genera confianza inmediata. La gente quiere ver a quién está contactando.</p>
+            </div>
+            <div class="example-box">
+                <strong>👀 Cómo se ve:</strong><br>
+                [Tu foto]<br>
+                <strong>María González</strong><br>
+                Diseñadora Gráfica · UX/UI<br>
+                ✉️ maria@email.com · 📱 +595 981 234 567
+            </div>
         </div>
+    </div>
+
+    <!-- Modal: Certificados -->
+    <div class="modal" id="modal-certificados">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-certificados')">&times;</span>
+            <h3>📄 Certificados con PDF</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué es?</strong>
+                <p>Cada certificado que subís (en PDF) se muestra como una tarjeta profesional con un botón "Ver PDF".</p>
+            </div>
+            <div class="modal-benefit">
+                <strong>🎯 ¿Para qué sirve?</strong>
+                <p>El reclutador puede verificar tu formación al instante. No es solo "digo que tengo", es "compruebo que tengo".</p>
+            </div>
+            <div class="example-box">
+                <strong>👀 Cómo se ve:</strong><br>
+                📌 <strong>Marketing Digital</strong> - Google Activate 2024<br>
+                📌 <strong>Community Manager</strong> - HubSpot 2023<br>
+                [🔗 Ver PDF] [🔗 Ver PDF]
+            </div>
+            <p style="margin-top: 1rem;"><strong>💰 Base: 15 certificados · Paquete completo: 40 certificados</strong></p>
+        </div>
+    </div>
+
+    <!-- Modal: WhatsApp -->
+    <div class="modal" id="modal-whatsapp">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-whatsapp')">&times;</span>
+            <h3>📱 Botón WhatsApp directo</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué es?</strong>
+                <p>Un botón flotante (o en el header) que al hacer clic abre directamente tu WhatsApp con un mensaje predeterminado.</p>
+            </div>
+            <div class="modal-benefit">
+                <strong>🎯 ¿Para qué sirve?</strong>
+                <p>El cliente potencial te contacta al instante, sin buscar números, sin copiar, sin perder tiempo.</p>
+            </div>
+            <div class="example-box">
+                <strong>👀 Cómo se ve:</strong><br>
+                [🟢 WhatsApp] ← Hacés clic y abre directo para chatear con vos
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: CV descargable -->
+    <div class="modal" id="modal-cv">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-cv')">&times;</span>
+            <h3>📥 CV descargable</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué es?</strong>
+                <p>Un botón que permite descargar tu CV completo en formato PDF.</p>
+            </div>
+            <div class="modal-benefit">
+                <strong>🎯 ¿Para qué sirve?</strong>
+                <p>Si alguien quiere guardar tu información o imprimirla, lo hace con un solo clic.</p>
+            </div>
+            <div class="example-box">
+                <strong>👀 Cómo se ve:</strong><br>
+                [⬇️ DESCARGAR CV EN PDF]
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Artículos -->
+    <div class="modal" id="modal-articulos">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-articulos')">&times;</span>
+            <h3>📝 Artículos / Papers / Proyectos</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué es?</strong>
+                <p>Podés mostrar hasta 3 publicaciones, artículos o proyectos destacados con enlace o PDF.</p>
+            </div>
+            <div class="modal-benefit">
+                <strong>🎯 ¿Para qué sirve?</strong>
+                <p>Ideal para investigadores, abogados, académicos o profesionales que quieran mostrar su producción.</p>
+            </div>
+            <div class="example-box">
+                <strong>👀 Cómo se ve:</strong><br>
+                📄 "Marketing Digital 2024" - Revista Negocios<br>
+                📄 "Derecho Laboral en Paraguay" - Corte Suprema<br>
+                [🔗 Ver artículo] [🔗 Ver artículo]
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Contador visitas -->
+    <div class="modal" id="modal-visitas">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-visitas')">&times;</span>
+            <h3>📊 Contador de visitas</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué es?</strong>
+                <p>Un contador que muestra cuántas personas visitaron tu portafolio.</p>
+            </div>
+            <div class="modal-benefit">
+                <strong>🎯 ¿Para qué sirve?</strong>
+                <p>Sabés si lo están viendo, podés medir el interés y te motiva a compartirlo más.</p>
+            </div>
+            <div class="example-box">
+                <strong>👀 Cómo se ve:</strong><br>
+                👁️ 147 visitas este mes
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Cambios gratis -->
+    <div class="modal" id="modal-cambios">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-cambios')">&times;</span>
+            <h3>🔄 Cambios gratis</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué es?</strong>
+                <p>Podés pedir modificaciones sin costo durante el año.</p>
+            </div>
+            <div class="modal-benefit">
+                <strong>🎯 ¿Para qué sirve?</strong>
+                <p>Si cambiás de trabajo, agregás un certificado o querés actualizar algo, lo hacés sin pagar extra.</p>
+            </div>
+            <div class="example-box">
+                <strong>💰 Base:</strong> 2 cambios al año<br>
+                <strong>🎁 Paquete completo:</strong> 6 cambios al año
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Dominio propio -->
+    <div class="modal" id="modal-dominio">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-dominio')">&times;</span>
+            <h3>🌐 Dominio propio (+$20)</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué es?</strong>
+                <p>Tu portafolio en www.tunombre.com en lugar de portafolios-cpd.github.io/tunombre</p>
+            </div>
+            <div class="modal-benefit">
+                <strong>🎯 ¿Para qué sirve?</strong>
+                <p>Se ve más profesional, es más fácil de recordar y da mejor imagen.</p>
+            </div>
+            <div class="domain-example">
+                https://www.carlosperez.com
+            </div>
+            <div class="example-box">
+                <strong>Sin dominio:</strong> portafolios-cpd.github.io/carlos<br>
+                <strong>Con dominio:</strong> www.carlosperez.com<br>
+                <span style="color: #059669;">✓ Mucho más profesional</span>
+            </div>
+            <p style="margin-top: 1rem;">*Costo del dominio aparte (aprox $10/año). Nosotros lo configuramos.</p>
+        </div>
+    </div>
+
+    <!-- Modal: Modo Premium -->
+    <div class="modal" id="modal-premium">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-premium')">&times;</span>
+            <h3>✨ Modo Premium (+$20)</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué es?</strong>
+                <p>Animaciones profesionales, efectos hover, transiciones suaves, diseño ultra cuidado.</p>
+            </div>
+            <div class="modal-benefit">
+                <strong>🎯 ¿Para qué sirve?</strong>
+                <p>Tu portafolio se siente más moderno, dinámico y atractivo. Causa mejor impresión.</p>
+            </div>
+            <div class="example-box">
+                <strong>👀 Ejemplos:</strong><br>
+                • Las tarjetas se elevan al pasar el mouse<br>
+                • Los certificados aparecen con efecto fade<br>
+                • Navegación suave entre secciones
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Biografía interactiva -->
+    <div class="modal" id="modal-biografia">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-biografia')">&times;</span>
+            <h3>🔗 Biografía interactiva (+$20)</h3>
+            <div class="modal-benefit">
+                <strong>✅ ¿Qué es?</strong>
+                <p>Una línea de tiempo profesional con logos de empresas, universidades y hitos de carrera.</p>
+            </div>
+            <div class="modal-benefit">
+                <strong>🎯 ¿Para qué sirve?</strong>
+                <p>Muestra tu trayectoria de forma visual e impactante. Ideal para ejecutivos y conferencistas.</p>
+            </div>
+            <div class="example-box">
+                <strong>👀 Cómo se ve:</strong><br>
+                2015-2018: Analista en [Logo Empresa]<br>
+                2019-2022: Gerente en [Logo Empresa]<br>
+                2023-actual: Director en [Logo Empresa]
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Paquete completo -->
+    <div class="modal" id="modal-paquete">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-paquete')">&times;</span>
+            <h3>🎁 PAQUETE COMPLETO $100</h3>
+            <div class="modal-benefit">
+                <strong>✅ Incluye:</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>🌐 Dominio propio</li>
+                    <li>✨ Modo Premium</li>
+                    <li>🔗 Biografía interactiva</li>
+                    <li>📄 40 certificados incluidos</li>
+                    <li>🔄 6 cambios gratis al año</li>
+                </ul>
+            </div>
+            <div class="example-box">
+                <strong>💰 Ahorro:</strong> $120 si comprás por separado → $100 en paquete
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Certificados extra -->
+    <div class="modal" id="modal-extra">
+        <div class="modal-content">
+            <span class="modal-close" onclick="cerrarModal('modal-extra')">&times;</span>
+            <h3>📄 Certificados extra</h3>
+            <div class="modal-benefit">
+                <strong>💰 Costo:</strong> $5.000 Gs. por cada certificado adicional (aprox $0,70 USD)
+            </div>
+            <div class="modal-benefit">
+                <strong>✅ ¿Cómo funciona?</strong>
+                <p>Si necesitás más de los incluidos en tu plan, sumamos los que quieras por ese costo adicional.</p>
+            </div>
+            <div class="example-box">
+                <strong>Ejemplo:</strong><br>
+                Base: 15 certificados incluidos<br>
+                Si tenés 20: pagás 5 extras = $25.000 Gs. adicionales
+            </div>
+        </div>
+    </div>
+
+    <!-- BANNER DE LANZAMIENTO -->
+    <div class="launch-banner">
+        🚀 LANZAMIENTO: Precio especial por 1 semana <span>SOLO $40</span> (normal $75)
+    </div>
+
+    <!-- Selector de color -->
+    <div class="color-picker-demo">
+        <span style="font-weight: 600;">🎨 ELEGÍ TU COLOR:</span>
+        <div class="color-option selected" style="background: linear-gradient(135deg, #2563eb, #7c3aed);" onclick="cambiarColor('azul')"></div>
+        <div class="color-option" style="background: linear-gradient(135deg, #059669, #10b981);" onclick="cambiarColor('verde')"></div>
+        <div class="color-option" style="background: linear-gradient(135deg, #dc2626, #f97316);" onclick="cambiarColor('rojo')"></div>
+        <div class="color-option" style="background: linear-gradient(135deg, #7c3aed, #c026d3);" onclick="cambiarColor('morado')"></div>
+        <div class="color-option" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);" onclick="cambiarColor('amarillo')"></div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="demo-header" id="demo-header">
+        <div class="image-placeholder" onclick="abrirModal('modal-foto')">
+            <i class="fas fa-camera"></i>
+        </div>
+        <h1 style="font-size: 2.5rem;">NOMBRE APELLIDO</h1>
+        <h2 style="font-size: 1.2rem;">PROFESIÓN · ESPECIALIDAD</h2>
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+            <a href="#" style="background: #25d366; color: white; padding: 0.8rem 1.5rem; border-radius: 30px; text-decoration: none;" onclick="abrirModal('modal-whatsapp'); return false;">
+                <i class="fab fa-whatsapp"></i> WhatsApp directo
+            </a>
+            <span style="background: rgba(255,255,255,0.2); padding: 0.8rem 1.5rem; border-radius: 30px;">
+                <i class="fas fa-envelope"></i> cpdparaguay@gmail.com
+            </span>
+        </div>
+    </div>
+
+    <!-- PRECIO FLOTANTE -->
+    <div class="price-float">
+        <span class="old-price">$75</span>
+        <span class="new-price">$40</span>
+        <div class="countdown">
+            ⏰ Oferta por 1 semana · 6 días restantes
+        </div>
+        <button class="btn-wa" onclick="window.open('https://wa.me/595992954169?text=Hola%2C%20vi%20el%20demo%20de%20Portafolios%20CPD%20y%20quiero%20consultar%20por%20mi%20portafolio', '_blank')">
+            <i class="fab fa-whatsapp"></i> SOLICITAR AHORA
+        </button>
+        <p style="font-size: 0.7rem; text-align: center; margin-top: 0.5rem; color: #64748b;">
+            📱 0992 954 169
+        </p>
     </div>
 
     <div class="container">
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-bolt"></i>
-                <h3>Rápido</h3>
-                <p>En 24hs tenés tu portafolio listo. Yo hago todo, vos solo enviás tus datos.</p>
+        
+        <!-- BASE $40 -->
+        <section class="section">
+            <h2>✅ BASE $40 (normal $75) · INCLUYE:</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-camera" style="font-size: 2rem; color: #2563eb;"></i>
+                    <h3>Tu foto + datos</h3>
+                    <button class="btn-detail" onclick="abrirModal('modal-foto')">VER DETALLE</button>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-file-pdf" style="font-size: 2rem; color: #2563eb;"></i>
+                    <h3>15 certificados con PDF</h3>
+                    <button class="btn-detail" onclick="abrirModal('modal-certificados')">VER DETALLE</button>
+                </div>
+                <div class="feature-card">
+                    <i class="fab fa-whatsapp" style="font-size: 2rem; color: #2563eb;"></i>
+                    <h3>WhatsApp directo</h3>
+                    <button class="btn-detail" onclick="abrirModal('modal-whatsapp')">VER DETALLE</button>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-download" style="font-size: 2rem; color: #2563eb;"></i>
+                    <h3>CV descargable</h3>
+                    <button class="btn-detail" onclick="abrirModal('modal-cv')">VER DETALLE</button>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-newspaper" style="font-size: 2rem; color: #2563eb;"></i>
+                    <h3>3 artículos/papers</h3>
+                    <button class="btn-detail" onclick="abrirModal('modal-articulos')">VER DETALLE</button>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line" style="font-size: 2rem; color: #2563eb;"></i>
+                    <h3>Contador de visitas</h3>
+                    <button class="btn-detail" onclick="abrirModal('modal-visitas')">VER DETALLE</button>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-undo-alt" style="font-size: 2rem; color: #2563eb;"></i>
+                    <h3>2 cambios gratis al año</h3>
+                    <button class="btn-detail" onclick="abrirModal('modal-cambios')">VER DETALLE</button>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cloud" style="font-size: 2rem; color: #2563eb;"></i>
+                    <h3>Respaldo nube 1 año</h3>
+                    <button class="btn-detail" onclick="alert('✅ Tu portafolio está respaldado en nuestros servidores por 1 año. Si perdés tu PC, nosotros tenemos copia.')">VER DETALLE</button>
+                </div>
             </div>
-            <div class="card">
-                <i class="fas fa-file-pdf"></i>
-                <h3>Certificados</h3>
-                <p>Tus certificados en PDF se ven profesionales y se pueden descargar.</p>
+        </section>
+
+        <!-- EXTRAS PREMIUM -->
+        <section class="section">
+            <h2>✨ EXTRAS PREMIUM (+$20 C/U)</h2>
+            <div class="feature-grid">
+                
+                <!-- DOMINIO PROPIO -->
+                <div class="feature-card premium">
+                    <span class="premium-tag">+$20</span>
+                    <i class="fas fa-globe" style="font-size: 2rem; color: #fbbf24;"></i>
+                    <h3>🌐 DOMINIO PROPIO</h3>
+                    <button class="btn-detail" onclick="abrirModal('modal-dominio')">VER DETALLE</button>
+                </div>
+
+                <!-- MODO PREMIUM -->
+                <div class="feature-card premium">
+                    <span class="premium-tag">+$20</span>
+                    <i class="fas fa-crown" style="font-size: 2rem; color: #fbbf24;"></i>
+                    <h3>✨ MODO PREMIUM</h3>
+                    <button class="btn-detail" onclick="abrirModal('modal-premium')">VER DETALLE</button>
+                </div>
+
+                <!-- BIOGRAFÍA INTERACTIVA -->
+                <div class="feature-card premium">
+                    <span class="premium-tag">+$20</span>
+                    <i class="fas fa-timeline" style="font-size: 2rem; color: #fbbf24;"></i>
+                    <h3>🔗 BIOGRAFÍA INTERACTIVA</h3>
+                    <button class="btn-detail" onclick="abrirModal('modal-biografia')">VER DETALLE</button>
+                </div>
             </div>
-            <div class="card">
-                <i class="fas fa-paint-brush"></i>
-                <h3>5 colores</h3>
-                <p>Elegís el color que más te guste entre 5 opciones profesionales.</p>
+        </section>
+
+        <!-- PAQUETE COMPLETO -->
+        <section style="background: linear-gradient(135deg, #f0f9ff, #e6f3ff); padding: 3rem; border-radius: 20px; text-align: center; border: 3px solid #2563eb; margin: 3rem 0;">
+            <h2 style="color: #1e3a8a; font-size: 2.5rem;">🎁 PAQUETE COMPLETO</h2>
+            <div style="font-size: 3rem; font-weight: 800; color: #059669; margin: 1rem 0;">$100</div>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">(en lugar de $120 si comprás por separado)</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                <div style="background: white; padding: 1rem; border-radius: 12px;">
+                    <i class="fas fa-check-circle" style="color: #10b981;"></i> Los 3 extras premium
+                </div>
+                <div style="background: white; padding: 1rem; border-radius: 12px;">
+                    <i class="fas fa-check-circle" style="color: #10b981;"></i> <strong>40 certificados</strong> incluidos
+                </div>
+                <div style="background: white; padding: 1rem; border-radius: 12px;">
+                    <i class="fas fa-check-circle" style="color: #10b981;"></i> <strong>6 cambios gratis</strong> al año
+                </div>
             </div>
-            <div class="card">
-                <i class="fas fa-whatsapp"></i>
-                <h3>WhatsApp</h3>
-                <p>Botón de contacto incluido. Tus clientes te escriben directo.</p>
+
+            <button class="btn-wa" style="display: inline-block; padding: 1rem 3rem; background: #2563eb; width: auto;" onclick="abrirModal('modal-paquete')">
+                <i class="fas fa-info-circle"></i> VER DETALLE DEL PAQUETE
+            </button>
+        </section>
+
+        <!-- CERTIFICADOS EXTRA -->
+        <section style="margin-top: 3rem; background: #f8fafc; padding: 2rem; border-radius: 12px;">
+            <h2 style="text-align: center;">📄 ¿NECESITÁS MÁS CERTIFICADOS?</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">
+                + <strong>$5.000 Gs.</strong> por cada certificado adicional (aprox $0,70 USD)
+            </p>
+            <div style="text-align: center;">
+                <button class="btn-detail" style="width: auto; padding: 0.8rem 2rem;" onclick="abrirModal('modal-extra')">
+                    VER CÓMO FUNCIONA
+                </button>
             </div>
-        </div>
+        </section>
+
+        <!-- COMPARADOR FINAL -->
+        <section style="margin-top: 3rem;">
+            <h2>📊 ¿POR QUÉ ELEGIRNOS?</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; background: #f8fafc; padding: 2rem; border-radius: 16px;">
+                <div>
+                    <h3 style="color: #2563eb;">✅ PORTAFOLIOS CPD</h3>
+                    <ul style="list-style: none;">
+                        <li>✔️ Nosotros hacemos todo</li>
+                        <li>✔️ 24hs de entrega</li>
+                        <li>✔️ 15 certificados base</li>
+                        <li>✔️ WhatsApp incluido</li>
+                        <li>✔️ Desde $40</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #ef4444;">❌ CANVA / WIX</h3>
+                    <ul style="list-style: none;">
+                        <li>✖️ Vos tenés que hacer todo</li>
+                        <li>✖️ Días aprendiendo</li>
+                        <li>✖️ No soportan PDFs</li>
+                        <li>✖️ Mensualidades</li>
+                        <li>✖️ $12/mes + tu tiempo</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <div class="footer">
-        <p>📧 cpdparaguay@gmail.com | 📱 +595 981 234 567</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">© 2025 Portafolios CPD</p>
-    </div>
+    <footer style="text-align: center; padding: 2rem; color: #64748b;">
+        <p>© 2025 Portafolios CPD · cpdparaguay@gmail.com</p>
+        <p style="font-size: 0.8rem;">Precio base $40 · Paquete completo $100 · Certificados extra $5.000 Gs. · 📱 0992 954 169</p>
+    </footer>
+
+    <script>
+        function cambiarColor(color) {
+            const header = document.getElementById('demo-header');
+            const options = document.querySelectorAll('.color-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            event.target.classList.add('selected');
+            
+            const colores = {
+                azul: 'linear-gradient(135deg, #2563eb, #7c3aed)',
+                verde: 'linear-gradient(135deg, #059669, #10b981)',
+                rojo: 'linear-gradient(135deg, #dc2626, #f97316)',
+                morado: 'linear-gradient(135deg, #7c3aed, #c026d3)',
+                amarillo: 'linear-gradient(135deg, #f59e0b, #fbbf24)'
+            };
+            header.style.background = colores[color] || colores.azul;
+        }
+
+        function abrirModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        function cerrarModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        // Cerrar modal si se hace clic fuera del contenido
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+
 </body>
 </html>
