@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. María Fernández Lagos · Abogada Corporativa</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #1e3a8a;        /* azul marino */
+            --primary-light: #3b5ba5;
+            --accent: #d97706;          /* dorado */
+            --accent-light: #f59e0b;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #e5e7eb;
+            --gray-200: #f3f4f6;
+            --gray-100: #f9fafb;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --border-radius: 20px;
+            --border-radius-sm: 12px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            background-color: var(--gray-100);
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        /* === STICKY NAVBAR CON BLUR === */
+        .navbar {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            z-index: 100;
+            padding: 1rem 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+        .nav-links {
+            display: none;
+            gap: 2.5rem;
+        }
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
+        }
+        .nav-cta:hover {
+            background: var(--primary-light);
+            transform: scale(1.02);
+        }
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+        }
+        /* === HERO === */
+        .hero {
+            padding: 4rem 0 3rem;
+        }
+        .hero-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .hero-left {
+            text-align: center;
+        }
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .hero h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            margin: 0.5rem 0 1rem;
+        }
+        .hero-location {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
+            min-width: 200px;
+            font-size: 1rem;
+        }
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: scale(1.02);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 200px;
+            font-size: 1rem;
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        @media (min-width: 768px) {
+            .hero-left { text-align: left; }
+            .hero-location, .hero-stats { justify-content: flex-start; }
+            .hero-cta { flex-direction: row; }
+            .hero-grid { flex-direction: row; align-items: center; }
+        }
+        /* === SECCIONES GENERALES === */
+        section {
+            padding: 4rem 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+        }
+        .section-title i {
+            color: var(--accent);
+            margin-right: 0.75rem;
+        }
+        .badge {
+            background: var(--gray-200);
+            color: var(--gray-700);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        /* === ESPECIALIDADES CARDS === */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .grid-2 { grid-template-columns: 1fr; }
+        .grid-4 { grid-template-columns: 1fr; }
+        .card {
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--border-radius);
+            padding: 2rem 1.5rem;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+        .card-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .card-sub {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+        /* Timeline casos */
+        .case-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .case-item {
+            background: var(--white);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+            box-shadow: var(--shadow-sm);
+            transition: 0.2s;
+        }
+        .case-item:hover {
+            box-shadow: var(--shadow-md);
+            border-left-width: 6px;
+        }
+        .case-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .case-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .case-year {
+            background: var(--gray-200);
+            padding: 0.2rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .case-badge {
+            background: var(--primary);
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+        .case-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 0.75rem;
+        }
+        .case-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        /* Certificaciones */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .cert-card {
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            transition: 0.2s;
+        }
+        .cert-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        .cert-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .cert-header i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        .cert-title {
+            font-weight: 600;
+        }
+        .cert-org {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+        .cert-pdf {
+            background: var(--gray-200);
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .cert-pdf:hover {
+            background: var(--primary);
+            color: white;
+        }
+        /* Publicaciones */
+        .pub-list {
+            list-style: none;
+        }
+        .pub-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray-300);
+            display: flex;
+            gap: 1rem;
+        }
+        .pub-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .pub-text {
+            font-weight: 500;
+        }
+        .pub-meta {
+            color: var(--gray-500);
+            font-size: 0.85rem;
+        }
+        /* Contacto */
+        .contact-info {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+        .contact-detail {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .contact-detail i {
+            color: var(--primary);
+            width: 2rem;
+        }
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 2rem;
+        }
+        .footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        .footer a:hover {
+            color: white;
+        }
+        @media (min-width: 640px) {
+            .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .grid-4 { grid-template-columns: repeat(4, 1fr); }
+            .cert-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR STICKY -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">MFL</div>
+            <div class="nav-links">
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#especialidades">Especialidades</a>
+                <a href="#casos">Casos</a>
+                <a href="#publicaciones">Publicaciones</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <button class="nav-cta" onclick="window.open('https://wa.me/595991234567?text=Dra.%20Fernández%2C%20quiero%20agendar%20una%20consulta%20con%20usted', '_blank')">
+                Agendar consulta
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-left">
+                <img src="https://i.pravatar.cc/300?img=47" alt="Dra. María Fernández Lagos" class="profile-img">
+                <h1>Dra. María Fernández Lagos</h1>
+                <h2>Abogada Corporativa Senior | Especialista en M&A</h2>
+                <div class="hero-location">
+                    <span><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> Asunción, Paraguay</span>
+                    <span><i class="fas fa-briefcase" style="color: var(--accent);"></i> 12 años experiencia</span>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Casos exitosos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Artículos publicados</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">Top 10</div>
+                        <div class="stat-label">Paraguay 2024</div>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <button class="btn-primary" onclick="alert('✅ En tu portafolio real, este botón descargará tu CV en PDF.')">
+                        <i class="fas fa-download"></i> Descargar CV
+                    </button>
+                    <button class="btn-outline" onclick="window.open('https://wa.me/595991234567?text=Dra.%20Fernández%2C%20vi%20su%20portafolio%20y%20quiero%20contactarla', '_blank')">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> Sobre mí</h2>
+            <p style="font-size: 1.2rem; color: var(--gray-700); max-width: 800px; margin-bottom: 1.5rem;">
+                Abogada corporativa con 12 años de experiencia asesorando a empresas nacionales e internacionales en operaciones de M&A, derecho contractual y compliance. Mi enfoque combina el rigor jurídico con una visión estratégica del negocio.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="badge">Derecho Corporativo</span>
+                <span class="badge">Fusiones y Adquisiciones</span>
+                <span class="badge">Contratos Comerciales</span>
+                <span class="badge">Compliance</span>
+                <span class="badge">Arbitraje</span>
+                <span class="badge">Due Diligence</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section id="especialidades">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-gavel"></i> Especialidades</h2>
+            <div class="grid-4">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-building"></i></div>
+                    <div class="card-title">Derecho Corporativo</div>
+                    <div class="card-sub">Asesoría integral a empresas</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="card-title">Fusiones & Adquisiciones</div>
+                    <div class="card-sub">M&A, due diligence, contratos</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+                    <div class="card-title">Contratos Comerciales</div>
+                    <div class="card-sub">Negociación y redacción</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="card-title">Compliance Empresarial</div>
+                    <div class="card-sub">Programas de integridad</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASOS DESTACADOS -->
+    <section id="casos" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Casos destacados</h2>
+            <div class="case-list">
+                <div class="case-item">
+                    <div class="case-header">
+                        <span class="case-title">Fusión Empresa X + Empresa Y</span>
+                        <span class="case-year">2024</span>
+                    </div>
+                    <p style="color: var(--gray-600);">Asesoramiento integral en la fusión de dos empresas líderes del sector agroindustrial. Monto de la operación: USD 45M.</p>
+                    <span class="case-badge">M&A</span>
+                    <button class="case-btn" onclick="alert('📄 Documento de sentencia (versión demo)')"><i class="fas fa-file-pdf"></i> Ver sentencia PDF</button>
+                </div>
+                <div class="case-item">
+                    <div class="case-header">
+                        <span class="case-title">Reestructuración Grupo Z</span>
+                        <span class="case-year">2023</span>
+                    </div>
+                    <p style="color: var(--gray-600);">Reorganización societaria y fiscal de holding con 5 subsidiarias. Optimización de estructura de capital.</p>
+                    <span class="case-badge">Corporate</span>
+                </div>
+                <div class="case-item">
+                    <div class="case-header">
+                        <span class="case-title">Arbitraje Internacional - Caso ABC</span>
+                        <span class="case-year">2023</span>
+                    </div>
+                    <p style="color: var(--gray-600);">Representación en arbitraje CCI contra multinacional europea. Laudo favorable al cliente.</p>
+                    <span class="case-badge">Arbitraje</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICACIONES -->
+    <section id="certificaciones">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-certificate"></i> Certificaciones</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <i class="fas fa-university"></i>
+                        <div>
+                            <div class="cert-title">Máster en Derecho Corporativo</div>
+                            <div class="cert-org">UCA · 2014</div>
+                        </div>
+                    </div>
+                    <button class="cert-pdf" onclick="alert('📄 Certificado Máster (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <i class="fas fa-globe-americas"></i>
+                        <div>
+                            <div class="cert-title">Especialización en M&A</div>
+                            <div class="cert-org">Harvard · 2018</div>
+                        </div>
+                    </div>
+                    <button class="cert-pdf" onclick="alert('📄 Certificado Harvard (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <i class="fas fa-gavel"></i>
+                        <div>
+                            <div class="cert-title">Curso Arbitraje Internacional</div>
+                            <div class="cert-org">ICC · 2020</div>
+                        </div>
+                    </div>
+                    <button class="cert-pdf" onclick="alert('📄 Certificado ICC (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <div class="cert-title">Certificación Compliance FCPA</div>
+                            <div class="cert-org">2022</div>
+                        </div>
+                    </div>
+                    <button class="cert-pdf" onclick="alert('📄 Certificado Compliance (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PUBLICACIONES -->
+    <section id="publicaciones" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-pen-fancy"></i> Publicaciones</h2>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <i class="fas fa-file-alt"></i>
+                    <div>
+                        <span class="pub-text">"El nuevo marco regulatorio paraguayo"</span>
+                        <div class="pub-meta">Revista Jurídica · 2024</div>
+                    </div>
+                </li>
+                <li class="pub-item">
+                    <i class="fas fa-file-alt"></i>
+                    <div>
+                        <span class="pub-text">"M&A en tiempos de incertidumbre"</span>
+                        <div class="pub-meta">Lex Paraguay · 2023</div>
+                    </div>
+                </li>
+                <li class="pub-item">
+                    <i class="fas fa-file-alt"></i>
+                    <div>
+                        <span class="pub-text">"Compliance corporativo efectivo"</span>
+                        <div class="pub-meta">Editorial Académica · 2022</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-phone-alt"></i> Contacto</h2>
+            <div class="contact-info">
+                <div class="contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    <span>m.fernandez@ejemplo.com</span>
+                </div>
+                <div class="contact-detail">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+595 991 234 567</span>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-clock"></i>
+                    <span>Lun a Vie 9:00 - 18:00</span>
+                </div>
+                <div style="margin-top: 2rem; padding: 1rem; background: var(--gray-200); border-radius: var(--border-radius-sm); text-align: center;">
+                    <i class="fas fa-map-pin" style="color: var(--accent);"></i> Edificio Capital, Piso 12 · Asunción
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container" style="text-align: center;">
+            <div style="margin-bottom: 2rem;">
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#especialidades">Especialidades</a>
+                <a href="#casos">Casos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <i class="fab fa-linkedin" style="margin: 0 0.5rem;"></i>
+                <i class="fab fa-twitter" style="margin: 0 0.5rem;"></i>
+            </div>
+            <p style="opacity: 0.8; font-size: 0.9rem;">© 2025 Dra. María Fernández Lagos · Todos los derechos reservados.</p>
+            <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 1rem;">* Esta es una versión demo. En tu portafolio real, los PDFs serán descargables.</p>
+        </div>
+    </footer>
+
+    <!-- SMOOTH SCROLL (básico) -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e){
+                e.preventDefault();
+                const el = document.querySelector(this.getAttribute('href'));
+                if(el) el.scrollIntoView({behavior: 'smooth'});
+            });
+        });
+    </script>
+</body>
+</html>

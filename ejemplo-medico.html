@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Carlos Ramírez Sosa · Cardiólogo Intervencionista</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (incluye iconos médicos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #0ea5e9;         /* azul médico */
+            --primary-dark: #0284c7;
+            --accent: #10b981;           /* verde salud */
+            --accent-light: #34d399;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #e5e7eb;
+            --gray-200: #f3f4f6;
+            --gray-100: #f9fafb;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --border-radius: 24px;
+            --border-radius-sm: 12px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        /* === STICKY NAVBAR CON BLUR === */
+        .navbar {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            z-index: 100;
+            padding: 0.75rem 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .logo i {
+            font-size: 1.8rem;
+        }
+        .nav-links {
+            display: none;
+            gap: 2.5rem;
+        }
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .nav-cta {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+        }
+        .nav-cta:hover {
+            background: var(--accent-light);
+            transform: scale(1.02);
+        }
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+        }
+        /* === HERO === */
+        .hero {
+            padding: 3rem 0 2rem;
+            background: linear-gradient(180deg, rgba(14,165,233,0.05) 0%, rgba(255,255,255,0) 100%);
+        }
+        .hero-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            line-height: 1.2;
+        }
+        .hero h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            margin: 0.5rem 0;
+        }
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .med-badge {
+            background: var(--gray-200);
+            color: var(--gray-700);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(14, 165, 233, 0.25);
+            min-width: 200px;
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 200px;
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-wa {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+        }
+        .btn-wa:hover {
+            background: #20bd5c;
+            transform: scale(1.02);
+        }
+        @media (min-width: 768px) {
+            .hero-cta { flex-direction: row; }
+            .hero-badges { justify-content: flex-start; }
+            .hero-grid { flex-direction: row; text-align: left; }
+        }
+        /* === SECCIONES GENERALES === */
+        section {
+            padding: 4rem 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .section-title i {
+            color: var(--primary);
+        }
+        .card {
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .grid-2 { grid-template-columns: 1fr; }
+        .grid-3 { grid-template-columns: 1fr; }
+        .grid-4 { grid-template-columns: 1fr; }
+        .icon-large {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        /* Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary);
+            min-width: 100px;
+        }
+        .timeline-content {
+            background: var(--gray-100);
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            border-left: 4px solid var(--accent);
+        }
+        .timeline-title {
+            font-weight: 600;
+        }
+        /* Certificaciones */
+        .cert-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .cert-card {
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            transition: 0.2s;
+        }
+        .cert-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        .cert-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .cert-header i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        .cert-pdf {
+            background: var(--gray-200);
+            border: none;
+            padding: 0.4rem 1.2rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 1rem;
+        }
+        .cert-pdf:hover {
+            background: var(--primary);
+            color: white;
+        }
+        /* Testimonios */
+        .testimonial-card {
+            background: var(--gray-100);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            border-left: 4px solid var(--accent);
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .testimonial-author img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+        /* Contacto */
+        .contacto-grid {
+            display: grid;
+            gap: 2rem;
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+        }
+        .contacto-item {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .contacto-item i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            width: 2rem;
+        }
+        @media (min-width: 640px) {
+            .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+            .contacto-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+            .grid-4 { grid-template-columns: repeat(4, 1fr); }
+            .cert-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-heart-pulse"></i> CRS
+            </div>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#especialidades">Especialidades</a>
+                <a href="#trayectoria">Trayectoria</a>
+                <a href="#publicaciones">Publicaciones</a>
+                <a href="#contacto">Agendar</a>
+            </div>
+            <button class="nav-cta" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20quiero%20agendar%20un%20turno%20con%20usted', '_blank')">
+                Solicitar turno
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="container hero-grid">
+            <img src="https://i.pravatar.cc/300?img=12" alt="Dr. Carlos Ramírez Sosa" class="profile-img">
+            <div>
+                <h1>Dr. Carlos Ramírez Sosa</h1>
+                <h2>Cardiólogo Intervencionista | Especialista en Hemodinamia</h2>
+                <div class="hero-badges">
+                    <span class="med-badge"><i class="fas fa-stethoscope"></i> 18 años experiencia</span>
+                    <span class="med-badge"><i class="fas fa-heart"></i> +3.000 procedimientos</span>
+                    <span class="med-badge"><i class="fas fa-map-pin"></i> Clínica Santa María</span>
+                </div>
+                <div class="hero-badges">
+                    <span class="med-badge">Miembro SOLACI</span>
+                    <span class="med-badge">Fellow AHA</span>
+                    <span class="med-badge">Docente UCA</span>
+                </div>
+                <div class="hero-cta">
+                    <button class="btn-primary" onclick="alert('✅ En tu portafolio real, este botón abrirá un formulario de agendamiento.')">
+                        <i class="fas fa-calendar-check"></i> Agendar consulta
+                    </button>
+                    <button class="btn-wa" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20vi%20su%20portafolio%20y%20quiero%20consultarle', '_blank')">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section id="especialidades" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-stethoscope"></i> Especialidades</h2>
+            <div class="grid-4">
+                <div class="card">
+                    <div class="icon-large"><i class="fas fa-heart-crack"></i></div>
+                    <h3>Cateterismo Cardíaco</h3>
+                    <p style="color: var(--gray-600);">Diagnóstico y tratamiento de obstrucciones coronarias.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-large"><i class="fas fa-heart"></i></div>
+                    <h3>Angioplastia Coronaria</h3>
+                    <p style="color: var(--gray-600);">Recuperación del flujo sanguíneo con stent.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-large"><i class="fas fa-microscope"></i></div>
+                    <h3>Implante de Stents</h3>
+                    <p style="color: var(--gray-600);">Stents farmacológicos de última generación.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-large"><i class="fas fa-chart-line"></i></div>
+                    <h3>Diagnóstico Cardiovascular</h3>
+                    <p style="color: var(--gray-600);">Ecocardiograma, ergometría, holter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAYECTORIA ACADÉMICA (timeline) -->
+    <section id="trayectoria">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Formación</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2001-2007</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Medicina - Universidad Nacional de Asunción</div>
+                        <div style="color: var(--gray-600);">Título con honores</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2008-2011</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Residencia en Cardiología</div>
+                        <div style="color: var(--gray-600);">Hospital de Clínicas, Asunción</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2012-2014</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Fellowship Hemodinamia</div>
+                        <div style="color: var(--gray-600);">Cleveland Clinic, EE.UU.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Curso Avanzado Intervención</div>
+                        <div style="color: var(--gray-600);">TCT San Francisco</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICACIONES INTERNACIONALES -->
+    <section id="certificaciones" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-certificate"></i> Certificaciones internacionales</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <i class="fas fa-heart-circle-check"></i>
+                        <div>
+                            <strong>Board Certification</strong>
+                            <div style="color: var(--gray-500);">American Heart Association · 2015</div>
+                        </div>
+                    </div>
+                    <button class="cert-pdf" onclick="alert('📄 Certificación AHA (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <i class="fas fa-latin-cross"></i>
+                        <div>
+                            <strong>Fellow SOLACI</strong>
+                            <div style="color: var(--gray-500);">Sociedad Latinoamericana de Cardiología · 2016</div>
+                        </div>
+                    </div>
+                    <button class="cert-pdf" onclick="alert('📄 Certificación SOLACI (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <i class="fas fa-flag"></i>
+                        <div>
+                            <strong>Miembro Activo</strong>
+                            <div style="color: var(--gray-500);">Sociedad Paraguaya de Cardiología · 2012</div>
+                        </div>
+                    </div>
+                    <button class="cert-pdf" onclick="alert('📄 Membresía SPC (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-header">
+                        <i class="fas fa-rotate"></i>
+                        <div>
+                            <strong>Recertificación AHA</strong>
+                            <div style="color: var(--gray-500);">2023</div>
+                        </div>
+                    </div>
+                    <button class="cert-pdf" onclick="alert('📄 Recertificación AHA (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PUBLICACIONES CIENTÍFICAS -->
+    <section id="publicaciones">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-flask"></i> Publicaciones</h2>
+            <ul style="list-style: none;">
+                <li style="padding: 1rem 0; border-bottom: 1px solid var(--gray-300);">
+                    <i class="fas fa-file-lines" style="color: var(--primary); margin-right: 1rem;"></i>
+                    <span style="font-weight: 500;">"Resultados a largo plazo del stent Z en pacientes paraguayos"</span>
+                    <div style="color: var(--gray-500);">Revista Paraguaya de Cardiología, 2024</div>
+                </li>
+                <li style="padding: 1rem 0; border-bottom: 1px solid var(--gray-300);">
+                    <i class="fas fa-file-lines" style="color: var(--primary); margin-right: 1rem;"></i>
+                    <span style="font-weight: 500;">"Técnicas modernas de angioplastia"</span>
+                    <div style="color: var(--gray-500);">American Journal of Cardiology, 2023</div>
+                </li>
+                <li style="padding: 1rem 0; border-bottom: 1px solid var(--gray-300);">
+                    <i class="fas fa-file-lines" style="color: var(--primary); margin-right: 1rem;"></i>
+                    <span style="font-weight: 500;">"Optimización de procedimientos hemodinámicos"</span>
+                    <div style="color: var(--gray-500);">JACC Latin America, 2022</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CONGRESOS Y PONENCIAS -->
+    <section style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-chalkboard-user"></i> Congresos y ponencias</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <i class="fas fa-calendar-check" style="color: var(--primary); font-size: 2rem;"></i>
+                    <h3>Congreso SOLACI 2024</h3>
+                    <p style="color: var(--gray-600);">Buenos Aires · Expositor</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-calendar-check" style="color: var(--primary); font-size: 2rem;"></i>
+                    <h3>TCT Conference 2023</h3>
+                    <p style="color: var(--gray-600);">San Francisco · Asistente</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-calendar-check" style="color: var(--primary); font-size: 2rem;"></i>
+                    <h3>Congreso Nacional Cardiología 2023</h3>
+                    <p style="color: var(--gray-600);">Asunción · Presidente sesión</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section>
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-quote-right"></i> Testimonios de pacientes</h2>
+            <div class="grid-2">
+                <div class="testimonial-card">
+                    <p style="font-style: italic;">"El Dr. Ramírez me realizó un cateterismo de urgencia. Su profesionalismo y calidez me dieron tranquilidad en un momento difícil."</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/80?img=31" alt="paciente">
+                        <div>
+                            <strong>R.P.</strong><br>
+                            <span style="color: var(--gray-500); font-size: 0.8rem;">Paciente · 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p style="font-style: italic;">"Excelente cardiólogo, me explicó todo el procedimiento y los resultados fueron mejores de lo esperado. Muy recomendado."</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/80?img=44" alt="paciente">
+                        <div>
+                            <strong>M.G.</strong><br>
+                            <span style="color: var(--gray-500); font-size: 0.8rem;">Paciente · 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENDAR CITA -->
+    <section id="contacto" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color: white;">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Agendá tu consulta</h2>
+                <p style="margin-bottom: 2rem;">Consultorio en Clínica Santa María · Horarios flexibles</p>
+                <div class="contacto-grid" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(4px);">
+                    <div class="contacto-item">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Av. España 1850, Asunción</span>
+                    </div>
+                    <div class="contacto-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Lun-Vie 14:00-20:00 · Sáb 9:00-13:00</span>
+                    </div>
+                    <div class="contacto-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+595 981 567 890</span>
+                    </div>
+                    <div class="contacto-item">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>Obras sociales: IPS · San Roque · Búho</span>
+                    </div>
+                </div>
+                <button class="btn-wa" style="margin-top: 2rem; padding: 1rem 3rem;" onclick="window.open('https://wa.me/595981567890?text=Dr.%20Ramírez%2C%20quiero%20agendar%20un%20turno%20con%20usted', '_blank')">
+                    <i class="fab fa-whatsapp"></i> Solicitar turno por WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background: var(--gray-900); color: white; padding: 3rem 0 2rem;">
+        <div class="container" style="text-align: center;">
+            <div style="margin-bottom: 2rem;">
+                <a href="#inicio" style="color: white; opacity: 0.8; margin: 0 1rem;">Inicio</a>
+                <a href="#especialidades" style="color: white; opacity: 0.8; margin: 0 1rem;">Especialidades</a>
+                <a href="#contacto" style="color: white; opacity: 0.8; margin: 0 1rem;">Agendar</a>
+            </div>
+            <p style="opacity: 0.6;">© 2025 Dr. Carlos Ramírez Sosa · Cardiólogo Intervencionista</p>
+            <p style="opacity: 0.4; font-size: 0.8rem; margin-top: 1rem;">* Versión demo · Los PDFs no están disponibles en este ejemplo</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para anclas
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e){
+                e.preventDefault();
+                const el = document.querySelector(this.getAttribute('href'));
+                if(el) el.scrollIntoView({behavior: 'smooth'});
+            });
+        });
+    </script>
+</body>
+</html>
