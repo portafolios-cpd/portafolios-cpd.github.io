@@ -67,7 +67,7 @@
         .ex-card{position:relative;border-radius:var(--r);overflow:hidden;background:var(--bg-glass);border:1px solid var(--border);transition:all .35s;cursor:pointer;text-decoration:none;color:inherit;display:block}
         .ex-card::after{content:'';position:absolute;inset:-1px;border-radius:var(--r);background:linear-gradient(135deg,var(--cyan),var(--blue),var(--purple));opacity:0;z-index:-1;transition:opacity .3s;filter:blur(8px)}
         .ex-card:hover{border-color:rgba(34,211,238,.3);transform:translateY(-4px)}.ex-card:hover::after{opacity:.15}
-        .ex-card.disabled{opacity:.45;cursor:default}.ex-card.disabled:hover{transform:none;border-color:var(--border)}.ex-card.disabled:hover::after{opacity:0}
+        
         .ex-preview{height:130px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
         .ex-preview i{font-size:2.5rem;opacity:.4}
         .ex-preview.law{background:linear-gradient(135deg,#0f1b2d,#1e3a5f)}.ex-preview.law i{color:#c9a84c}
@@ -170,8 +170,8 @@
         <div class="examples-grid stagger">
             <a href="ejemplo-abogado.html" target="_blank" class="ex-card reveal"><div class="ex-preview law"><i class="fas fa-scale-balanced"></i></div><div class="ex-body"><h3>Abogada Corporativa</h3><p>Fallos, publicaciones y certificaciones.</p><span class="ex-tag">Ver ejemplo <i class="fas fa-arrow-right" style="font-size:.6rem"></i></span></div></a>
             <a href="ejemplo-medico.html" target="_blank" class="ex-card reveal"><div class="ex-preview med"><i class="fas fa-heart-pulse"></i></div><div class="ex-body"><h3>Cardiólogo</h3><p>Especialidades, papers y trayectoria.</p><span class="ex-tag">Ver ejemplo <i class="fas fa-arrow-right" style="font-size:.6rem"></i></span></div></a>
-            <div class="ex-card disabled reveal"><div class="ex-preview arch"><i class="fas fa-drafting-compass"></i></div><div class="ex-body"><h3>Arquitecto</h3><p>Proyectos, planos y memorias.</p><span class="ex-tag soon">Próximamente</span></div></div>
-            <div class="ex-card disabled reveal"><div class="ex-preview dev"><i class="fas fa-code"></i></div><div class="ex-body"><h3>Programador</h3><p>Proyectos, stack y repos.</p><span class="ex-tag soon">Próximamente</span></div></div>
+            <a href="ejemplo-ingeniero.html" target="_blank" class="ex-card reveal"><div class="ex-preview arch"><i class="fas fa-hard-hat"></i></div><div class="ex-body"><h3>Ingeniero Civil</h3><p>Proyectos, obras y certificaciones técnicas.</p><span class="ex-tag new"><i class="fas fa-wand-magic-sparkles"></i> Nuevo — Ver ejemplo</span></div></a>
+            <a href="ejemplo-ong.html" target="_blank" class="ex-card reveal"><div class="ex-preview dev"><i class="fas fa-globe-americas"></i></div><div class="ex-body"><h3>Cooperación / ONG</h3><p>Impacto, publicaciones y trayectoria.</p><span class="ex-tag new"><i class="fas fa-wand-magic-sparkles"></i> Nuevo — Ver ejemplo</span></div></a>
             <a href="ejemplo-creativo.html" target="_blank" class="ex-card reveal"><div class="ex-preview creative"><i class="fas fa-palette"></i></div><div class="ex-body"><h3>Artista / Creativo</h3><p>Galería inmersiva y storytelling.</p><span class="ex-tag new"><i class="fas fa-wand-magic-sparkles"></i> Nuevo — Ver ejemplo</span></div></a>
         </div>
     </div></section>
