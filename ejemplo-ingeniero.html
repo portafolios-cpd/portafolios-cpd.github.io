@@ -3,302 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentina Rojas — Directora Creativa & Fotógrafa</title>
+    <title>Ing. Roberto Ávalos — Portafolio Profesional</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
         :root{
-            --bg:#08060d;
-            --surface:rgba(255,255,255,.03);
-            --pink:#f472b6;--purple:#a78bfa;--orange:#fb923c;--rose:#e11d48;
-            --grad:linear-gradient(135deg,var(--pink),var(--purple),var(--orange));
-            --white:#faf5ff;--text:#e2d9f3;--muted:#8b7fa8;
-            --border:rgba(255,255,255,.06);
-            --r:20px;--rs:12px
+            --bg:#0a0c10;--surface:rgba(255,255,255,.03);
+            --amber:#f59e0b;--steel:#94a3b8;--orange:#fb923c;--emerald:#10b981;
+            --grad:linear-gradient(135deg,var(--amber),var(--orange));
+            --glow:rgba(245,158,11,.1);
+            --white:#f8fafc;--text:#94a3b8;--muted:#64748b;
+            --border:rgba(255,255,255,.06);--r:16px;--rs:10px
         }
-        body{font-family:'Syne',sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-        /* Grain */
-        body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-        .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+        body{font-family:'Outfit',sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+        .container{max-width:1080px;margin:0 auto;padding:0 1.5rem}
 
-        /* Navbar */
-        .navbar{position:sticky;top:0;z-index:100;background:rgba(8,6,13,.75);backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid var(--border);padding:.7rem 0}
+        /* Nav */
+        .navbar{position:sticky;top:0;z-index:100;background:rgba(10,12,16,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.7rem 0}
         .nav-inner{display:flex;justify-content:space-between;align-items:center}
-        .nav-name{font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--white);font-weight:400}
-        .nav-name em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .nav-links{display:none;gap:2rem}.nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:500;transition:color .2s;text-transform:uppercase;letter-spacing:.08em}.nav-links a:hover{color:var(--white)}
-        .nav-cta{background:var(--grad);color:#000;border:none;padding:.5rem 1.2rem;border-radius:9999px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;text-transform:uppercase;letter-spacing:.05em}
-        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(244,114,182,.25)}
+        .nav-name{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.95rem;color:var(--white)}.nav-name span{color:var(--amber)}
+        .nav-links{display:none;gap:1.8rem}.nav-links a{color:var(--muted);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.02em;transition:.2s}.nav-links a:hover{color:var(--amber)}
+        .nav-cta{background:var(--grad);color:#000;border:none;padding:.45rem 1.1rem;border-radius:var(--rs);font-size:.75rem;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;transition:.2s}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 14px var(--glow)}
         @media(min-width:768px){.nav-links{display:flex}}
 
-        /* Hero — editorial style */
-        .hero{padding:5rem 0 3rem;position:relative;overflow:hidden}
-        /* Animated mesh gradient */
-        .hero-mesh{position:absolute;top:-30%;right:-20%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.1) 0%,rgba(244,114,182,.06) 40%,transparent 70%);animation:meshFloat 10s ease-in-out infinite;pointer-events:none}
-        .hero-mesh2{position:absolute;bottom:-40%;left:-15%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(251,146,60,.06) 0%,transparent 70%);animation:meshFloat 12s ease-in-out infinite reverse;pointer-events:none}
-        @keyframes meshFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-20px) scale(1.1)}}
+        /* WA float */
+        .wa-float{position:fixed;bottom:24px;right:24px;width:54px;height:54px;border-radius:var(--rs);background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(37,211,102,.3);z-index:200;text-decoration:none;transition:.2s}
+        .wa-float:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(37,211,102,.4)}
 
-        .hero-content{position:relative;z-index:1}
-        .hero-split{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
-        .hero-text h1{font-family:'Instrument Serif',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:400;line-height:1.05;color:var(--white);margin-bottom:.8rem}
-        .hero-text h1 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .hero-text p{font-size:1rem;color:var(--muted);max-width:440px;margin-bottom:1.5rem;line-height:1.7}
-        .hero-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
-        .tag{background:var(--surface);border:1px solid var(--border);padding:.3rem .8rem;border-radius:9999px;font-size:.7rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;transition:all .3s}
-        .tag:hover{border-color:rgba(244,114,182,.3);color:var(--pink);box-shadow:0 0 12px rgba(244,114,182,.1)}
+        /* Hero */
+        .hero{padding:3.5rem 0 2rem;position:relative}
+        .hero-grid{display:grid;grid-template-columns:1fr;gap:.8rem}
+        .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;transition:.3s}
+        .card:hover{border-color:rgba(245,158,11,.12);box-shadow:0 0 20px var(--glow)}
 
-        .hero-actions{display:flex;gap:.6rem;flex-wrap:wrap}
-        .btn{padding:.75rem 1.8rem;border-radius:9999px;font-weight:600;font-size:.85rem;cursor:pointer;transition:all .25s;border:none;font-family:inherit;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none}
-        .btn.grad{background:var(--grad);color:#000;box-shadow:0 4px 20px rgba(244,114,182,.2)}.btn.grad:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(244,114,182,.3)}
-        .btn.wa{background:#25d366;color:#fff}.btn.wa:hover{background:#1fb855;transform:translateY(-1px)}
-        .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}.btn.ghost:hover{border-color:var(--pink);color:var(--pink)}
+        .card-profile{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+        .hero-img{width:100px;height:100px;border-radius:var(--rs);object-fit:cover;border:2px solid var(--amber);box-shadow:0 0 0 4px var(--glow)}
+        .hero-info h1{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;color:var(--white);line-height:1.1}
+        .hero-info h2{font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:500;color:var(--amber);margin-top:.2rem}
+        .hero-info p{font-size:.82rem;color:var(--muted);margin-top:.3rem;max-width:400px}
+        .hero-meta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.5rem}
+        .hero-meta span{font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:.25rem}.hero-meta i{color:var(--amber);font-size:.65rem}
 
-        .hero-photo{position:relative}
-        .hero-img{width:100%;max-width:360px;aspect-ratio:3/4;object-fit:cover;border-radius:var(--r);border:1px solid var(--border);display:block;margin:0 auto}
-        .hero-img-glow{position:absolute;inset:-2px;border-radius:var(--r);background:var(--grad);opacity:.12;filter:blur(20px);z-index:-1}
+        .card-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+        .stat{text-align:center;padding:.8rem .4rem;background:rgba(245,158,11,.03);border:1px solid rgba(245,158,11,.08);border-radius:var(--rs)}
+        .stat-n{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:var(--amber)}
+        .stat-l{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
 
-        @media(min-width:768px){.hero-split{grid-template-columns:1fr auto}}
+        .card-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+        .btn{padding:.6rem 1.3rem;border-radius:var(--rs);font-weight:600;font-size:.8rem;cursor:pointer;transition:.2s;border:none;font-family:inherit;display:inline-flex;align-items:center;gap:.35rem;text-decoration:none}
+        .btn.grad{background:var(--grad);color:#000}.btn.grad:hover{box-shadow:0 4px 16px var(--glow);transform:translateY(-1px)}
+        .btn.wa{background:#25d366;color:#fff}.btn.wa:hover{background:#1fb855}
+        .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}.btn.ghost:hover{border-color:var(--amber);color:var(--amber)}
 
-        /* Stats strip */
-        .stats-strip{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;padding:2rem 0;margin:1rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-        .strip-stat{text-align:center}
-        .strip-num{font-family:'Instrument Serif',serif;font-size:2rem;color:var(--white)}.strip-lab{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+        .tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.5rem}
+        .tag{font-family:'JetBrains Mono',monospace;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.1);padding:.18rem .6rem;border-radius:var(--rs);font-size:.65rem;font-weight:500;color:var(--amber)}
+
+        @media(min-width:768px){.hero-grid{grid-template-columns:1fr 1fr}.card-profile-wrap{grid-column:1/3}}
 
         /* Sections */
-        section{padding:3.5rem 0}
-        .section-label{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);margin-bottom:.5rem}
-        .section-title{font-family:'Instrument Serif',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;color:var(--white);margin-bottom:2rem}
-        .section-title em{font-style:italic}
-        .divider{height:1px;max-width:100px;margin:0 auto 3.5rem;background:var(--grad);opacity:.3}
+        section{padding:3rem 0}
+        .s-title{font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:700;color:var(--white);margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem}
+        .s-title i{color:var(--amber);font-size:.9rem}
+        .s-title span{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--amber);background:rgba(245,158,11,.08);padding:.2rem .6rem;border-radius:var(--rs);font-weight:500}
+        .divider{height:1px;max-width:80px;background:var(--grad);opacity:.3;margin:0 auto}
+        .bg-alt{background:rgba(255,255,255,.01)}
 
-        /* Projects — Masonry-ish grid */
-        .projects-grid{display:grid;grid-template-columns:1fr;gap:1rem}
-        .project{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);background:var(--surface);transition:all .4s;cursor:pointer;group:true}
-        .project:hover{border-color:rgba(244,114,182,.25);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
-        .project-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.22,1,.36,1)}
-        .project:hover .project-img{transform:scale(1.04)}
-        .project-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(8,6,13,.9) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;opacity:0;transition:opacity .4s}
-        .project:hover .project-overlay{opacity:1}
-        .project-cat{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--pink);margin-bottom:.3rem}
-        .project-name{font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--white);line-height:1.2}
-        .project-desc{font-size:.78rem;color:var(--muted);margin-top:.3rem}
-        /* Always visible title on mobile */
-        .project-info-mobile{padding:1rem 1.2rem}
-        .project-info-mobile h3{font-size:.95rem;font-weight:600;color:var(--white)}.project-info-mobile p{font-size:.78rem;color:var(--muted)}
+        /* Projects */
+        .proj-grid{display:grid;grid-template-columns:1fr;gap:.8rem}
+        .proj{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:.3s}
+        .proj:hover{border-color:rgba(245,158,11,.15);box-shadow:0 4px 20px rgba(0,0,0,.3);transform:translateY(-3px)}
+        .proj-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-bottom:1px solid var(--border)}
+        .proj-body{padding:1.2rem}
+        .proj-tag{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--amber);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+        .proj h3{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.2rem}
+        .proj p{font-size:.8rem;color:var(--muted)}
+        .proj-stats{display:flex;gap:1rem;margin-top:.6rem;flex-wrap:wrap}
+        .proj-stat{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--steel);display:flex;align-items:center;gap:.25rem}
+        .proj-stat i{color:var(--amber);font-size:.6rem}
+        @media(min-width:640px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
 
-        @media(min-width:640px){
-            .projects-grid{grid-template-columns:repeat(2,1fr)}
-            .project:nth-child(1){grid-row:span 2}.project:nth-child(1) .project-img{aspect-ratio:3/4}
-            .project-info-mobile{display:none}
-            .project-overlay{opacity:0}
-        }
-
-        /* Services */
-        .services-grid{display:grid;grid-template-columns:1fr;gap:.8rem}
-        .service{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;transition:all .35s;position:relative;overflow:hidden}
-        .service::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);opacity:0;transition:.3s}
-        .service:hover::before{opacity:1}
-        .service:hover{border-color:rgba(244,114,182,.15);box-shadow:0 8px 32px rgba(0,0,0,.3);transform:translateY(-3px)}
-        .service-icon{font-size:1.4rem;margin-bottom:1rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .service h3{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.3rem}.service p{font-size:.82rem;color:var(--muted)}
-        @media(min-width:640px){.services-grid{grid-template-columns:repeat(2,1fr)}}
-        @media(min-width:1024px){.services-grid{grid-template-columns:repeat(4,1fr)}}
-
-        /* Clients / Brands */
-        .brands-row{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
-        .brand{background:var(--surface);border:1px solid var(--border);padding:.6rem 1.4rem;border-radius:var(--rs);font-size:.78rem;font-weight:600;color:var(--muted);transition:all .3s;letter-spacing:.02em}
-        .brand:hover{border-color:rgba(244,114,182,.2);color:var(--white);box-shadow:0 0 16px rgba(244,114,182,.08)}
+        /* Experience */
+        .exp-list{display:flex;flex-direction:column;gap:.7rem}
+        .exp{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:0 var(--rs) var(--rs) 0;padding:1.1rem;transition:.2s}
+        .exp:hover{box-shadow:0 2px 16px rgba(0,0,0,.2)}
+        .exp-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.3rem;margin-bottom:.2rem}
+        .exp-role{font-weight:700;font-size:.9rem;color:var(--white)}.exp-date{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--amber);background:rgba(245,158,11,.08);padding:.12rem .5rem;border-radius:var(--rs)}
+        .exp-org{font-size:.8rem;color:var(--muted);margin-bottom:.3rem}
+        .exp-details li{font-size:.78rem;color:var(--muted);margin-bottom:.2rem;list-style:none;padding-left:.9rem;position:relative}
+        .exp-details li::before{content:'';position:absolute;left:0;top:.45rem;width:4px;height:4px;border-radius:50%;background:var(--amber)}
 
         /* Certs */
-        .cert-grid{display:grid;grid-template-columns:1fr;gap:.8rem}
-        .cert-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rs);padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem;transition:.25s}
-        .cert-card:hover{border-color:rgba(244,114,182,.2);box-shadow:0 0 20px rgba(244,114,182,.08)}
-        .cert-left{display:flex;align-items:center;gap:.7rem}.cert-left i{font-size:1rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .cert-name{font-weight:600;font-size:.85rem;color:var(--white)}.cert-org{font-size:.75rem;color:var(--muted)}
-        .cert-btn{background:rgba(244,114,182,.08);border:1px solid rgba(244,114,182,.2);padding:.3rem .8rem;border-radius:9999px;font-size:.7rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:.2s;color:var(--pink);font-family:inherit}
-        .cert-btn:hover{background:var(--pink);color:#000;border-color:var(--pink)}
-        @media(min-width:640px){.cert-grid{grid-template-columns:repeat(2,1fr)}}
+        .certs{display:grid;grid-template-columns:1fr;gap:.5rem}
+        .cert{background:var(--surface);border:1px solid var(--border);border-radius:var(--rs);padding:.8rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem;transition:.2s}
+        .cert:hover{border-color:rgba(245,158,11,.15)}
+        .cert-left{display:flex;align-items:center;gap:.5rem;flex:1;min-width:0}
+        .cert-left i{color:var(--amber);font-size:.85rem;min-width:14px}
+        .cert-name{font-weight:600;font-size:.8rem;color:var(--white)}.cert-sub{font-size:.68rem;color:var(--muted)}
+        .cert-btn{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.15);padding:.2rem .6rem;border-radius:var(--rs);font-size:.65rem;font-weight:600;color:var(--amber);text-decoration:none;display:flex;align-items:center;gap:.2rem;transition:.2s;font-family:inherit}
+        .cert-btn:hover{background:var(--amber);color:#000;border-color:var(--amber)}
+        @media(min-width:640px){.certs{grid-template-columns:repeat(2,1fr)}}
 
-        /* Testimonial */
-        .testimonials-grid{display:grid;grid-template-columns:1fr;gap:.8rem}
-        .testimonial{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;transition:.25s}
-        .testimonial:hover{border-color:rgba(244,114,182,.15);box-shadow:0 0 20px rgba(244,114,182,.06)}
-        .testimonial .quote{font-family:'Instrument Serif',serif;font-size:1.05rem;font-style:italic;color:var(--text);margin-bottom:1rem;line-height:1.6}
-        .testimonial-author{display:flex;align-items:center;gap:.7rem}
-        .testimonial-author img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(244,114,182,.3)}
-        .testimonial-author strong{font-size:.82rem;color:var(--white)}.testimonial-author small{font-size:.7rem;color:var(--muted);display:block}
-        @media(min-width:640px){.testimonials-grid{grid-template-columns:repeat(2,1fr)}}
+        /* Skills */
+        .skills-grid{display:grid;grid-template-columns:1fr;gap:.6rem}
+        .skill-cat h3{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--amber);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+        .skill-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+        .skill-tag{background:var(--surface);border:1px solid var(--border);padding:.3rem .7rem;border-radius:var(--rs);font-size:.75rem;color:var(--text);transition:.2s}
+        .skill-tag:hover{border-color:rgba(245,158,11,.15);color:var(--white)}
+        @media(min-width:640px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
 
-        /* Contact CTA */
-        .contact-cta{position:relative;border-radius:var(--r);padding:3.5rem 2rem;text-align:center;overflow:hidden;border:1px solid rgba(244,114,182,.15)}
-        .contact-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(244,114,182,.06),rgba(167,139,250,.04),rgba(251,146,60,.03));z-index:0}
-        .contact-cta>*{position:relative;z-index:1}
-        .contact-cta h2{font-family:'Instrument Serif',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);margin-bottom:.5rem}
-        .contact-cta>p{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem}
-        .contact-methods{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:1.5rem}
-        .c-method{background:rgba(255,255,255,.05);border:1px solid var(--border);padding:.5rem 1rem;border-radius:var(--rs);font-size:.82rem;display:flex;align-items:center;gap:.4rem;color:var(--text);transition:.2s}
-        .c-method i{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .c-method:hover{border-color:rgba(244,114,182,.2)}
-        .btn-wa-big{background:#25d366;color:#fff;border:none;padding:.9rem 2.2rem;border-radius:9999px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;display:inline-flex;align-items:center;gap:.5rem}
-        .btn-wa-big:hover{background:#1fb855;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.2)}
+        /* Contact */
+        .contact-cta{background:var(--surface);border:1px solid rgba(245,158,11,.1);border-radius:var(--r);padding:3rem 2rem;text-align:center}
+        .contact-cta h2{font-size:clamp(1.3rem,3vw,1.8rem);color:var(--white);margin-bottom:.4rem}
+        .contact-cta>p{color:var(--muted);margin-bottom:1.2rem;font-size:.9rem}
+        .c-pills{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-bottom:1.2rem}
+        .c-pill{background:rgba(255,255,255,.04);border:1px solid var(--border);padding:.4rem .8rem;border-radius:var(--rs);font-size:.78rem;display:flex;align-items:center;gap:.3rem;color:var(--text)}
+        .c-pill i{color:var(--amber)}
 
         /* Footer */
-        .footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center}
-        .footer-links{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
-        .footer-links a{color:var(--muted);text-decoration:none;font-size:.8rem;transition:color .2s}.footer-links a:hover{color:var(--white)}
-        .footer-socials{display:flex;gap:1rem;justify-content:center;margin-bottom:1rem}
-        .footer-socials a{color:var(--muted);font-size:1.1rem;transition:all .2s;text-decoration:none}
-        .footer-socials a:hover{color:var(--pink);transform:translateY(-2px)}
-        .footer p{font-size:.75rem;color:var(--muted);opacity:.5}.footer .demo{font-size:.7rem;opacity:.35;margin-top:.4rem}
+        .footer{border-top:1px solid var(--border);padding:1.5rem 0;text-align:center}
+        .footer p{font-size:.7rem;color:var(--muted);opacity:.5}
+        .footer-badge{display:inline-flex;align-items:center;gap:.3rem;background:var(--surface);border:1px solid var(--border);padding:.3rem .8rem;border-radius:var(--rs);font-size:.65rem;color:var(--muted);margin-top:.5rem;text-decoration:none;transition:.2s}
+        .footer-badge:hover{border-color:rgba(245,158,11,.15);color:var(--amber)}
 
-        /* Animations */
-        .fade{opacity:0;transform:translateY(24px);transition:all .7s cubic-bezier(.22,1,.36,1)}.fade.visible{opacity:1;transform:none}
+        .fade{opacity:0;transform:translateY(18px);transition:all .5s cubic-bezier(.22,1,.36,1)}.fade.visible{opacity:1;transform:none}
     </style>
 </head>
 <body>
-    <!-- NAVBAR -->
     <nav class="navbar"><div class="container nav-inner">
-        <div class="nav-name"><em>Valentina</em> Rojas</div>
-        <div class="nav-links"><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a><a href="#certificaciones">Certificaciones</a><a href="#contacto">Contacto</a></div>
-        <button class="nav-cta" onclick="window.open('https://wa.me/595981456789?text=Valentina%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20proyecto','_blank')"><i class="fab fa-whatsapp"></i> Cotizar proyecto</button>
+        <div class="nav-name"><span>ING.</span> Ávalos</div>
+        <div class="nav-links"><a href="#proyectos">Proyectos</a><a href="#experiencia">Experiencia</a><a href="#certificados">Certificaciones</a><a href="#contacto">Contacto</a></div>
+        <a href="#" class="nav-cta" onclick="alert('CV (demo)')"><i class="fas fa-download"></i> Descargar CV</a>
     </div></nav>
 
-    <!-- HERO -->
-    <section class="hero"><div class="hero-mesh"></div><div class="hero-mesh2"></div>
-    <div class="container hero-content">
-        <div class="hero-split">
-            <div class="hero-text">
-                <h1>Directora<br>creativa &<br><em>fotógrafa</em></h1>
-                <p>Creo identidades visuales, campañas y contenido fotográfico que conectan marcas con personas. 8 años transformando ideas en experiencias visuales.</p>
-                <div class="hero-tags">
-                    <span class="tag">Dirección de arte</span><span class="tag">Branding</span><span class="tag">Fotografía</span><span class="tag">Contenido</span><span class="tag">Campañas</span>
-                </div>
-                <div class="hero-actions">
-                    <button class="btn grad" onclick="alert('En tu portafolio real, esto descarga tu CV')"><i class="fas fa-download"></i> Descargar CV</button>
-                    <button class="btn wa" onclick="window.open('https://wa.me/595981456789?text=Vi%20tu%20portafolio','_blank')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
-                    <button class="btn ghost"><i class="fas fa-envelope"></i> Email</button>
+    <a href="https://wa.me/595981234567?text=Ing.%20Ávalos%2C%20vi%20su%20portafolio" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+
+    <section class="hero"><div class="container">
+        <div class="hero-grid">
+            <div class="card card-profile-wrap">
+                <div class="card-profile">
+                    <img src="https://i.pravatar.cc/400?img=68" alt="Ing. Roberto Ávalos" class="hero-img">
+                    <div class="hero-info">
+                        <h1>Ing. Roberto Ávalos Benítez</h1>
+                        <h2>// Ingeniero Civil & Estructural</h2>
+                        <p>Especialista en diseño estructural, fiscalización de obras y gestión de proyectos de infraestructura con 12 años de experiencia.</p>
+                        <div class="hero-meta"><span><i class="fas fa-map-marker-alt"></i> Asunción, PY</span><span><i class="fas fa-envelope"></i> roberto@ejemplo.com</span><span><i class="fas fa-phone-alt"></i> +595 981 234 567</span></div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-photo">
-                <div class="hero-img-glow"></div>
-                <img src="https://i.pravatar.cc/600?img=5" alt="Valentina Rojas" class="hero-img">
+            <div class="card">
+                <div class="card-stats">
+                    <div class="stat"><div class="stat-n">45+</div><div class="stat-l">Proyectos</div></div>
+                    <div class="stat"><div class="stat-n">12</div><div class="stat-l">Años exp.</div></div>
+                    <div class="stat"><div class="stat-n">8</div><div class="stat-l">Premios</div></div>
+                </div>
+                <div class="tags" style="margin-top:.8rem">
+                    <span class="tag">Estructuras</span><span class="tag">Hormigón armado</span><span class="tag">Fiscalización</span><span class="tag">AutoCAD</span><span class="tag">SAP2000</span><span class="tag">BIM/Revit</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                    <button class="btn grad" onclick="alert('CV (demo)')"><i class="fas fa-download"></i> Descargar CV</button>
+                    <a href="https://wa.me/595981234567" target="_blank" class="btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="#" class="btn ghost"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+                <div class="tags">
+                    <span class="tag">MOPC reg. 4521</span><span class="tag">ANEAPC colegiado</span><span class="tag">Maestría FIUNA</span>
+                </div>
             </div>
         </div>
     </div></section>
-
-    <!-- STATS -->
-    <div class="container"><div class="stats-strip">
-        <div class="strip-stat"><div class="strip-num">80+</div><div class="strip-lab">Proyectos</div></div>
-        <div class="strip-stat"><div class="strip-num">35</div><div class="strip-lab">Marcas</div></div>
-        <div class="strip-stat"><div class="strip-num">8</div><div class="strip-lab">Años</div></div>
-        <div class="strip-stat"><div class="strip-num">5</div><div class="strip-lab">Premios</div></div>
-    </div></div>
 
     <div class="divider"></div>
 
     <!-- PROYECTOS -->
     <section id="proyectos"><div class="container">
-        <div class="section-label">Portafolio</div>
-        <h2 class="section-title">Proyectos <em>seleccionados</em></h2>
-        <div class="projects-grid">
-            <div class="project fade">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=800&fit=crop" alt="Branding Alma" class="project-img">
-                <div class="project-overlay">
-                    <div class="project-cat">Branding</div>
-                    <div class="project-name">Alma Café</div>
-                    <div class="project-desc">Identidad completa para cadena de cafeterías artesanales</div>
+        <h2 class="s-title"><i class="fas fa-hard-hat"></i> Proyectos Destacados <span>portfolio</span></h2>
+        <div class="proj-grid">
+            <div class="proj fade">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=340&fit=crop" alt="Torre Corporativa" class="proj-img">
+                <div class="proj-body">
+                    <div class="proj-tag">Edificio comercial</div>
+                    <h3>Torre Corporativa Aviadores</h3>
+                    <p>Diseño estructural completo de edificio de 18 pisos en hormigón armado con fundaciones profundas.</p>
+                    <div class="proj-stats"><span class="proj-stat"><i class="fas fa-ruler-vertical"></i> 18 pisos</span><span class="proj-stat"><i class="fas fa-expand"></i> 12,400 m²</span><span class="proj-stat"><i class="fas fa-calendar"></i> 2023</span></div>
                 </div>
-                <div class="project-info-mobile"><h3>Alma Café</h3><p>Branding &middot; Identidad visual completa</p></div>
             </div>
-            <div class="project fade">
-                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=450&fit=crop" alt="Campaña Moda" class="project-img">
-                <div class="project-overlay">
-                    <div class="project-cat">Fotografía</div>
-                    <div class="project-name">Colección Verano</div>
-                    <div class="project-desc">Campaña editorial para marca de moda paraguaya</div>
+            <div class="proj fade">
+                <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=600&h=340&fit=crop" alt="Puente" class="proj-img">
+                <div class="proj-body">
+                    <div class="proj-tag">Infraestructura vial</div>
+                    <h3>Puente sobre arroyo Ytororó</h3>
+                    <p>Fiscalización de puente vehicular de 85m con vigas pretensadas. Proyecto MOPC.</p>
+                    <div class="proj-stats"><span class="proj-stat"><i class="fas fa-road"></i> 85m span</span><span class="proj-stat"><i class="fas fa-truck"></i> Carga H30</span><span class="proj-stat"><i class="fas fa-calendar"></i> 2022</span></div>
                 </div>
-                <div class="project-info-mobile"><h3>Colección Verano</h3><p>Fotografía editorial de moda</p></div>
             </div>
-            <div class="project fade">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=450&fit=crop" alt="Packaging" class="project-img">
-                <div class="project-overlay">
-                    <div class="project-cat">Packaging</div>
-                    <div class="project-name">Natura Orgánica</div>
-                    <div class="project-desc">Diseño de packaging para línea de productos naturales</div>
+            <div class="proj fade">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=340&fit=crop" alt="Residencial" class="proj-img">
+                <div class="proj-body">
+                    <div class="proj-tag">Residencial</div>
+                    <h3>Complejo Villa Serrana</h3>
+                    <p>Dirección técnica de complejo residencial de 120 unidades con áreas comunes y estacionamiento subterráneo.</p>
+                    <div class="proj-stats"><span class="proj-stat"><i class="fas fa-home"></i> 120 unidades</span><span class="proj-stat"><i class="fas fa-expand"></i> 22,000 m²</span><span class="proj-stat"><i class="fas fa-calendar"></i> 2021</span></div>
                 </div>
-                <div class="project-info-mobile"><h3>Natura Orgánica</h3><p>Diseño de packaging</p></div>
             </div>
-            <div class="project fade">
-                <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&h=450&fit=crop" alt="Social Media" class="project-img">
-                <div class="project-overlay">
-                    <div class="project-cat">Social media</div>
-                    <div class="project-name">Hotel Guaraní</div>
-                    <div class="project-desc">Estrategia visual y contenido para redes sociales</div>
+            <div class="proj fade">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=340&fit=crop" alt="Industrial" class="proj-img">
+                <div class="proj-body">
+                    <div class="proj-tag">Nave industrial</div>
+                    <h3>Planta Logística CDE</h3>
+                    <p>Diseño y cálculo de nave industrial con estructura metálica y fundaciones para cargas pesadas.</p>
+                    <div class="proj-stats"><span class="proj-stat"><i class="fas fa-warehouse"></i> 4,800 m²</span><span class="proj-stat"><i class="fas fa-weight-hanging"></i> Acero</span><span class="proj-stat"><i class="fas fa-calendar"></i> 2020</span></div>
                 </div>
-                <div class="project-info-mobile"><h3>Hotel Guaraní</h3><p>Contenido para redes sociales</p></div>
             </div>
         </div>
     </div></section>
 
     <div class="divider"></div>
 
-    <!-- SERVICIOS -->
-    <section id="servicios" style="background:rgba(255,255,255,.01)"><div class="container">
-        <div class="section-label">Servicios</div>
-        <h2 class="section-title">Lo que <em>hago</em></h2>
-        <div class="services-grid">
-            <div class="service fade"><div class="service-icon"><i class="fas fa-pen-ruler"></i></div><h3>Dirección de arte</h3><p>Conceptualización y dirección visual de campañas, sesiones y contenido audiovisual.</p></div>
-            <div class="service fade"><div class="service-icon"><i class="fas fa-wand-magic-sparkles"></i></div><h3>Branding & Identidad</h3><p>Logos, paletas, tipografía, manual de marca. Identidad visual de punta a punta.</p></div>
-            <div class="service fade"><div class="service-icon"><i class="fas fa-camera"></i></div><h3>Fotografía profesional</h3><p>Producto, corporativa, editorial, gastronomía. Estilo propio y postproducción incluida.</p></div>
-            <div class="service fade"><div class="service-icon"><i class="fas fa-bullhorn"></i></div><h3>Contenido & Campañas</h3><p>Estrategia visual para redes sociales, campañas digitales y material impreso.</p></div>
-        </div>
-    </div></section>
-
-    <div class="divider"></div>
-
-    <!-- MARCAS -->
-    <section><div class="container" style="text-align:center">
-        <div class="section-label">Clientes</div>
-        <h2 class="section-title">Marcas que <em>confiaron</em></h2>
-        <div class="brands-row">
-            <span class="brand">Alma Café</span><span class="brand">Hotel Guaraní</span><span class="brand">Natura PY</span>
-            <span class="brand">Revista Ella</span><span class="brand">Casa Brava</span><span class="brand">Mburucuyá Films</span>
-            <span class="brand">La Cabrera</span><span class="brand">Itaipú Foundation</span>
+    <!-- EXPERIENCIA -->
+    <section id="experiencia" class="bg-alt"><div class="container">
+        <h2 class="s-title"><i class="fas fa-briefcase"></i> Experiencia <span>trayectoria</span></h2>
+        <div class="exp-list">
+            <div class="exp fade">
+                <div class="exp-top"><span class="exp-role">Director Técnico</span><span class="exp-date">2020 — Presente</span></div>
+                <div class="exp-org">Ávalos Ingeniería S.A.</div>
+                <ul class="exp-details"><li>Dirección de proyectos estructurales para edificios comerciales y residenciales de hasta 20 pisos</li><li>Coordinación de equipos multidisciplinarios de hasta 15 profesionales</li><li>Gestión de presupuestos de obra superiores a USD 5M</li></ul>
+            </div>
+            <div class="exp fade">
+                <div class="exp-top"><span class="exp-role">Ingeniero Estructural Senior</span><span class="exp-date">2016 — 2020</span></div>
+                <div class="exp-org">Constructora Paraná S.A.</div>
+                <ul class="exp-details"><li>Diseño estructural de edificios en hormigón armado y estructura metálica</li><li>Fiscalización de obras de infraestructura vial para el MOPC</li></ul>
+            </div>
+            <div class="exp fade">
+                <div class="exp-top"><span class="exp-role">Ingeniero de Proyecto</span><span class="exp-date">2013 — 2016</span></div>
+                <div class="exp-org">CDE Construcciones</div>
+                <ul class="exp-details"><li>Cálculo y diseño de fundaciones, vigas y columnas para proyectos residenciales</li><li>Elaboración de presupuestos y cronogramas de obra</li></ul>
+            </div>
         </div>
     </div></section>
 
     <div class="divider"></div>
 
     <!-- CERTIFICACIONES -->
-    <section id="certificaciones" style="background:rgba(255,255,255,.01)"><div class="container">
-        <div class="section-label">Formación</div>
-        <h2 class="section-title">Certificaciones</h2>
-        <div class="cert-grid">
-            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-graduation-cap"></i><div><div class="cert-name">Lic. en Diseño Gráfico</div><div class="cert-org">Universidad Columbia &middot; 2016</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
-            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-camera-retro"></i><div><div class="cert-name">Fotografía Profesional Avanzada</div><div class="cert-org">ICP New York &middot; 2018</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
-            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-palette"></i><div><div class="cert-name">Dirección de Arte — Nivel Expert</div><div class="cert-org">Domestika &middot; 2022</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
-            <div class="cert-card fade"><div class="cert-left"><i class="fas fa-award"></i><div><div class="cert-name">Premio Diseño Joven Paraguay</div><div class="cert-org">Bienal de Diseño &middot; 2023</div></div></div><button class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> Ver PDF</button></div>
+    <section id="certificados"><div class="container">
+        <h2 class="s-title"><i class="fas fa-certificate"></i> Certificaciones <span>formación</span></h2>
+        <div class="certs">
+            <div class="cert fade"><div class="cert-left"><i class="fas fa-university"></i><div><div class="cert-name">Ing. Civil — FIUNA</div><div class="cert-sub">Facultad de Ingeniería UNA &middot; 2013</div></div></div><a href="#" class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> PDF</a></div>
+            <div class="cert fade"><div class="cert-left"><i class="fas fa-graduation-cap"></i><div><div class="cert-name">Maestría en Estructuras</div><div class="cert-sub">FIUNA &middot; 2017</div></div></div><a href="#" class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> PDF</a></div>
+            <div class="cert fade"><div class="cert-left"><i class="fas fa-award"></i><div><div class="cert-name">BIM Management Professional</div><div class="cert-sub">Autodesk &middot; 2022</div></div></div><a href="#" class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> PDF</a></div>
+            <div class="cert fade"><div class="cert-left"><i class="fas fa-award"></i><div><div class="cert-name">Project Management Professional</div><div class="cert-sub">PMI &middot; 2021</div></div></div><a href="#" class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> PDF</a></div>
+            <div class="cert fade"><div class="cert-left"><i class="fas fa-shield-alt"></i><div><div class="cert-name">Registro MOPC #4521</div><div class="cert-sub">Min. Obras Públicas &middot; 2014</div></div></div><a href="#" class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> PDF</a></div>
+            <div class="cert fade"><div class="cert-left"><i class="fas fa-award"></i><div><div class="cert-name">SAP2000 Advanced Analysis</div><div class="cert-sub">CSI &middot; 2019</div></div></div><a href="#" class="cert-btn" onclick="alert('PDF (demo)')"><i class="fas fa-file-pdf"></i> PDF</a></div>
         </div>
     </div></section>
 
     <div class="divider"></div>
 
-    <!-- TESTIMONIOS -->
-    <section><div class="container">
-        <div class="section-label">Testimonios</div>
-        <h2 class="section-title">Lo que dicen mis <em>clientes</em></h2>
-        <div class="testimonials-grid">
-            <div class="testimonial fade">
-                <p class="quote">"Valentina transformó nuestra marca completamente. El branding que creó capturó la esencia de lo que somos como ninguna otra agencia pudo."</p>
-                <div class="testimonial-author"><img src="https://i.pravatar.cc/80?img=60" alt=""><div><strong>Carolina M.</strong><small>CEO, Alma Café</small></div></div>
-            </div>
-            <div class="testimonial fade">
-                <p class="quote">"Las fotos de producto que nos entregó triplicaron nuestro engagement en redes. Tiene un ojo único para capturar la esencia de cada pieza."</p>
-                <div class="testimonial-author"><img src="https://i.pravatar.cc/80?img=33" alt=""><div><strong>Martín R.</strong><small>Dir. Marketing, Natura PY</small></div></div>
-            </div>
+    <!-- HABILIDADES -->
+    <section class="bg-alt"><div class="container">
+        <h2 class="s-title"><i class="fas fa-cogs"></i> Habilidades <span>skills</span></h2>
+        <div class="skills-grid">
+            <div class="skill-cat fade"><h3><i class="fas fa-drafting-compass"></i> Software de diseño</h3><div class="skill-tags"><span class="skill-tag">AutoCAD</span><span class="skill-tag">SAP2000</span><span class="skill-tag">ETABS</span><span class="skill-tag">Revit (BIM)</span><span class="skill-tag">CYPECAD</span><span class="skill-tag">MS Project</span></div></div>
+            <div class="skill-cat fade"><h3><i class="fas fa-building"></i> Especialidades</h3><div class="skill-tags"><span class="skill-tag">Hormigón armado</span><span class="skill-tag">Estructura metálica</span><span class="skill-tag">Fundaciones profundas</span><span class="skill-tag">Puentes</span><span class="skill-tag">Naves industriales</span></div></div>
+            <div class="skill-cat fade"><h3><i class="fas fa-tasks"></i> Gestión</h3><div class="skill-tags"><span class="skill-tag">Dirección de obra</span><span class="skill-tag">Fiscalización</span><span class="skill-tag">Presupuestos</span><span class="skill-tag">Cronogramas</span><span class="skill-tag">Licitaciones</span></div></div>
+            <div class="skill-cat fade"><h3><i class="fas fa-language"></i> Idiomas</h3><div class="skill-tags"><span class="skill-tag">Español (Nativo)</span><span class="skill-tag">Guaraní (Nativo)</span><span class="skill-tag">Inglés (B2)</span></div></div>
         </div>
     </div></section>
 
@@ -306,29 +279,25 @@
 
     <!-- CONTACTO -->
     <section id="contacto"><div class="container">
-        <div class="contact-cta">
-            <h2>¿Tenés un proyecto en mente?</h2>
-            <p>Contame tu idea y te armo una propuesta. Respuesta en menos de 24 horas.</p>
-            <div class="contact-methods">
-                <div class="c-method"><i class="fas fa-envelope"></i> valentina@estudio.com.py</div>
-                <div class="c-method"><i class="fab fa-instagram"></i> @valentinarojas.py</div>
-                <div class="c-method"><i class="fas fa-map-pin"></i> Asunción, Paraguay</div>
+        <div class="contact-cta fade">
+            <h2>¿Necesitás un ingeniero para tu proyecto?</h2>
+            <p>Consultas sin compromiso. Presupuesto en 48 horas.</p>
+            <div class="c-pills">
+                <div class="c-pill"><i class="fas fa-envelope"></i> roberto@ejemplo.com</div>
+                <div class="c-pill"><i class="fas fa-phone-alt"></i> +595 981 234 567</div>
+                <div class="c-pill"><i class="fas fa-map-pin"></i> Asunción, Paraguay</div>
             </div>
-            <button class="btn-wa-big" onclick="window.open('https://wa.me/595981456789?text=Valentina%2C%20quiero%20cotizar%20un%20proyecto','_blank')"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</button>
+            <div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap">
+                <a href="https://wa.me/595981234567" target="_blank" class="btn wa" style="padding:.75rem 1.8rem"><i class="fab fa-whatsapp"></i> WhatsApp directo</a>
+                <button class="btn grad" style="padding:.75rem 1.8rem" onclick="alert('CV (demo)')"><i class="fas fa-download"></i> Descargar CV</button>
+            </div>
         </div>
     </div></section>
 
-    <!-- FOOTER -->
     <footer class="footer"><div class="container">
-        <div class="footer-socials">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-behance"></i></a>
-            <a href="#"><i class="fab fa-dribbble"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <div class="footer-links"><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a><a href="#certificaciones">Certificaciones</a><a href="#contacto">Contacto</a></div>
-        <p>&copy; 2025 Valentina Rojas &middot; Directora Creativa & Fotógrafa</p>
-        <p class="demo">* Versión demo &middot; Las imágenes y PDFs son ilustrativos</p>
+        <p>&copy; 2025 Ing. Roberto Ávalos Benítez &middot; roberto@ejemplo.com</p>
+        <p class="footer p" style="font-size:.65rem;opacity:.3;margin-top:.3rem">* Versión demo &middot; Imágenes y PDFs ilustrativos</p>
+        <a href="https://portafolios-cpd.github.io" target="_blank" class="footer-badge"><i class="fas fa-bolt"></i> Hecho con Credencial Pro Digital</a>
     </div></footer>
 
     <script>
